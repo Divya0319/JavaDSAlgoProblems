@@ -4,6 +4,98 @@ import java.util.Stack;
 
 public class CompressWord {
 	
+//		A student decides to perform some operations on 
+//	big words to compress them, so they become easy 
+//	to remember. An operation consists of choosing a 
+//	group of Kconsecutive equal characters and 
+//	removing them. The student keeps performing this 
+//	operation as long as it is possible. Determine the 
+//	final word after the operation is performed.
+//
+//	Example
+//	word = "abbcccb" 
+//	k = 3
+//
+//
+//  Remove k = 3 characters 'c', now word = "abbb".
+//  Remove 3 characters 'b' so the final word is "a".
+//
+//	It can be easily proven that the final word will be 
+//	unique. Also, it is guaranteed that the final word 
+//	consists of at least one character.
+//
+//	Function Description
+//	Complete the function compress Word in the editor 
+//	below.
+//
+//	compressWord has the following parameter(s): 
+//  string word: a string of lowercase English letters 
+//  int k: the number of consecutive equal
+//	characters
+//
+//	Returns:
+//  string : denotes the final word.
+//
+//	Constraints
+//  1 < |word| <= 10^5
+//  1 < k <= |word|
+//
+//
+//  	Input Format For Custom Testing
+//	The first line contains a string, word, that 
+//	denotes the word that needs to be shortened.
+//
+//	The first line contains a string, "word", that 
+//	denotes the word that needs to be shortened. 
+//	The second line contains a single integer, k, that 
+//	denotes the number of consecutive characters 
+//	that can be removed in one operation.
+//
+//	-  Sample Case 0
+//	Sample Input For Custom Testing 
+//
+// 	STDIN  Function
+//	------- --------
+// 	 aba  ->  word = "aba"
+// 	  2   ->  k = 2
+//	Sample Output 
+//
+//	 aba
+//	Explanation
+//
+//	There are no consecutive equal characters to be 
+//	removed. So, the final word stays intact "aba".
+//
+//	STDIN Function
+//	----- --------
+//	aba -> word = "aba"
+//	 2  -> k = 2
+//
+//	Sample Output 
+//
+//	aba
+//
+//	Explanation
+//	There are no consecutive equal characters to be 
+//	removed. So, the final word stays intact "aba".
+//
+//	 Sample Case 1
+//
+//	Sample Input For Custom Testing 
+//
+//	STDIN   Function
+//	-----   --------
+// 	baac -> word = "baac" 
+// 	2    -> k = 2
+//
+//	Sample Output 
+//
+// 	bc
+//
+//	Explanation
+//	Remove k=2 characters 'a' and the final word = "bc"
+
+	
 	public static String compressWord(String word, int k) {
 		
 		// 1. first, insert the first element of word, into wordStack
