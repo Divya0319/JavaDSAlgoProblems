@@ -1,7 +1,7 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues;
 
 
-public class LinkedQueue<T> {
+public class LinkedQueue<T> implements QueueService<T>{
 	private int length;
 	private ListNode<T> front, rear;
 	
@@ -12,6 +12,7 @@ public class LinkedQueue<T> {
 	}
 	
 	//Adds the specified data to rear of the queue
+	@Override
 	public void enQueue(T data) {
 		ListNode<T> node = new ListNode<>(data);
 		if(isEmpty()) 
@@ -28,6 +29,7 @@ public class LinkedQueue<T> {
 	
 	//Removes the data at the front of the queue and returns a reference to it. Throws an Exception if 
 	// queue is empty
+	@Override
 	public T deQueue() throws Exception {
 		if(isEmpty()) {
 			throw new Exception("Queue is empty. Underflow");
@@ -51,10 +53,12 @@ public class LinkedQueue<T> {
 	}
 	
 	//Returns true if this queue is empty and false otherwise
+	@Override
 	public boolean isEmpty() {
 		return (length == 0);
 	}
 	
+	@Override
 	public int size() {
 		return length;
 	}
@@ -71,5 +75,9 @@ public class LinkedQueue<T> {
 		}
 		
 		return result + "]";
+	}
+
+	public T getRear() {
+		return rear.getData();
 	}
 }
