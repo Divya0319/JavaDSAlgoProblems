@@ -11,3 +11,5 @@ tmp/
 local.properties
 .loadpath
 .factorypath
+src/com/dsalgoproblems/javaproblems/TestStream.java
+src/com/dsalgoproblems/javaproblems/GFG.java
