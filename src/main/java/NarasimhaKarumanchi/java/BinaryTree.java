@@ -1,4 +1,4 @@
-package com.dsalgoproblems.javaproblems;
+package main.java.NarasimhaKarumanchi.java;
 
 import java.util.ArrayList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package com.dsalgoproblems.javaproblems;
+package main.java.NarasimhaKarumanchi.java;
 
 public class FixedSizeArrayQueue {
 	//Array used to implement queue

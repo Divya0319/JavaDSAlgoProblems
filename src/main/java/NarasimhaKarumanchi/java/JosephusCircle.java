@@ -1,4 +1,4 @@
-package com.dsalgoproblems.javaproblems;
+package main.java.NarasimhaKarumanchi.java;
 
 public class JosephusCircle {
 	public static void main(String[] args) {

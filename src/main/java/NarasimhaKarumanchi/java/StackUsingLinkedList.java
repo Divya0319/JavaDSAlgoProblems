@@ -1,9 +1,9 @@
-package com.dsalgoproblems.javaproblems;
+package main.java.NarasimhaKarumanchi.java;
 
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-import com.dsalgoproblems.javaproblems.StackUsingLinkedList.ListNode;
+import main.java.NarasimhaKarumanchi.java.StackUsingLinkedList.ListNode;
 
 public class StackUsingLinkedList {
 	

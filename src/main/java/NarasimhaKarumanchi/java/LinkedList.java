@@ -1,10 +1,10 @@
-package com.dsalgoproblems.javaproblems;
+package main.java.NarasimhaKarumanchi.java;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-import com.dsalgoproblems.javaproblems.LinkedList.ListNode;
+import main.java.NarasimhaKarumanchi.java.LinkedList.ListNode;
 
 public class LinkedList {
     public LinkedList() {
