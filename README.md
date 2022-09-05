@@ -1,2 +1,2 @@
 # Java DS Algo Problems
-A compilation of DS and Algo problems.
+A compilation of Data Structure and Algorithm coding problems.
