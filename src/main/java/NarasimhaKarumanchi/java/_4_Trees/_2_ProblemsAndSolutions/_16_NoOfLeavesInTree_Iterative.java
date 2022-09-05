@@ -1,8 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._4_Trees._2_ProblemsAndSolutions;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;

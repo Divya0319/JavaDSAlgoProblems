@@ -50,6 +50,20 @@ public class LinkedList<T> implements LinkedListService<T> {
         length++;
     }
     
+    public synchronized void insertAndCreateLoop(T data, int position) {
+        ListNode<T> temp = head;
+        int pos = 1;
+        while(pos != position-1) {
+            temp = temp.getNext();
+            pos++;
+        }
+        
+    	ListNode<T> newNode = new ListNode<>(data);
+        temp.setNext(newNode);
+        newNode.setNext(temp);
+        length++;
+    }
+    
     @Override
     public synchronized ListNode<T> deleteAtBegin() {
     	ListNode<T> nodeToDelete = null;
