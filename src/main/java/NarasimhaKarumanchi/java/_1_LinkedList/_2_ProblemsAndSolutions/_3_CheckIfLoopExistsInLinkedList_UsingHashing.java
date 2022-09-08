@@ -1,37 +1,33 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
+import java.util.HashMap;
+
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _2_FindNthNodeFromEndOf_LinkedList_Optimised<T> {
+public class _3_CheckIfLoopExistsInLinkedList_UsingHashing<T> {
 
-	public T findNthNodeFromEnd(ListNode<T> head, int n) {
+	public boolean checkIfLoopExists(ListNode<T> head) {
 		if(head == null) {
-			return null;
+			return false;
 		}
-		ListNode<T> ptr1 = head, ptr2 = head;
-		int count = 0;
-		while(count < n) {
-			if(ptr1 == null) {
-				return null;
-			}
-			ptr1 = ptr1.getNext();
-			count++;
+		HashMap<ListNode<T>, Integer> map = new HashMap<>();
+		
+		ListNode<T> temp = head;
+		
+		while(temp != null) {
+			if(map.containsKey(temp)) 
+				return true;
+			 else 
+				map.put(temp, 1);
+			temp = temp.getNext();
 		}
 		
-		if(ptr1 == null) {
-			return head.getData();
-		} else {
-			while(ptr1 != null) {
-				ptr2 = ptr2.getNext();
-				ptr1 = ptr1.getNext();
-			}
-			return ptr2.getData();
-		}
+		return false;
 	}
 
 	public static void main(String[] args) {
-		_2_FindNthNodeFromEndOf_LinkedList_Optimised<Integer> mainClass = new _2_FindNthNodeFromEndOf_LinkedList_Optimised<>();
+		_3_CheckIfLoopExistsInLinkedList_UsingHashing<Integer> mainClass = new _3_CheckIfLoopExistsInLinkedList_UsingHashing<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -47,11 +43,13 @@ public class _2_FindNthNodeFromEndOf_LinkedList_Optimised<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
+		ll.insertAndCreateLoop(45, 3);
 		
-		int n = 5;
-
-		Integer nthNodeFromEnd = mainClass.findNthNodeFromEnd(ll.getHead(), n);
-		System.out.println(n + "th node from end is : " + nthNodeFromEnd);
+		boolean isLoopExists = mainClass.checkIfLoopExists(ll.getHead());
+		if(isLoopExists) 
+			System.out.println("Loop exists");
+		 else
+			 System.out.println("Loop does not exist");
 	}
 
 }

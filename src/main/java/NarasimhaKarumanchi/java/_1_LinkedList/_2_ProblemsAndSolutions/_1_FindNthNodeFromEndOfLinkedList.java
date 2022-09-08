@@ -1,33 +1,34 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
-import java.util.HashMap;
-
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _3_CheckIfLoopExistsIn_LinkedList_UsingHashing<T> {
+public class _1_FindNthNodeFromEndOfLinkedList<T> {
 
-	public boolean checkIfLoopExists(ListNode<T> head) {
-		if(head == null) {
-			return false;
-		}
-		HashMap<ListNode<T>, Integer> map = new HashMap<>();
-		
+	public T findNthNodeFromEnd(ListNode<T> head, int n) {
+		int length = 0;
 		ListNode<T> temp = head;
-		
 		while(temp != null) {
-			if(map.containsKey(temp)) 
-				return true;
-			 else 
-				map.put(temp, 1);
+			temp = temp.getNext();
+			length++;
+		}
+		
+		if(length < n) {
+			return null;
+		}
+		
+		temp = head;
+		
+		for(int i = 1; i < length - n + 1; i++) {
 			temp = temp.getNext();
 		}
 		
-		return false;
+		return temp.getData();
+
 	}
 
 	public static void main(String[] args) {
-		_3_CheckIfLoopExistsIn_LinkedList_UsingHashing<Integer> mainClass = new _3_CheckIfLoopExistsIn_LinkedList_UsingHashing<>();
+		_1_FindNthNodeFromEndOfLinkedList<Integer> mainClass = new _1_FindNthNodeFromEndOfLinkedList<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -43,13 +44,11 @@ public class _3_CheckIfLoopExistsIn_LinkedList_UsingHashing<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
-		ll.insertAndCreateLoop(45, 3);
 		
-		boolean isLoopExists = mainClass.checkIfLoopExists(ll.getHead());
-		if(isLoopExists) 
-			System.out.println("Loop exists");
-		 else
-			 System.out.println("Loop does not exist");
+		int n = 4;
+
+		Integer nthNodeFromEnd = mainClass.findNthNodeFromEnd(ll.getHead(), n);
+		System.out.println(n + "th node from end is : " + nthNodeFromEnd);
 	}
 
 }

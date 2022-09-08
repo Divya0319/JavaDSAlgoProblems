@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _7_InsertInSortedLinkedList_LinkedList<T> {
+public class _7_InsertInSortedLinkedList<T> {
 
 	public void insertInSortedLinkedList(ListNode<T> head, ListNode<T> newNode) {
 		if(head == null) {
@@ -21,7 +21,7 @@ public class _7_InsertInSortedLinkedList_LinkedList<T> {
 	}
 
 	public static void main(String[] args) {
-		_7_InsertInSortedLinkedList_LinkedList<Integer> mainClass = new _7_InsertInSortedLinkedList_LinkedList<>();
+		_7_InsertInSortedLinkedList<Integer> mainClass = new _7_InsertInSortedLinkedList<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());

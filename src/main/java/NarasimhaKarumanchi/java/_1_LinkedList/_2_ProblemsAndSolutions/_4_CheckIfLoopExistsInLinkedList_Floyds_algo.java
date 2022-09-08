@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _4_CheckIfLoopExistsIn_LinkedList_Floyds_algo<T> {
+public class _4_CheckIfLoopExistsInLinkedList_Floyds_algo<T> {
 
 	public boolean checkIfLoopExists(ListNode<T> head) {
 		if(head == null) {
@@ -21,7 +21,7 @@ public class _4_CheckIfLoopExistsIn_LinkedList_Floyds_algo<T> {
 	}
 
 	public static void main(String[] args) {
-		_4_CheckIfLoopExistsIn_LinkedList_Floyds_algo<Integer> mainClass = new _4_CheckIfLoopExistsIn_LinkedList_Floyds_algo<>();
+		_4_CheckIfLoopExistsInLinkedList_Floyds_algo<Integer> mainClass = new _4_CheckIfLoopExistsInLinkedList_Floyds_algo<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
