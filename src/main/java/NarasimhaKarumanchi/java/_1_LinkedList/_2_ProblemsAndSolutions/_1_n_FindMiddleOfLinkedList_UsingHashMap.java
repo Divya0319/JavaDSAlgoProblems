@@ -6,7 +6,7 @@ import java.util.HashMap;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _14_FindMiddleOfLinkedList_UsingHashMap<T> {
+public class _1_n_FindMiddleOfLinkedList_UsingHashMap<T> {
 
 	public ListNode<T> findMiddleOfLinkedList(ListNode<T> head) {
 		int len = 0;
@@ -24,7 +24,7 @@ public class _14_FindMiddleOfLinkedList_UsingHashMap<T> {
 	}
 
 	public static void main(String[] args) {
-		_14_FindMiddleOfLinkedList_UsingHashMap<Integer> mainClass = new _14_FindMiddleOfLinkedList_UsingHashMap<>();
+		_1_n_FindMiddleOfLinkedList_UsingHashMap<Integer> mainClass = new _1_n_FindMiddleOfLinkedList_UsingHashMap<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());

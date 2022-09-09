@@ -1,20 +1,31 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
+
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _16_PrintListFromEnd_LinkedList_Recursive<T> {
+public class _1_m_FindMiddleOfLinkedList_BruteForce<T> {
 
-	public void printLinkedListRecursive(ListNode<T> head) {
-		if(head == null) {
-			return;
+	public ListNode<T> findMiddleOfLinkedList(ListNode<T> head) {
+		int len = 0;
+		ListNode<T> temp = head;
+		while(temp != null) {
+			temp = temp.getNext();
+			len++;
 		}
-		printLinkedListRecursive(head.getNext());
-		System.out.print(head.getData() + " ");;
+		
+		temp = head;
+		
+		for(int i = 0; i < len/2; i++) {
+			temp = temp.getNext();
+		}
+		
+		return temp;
+		
 	}
 
 	public static void main(String[] args) {
-		_16_PrintListFromEnd_LinkedList_Recursive<Integer> mainClass = new _16_PrintListFromEnd_LinkedList_Recursive<>();
+		_1_m_FindMiddleOfLinkedList_BruteForce<Integer> mainClass = new _1_m_FindMiddleOfLinkedList_BruteForce<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -31,7 +42,9 @@ public class _16_PrintListFromEnd_LinkedList_Recursive<T> {
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
 		
-		mainClass.printLinkedListRecursive(ll.getHead());
+		ListNode<Integer> middleNode = mainClass.findMiddleOfLinkedList(ll.getHead());
+		
+		System.out.println("Middle node is : "+ middleNode.getData());
 	}
 
 }

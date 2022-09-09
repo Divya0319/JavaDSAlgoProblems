@@ -1,33 +1,41 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
+import main.java.NarasimhaKarumanchi.java._3_Queues.StackUsingLinkedList;
 
-public class _3_CheckIfLoopExistsInLinkedList_UsingHashing<T> {
+public class _1_q_PrintListFromEnd_LinkedList_Iterative<T> {
 
-	public boolean checkIfLoopExists(ListNode<T> head) {
+	public ArrayList<T> printListFromEnd(ListNode<T> head) {
+		ArrayList<T> result = new ArrayList<>();
+		
 		if(head == null) {
-			return false;
+			return null;
 		}
-		HashMap<ListNode<T>, Integer> map = new HashMap<>();
+
+		if(head.getNext() == null) {
+			result.add(head.getData());
+			return result;
+		}
 		
+		StackUsingLinkedList<T> stk = new StackUsingLinkedList<>();
 		ListNode<T> temp = head;
-		
 		while(temp != null) {
-			if(map.containsKey(temp)) 
-				return true;
-			 else 
-				map.put(temp, 1);
+			stk.push(temp.getData());
 			temp = temp.getNext();
 		}
 		
-		return false;
+		while(!stk.isEmpty()) {
+			result.add(stk.pop());
+		}
+		return result;
+		
 	}
 
 	public static void main(String[] args) {
-		_3_CheckIfLoopExistsInLinkedList_UsingHashing<Integer> mainClass = new _3_CheckIfLoopExistsInLinkedList_UsingHashing<>();
+		_1_q_PrintListFromEnd_LinkedList_Iterative<Integer> mainClass = new _1_q_PrintListFromEnd_LinkedList_Iterative<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -43,13 +51,9 @@ public class _3_CheckIfLoopExistsInLinkedList_UsingHashing<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
-		ll.insertAndCreateLoop(45, 3);
 		
-		boolean isLoopExists = mainClass.checkIfLoopExists(ll.getHead());
-		if(isLoopExists) 
-			System.out.println("Loop exists");
-		 else
-			 System.out.println("Loop does not exist");
+		ArrayList<Integer> result = mainClass.printListFromEnd(ll.getHead());
+		System.out.println("Linked List from end: " + result);
 	}
 
 }

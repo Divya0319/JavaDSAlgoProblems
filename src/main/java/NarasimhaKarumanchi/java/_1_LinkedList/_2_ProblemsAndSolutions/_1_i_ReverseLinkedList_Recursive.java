@@ -3,32 +3,25 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _1_FindNthNodeFromEndOfLinkedList<T> {
+public class _1_i_ReverseLinkedList_Recursive<T> {
 
-	public T findNthNodeFromEnd(ListNode<T> head, int n) {
-		int length = 0;
-		ListNode<T> temp = head;
-		while(temp != null) {
-			temp = temp.getNext();
-			length++;
+	public ListNode<T> reverseSinglyLinkedList(ListNode<T> head) {
+		if(head == null)
+			return head;
+		
+		if(head.getNext() == null) { // condition to check for last node
+			return head;
 		}
 		
-		if(length < n) {
-			return null;
-		}
+		ListNode<T> newHeadNode = reverseSinglyLinkedList(head.getNext());
+		head.getNext().setNext(head);
+		head.setNext(null);
 		
-		temp = head;
-		
-		for(int i = 1; i < length - n + 1; i++) {
-			temp = temp.getNext();
-		}
-		
-		return temp.getData();
-
+		return newHeadNode;
 	}
 
 	public static void main(String[] args) {
-		_1_FindNthNodeFromEndOfLinkedList<Integer> mainClass = new _1_FindNthNodeFromEndOfLinkedList<>();
+		_1_i_ReverseLinkedList_Recursive<Integer> mainClass = new _1_i_ReverseLinkedList_Recursive<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -42,13 +35,13 @@ public class _1_FindNthNodeFromEndOfLinkedList<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(6);
 		System.out.println(ll.toString());
-		ll.insertAtEnd(7);
+		ll.insertAtEnd(22);
 		System.out.println(ll.toString());
 		
-		int n = 4;
-
-		Integer nthNodeFromEnd = mainClass.findNthNodeFromEnd(ll.getHead(), n);
-		System.out.println(n + "th node from end is : " + nthNodeFromEnd);
+		ListNode<Integer> newList = mainClass.reverseSinglyLinkedList(ll.getHead());
+		
+		System.out.println(ll.toString(newList));
+		
 	}
 
 }

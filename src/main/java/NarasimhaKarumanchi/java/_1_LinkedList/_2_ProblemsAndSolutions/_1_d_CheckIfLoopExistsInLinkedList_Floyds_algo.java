@@ -3,39 +3,25 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _5_FindStartOfLoopIn_LinkedList<T> {
+public class _1_d_CheckIfLoopExistsInLinkedList_Floyds_algo<T> {
 
-	public ListNode<T> findStartOfLoop(ListNode<T> head) {
+	public boolean checkIfLoopExists(ListNode<T> head) {
 		if(head == null) {
-			return null;
+			return false;
 		}
 		ListNode<T> fastPtr = head, slowPtr = head;
-		boolean loopExists = false;
 		while(fastPtr != null && fastPtr.getNext() != null) {
 			fastPtr = fastPtr.getNext().getNext();
 			slowPtr = slowPtr.getNext();
-			if(slowPtr == fastPtr) {
-				loopExists = true;
-				break;
-			}
-		}
-			
-		if(loopExists) {
-			slowPtr = head;
-			while(slowPtr != fastPtr) {
-				slowPtr = slowPtr.getNext();
-				fastPtr = fastPtr.getNext();
-			}
-			return fastPtr;
-		} else {
-			return null;
+			if(slowPtr == fastPtr)
+				return true;
 		}
 		
-		
+		return false;
 	}
 
 	public static void main(String[] args) {
-		_5_FindStartOfLoopIn_LinkedList<Integer> mainClass = new _5_FindStartOfLoopIn_LinkedList<>();
+		_1_d_CheckIfLoopExistsInLinkedList_Floyds_algo<Integer> mainClass = new _1_d_CheckIfLoopExistsInLinkedList_Floyds_algo<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -51,11 +37,20 @@ public class _5_FindStartOfLoopIn_LinkedList<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
-		ll.insertAndCreateLoop(45, 5);
+		ll.insertAndCreateLoop(45, 3);
 		
-		ListNode<Integer> startOfLoopNode = mainClass.findStartOfLoop(ll.getHead());
-		if(startOfLoopNode != null)
-			System.out.println("Loop exists and it starts from : " + startOfLoopNode.getData());
+		ListNode<Integer> head = new ListNode<>(11);
+		ListNode<Integer> n1 = new ListNode<>(12);
+		head.setNext(n1);
+		ListNode<Integer> n2 = new ListNode<>(13);
+		n1.setNext(n2);
+		ListNode<Integer> n3 = new ListNode<>(12);
+		n2.setNext(n3);		
+		n3.setNext(n2);
+		
+		boolean isLoopExist = mainClass.checkIfLoopExists(head);
+		if(isLoopExist)
+			System.out.println("Loop exists in given linked list");
 		else
 			System.out.println("Loop does not exist in given linked list");
 	}

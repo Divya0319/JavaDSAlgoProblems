@@ -10,7 +10,7 @@ public class RemoveDupFromArray {
 //		Scanner sc = new Scanner(System.in);
 //		System.out.println("Enter size of array:");
 //		int n = sc.nextInt();
-		int[] inp = new int[] {1,5,6,8,8,8,0,1,1,0,6,5};
+		int[] inp = new int[] {1,9,6,8,8,8,0,1,1,0,6,5};
 //		for(int i = 0; i < n; i++) {
 //			inp[i] = sc.nextInt();
 //		}

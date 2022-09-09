@@ -3,22 +3,29 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _15_FindMiddleOfLinkedList_UsingTwoPointers<T> {
+public class _1_h_ReverseLinkedList_Iterative<T> {
 
-	public ListNode<T> findMiddle(ListNode<T> head) {
-		ListNode<T> ptr1, ptr2;
-		ptr1 = ptr2 = head;
-		while (ptr1 != null && ptr1.getNext() != null) {
-			ptr1 = ptr1.getNext().getNext();
-			ptr2 = ptr2.getNext();
+	public ListNode<T> reverseSinglyLinkedList(ListNode<T> head) {
+		if(head == null) {
+			return null;
 		}
-
-		return ptr2;
-
+		
+		//Initially, current is head
+		ListNode<T> current = head;
+		//Initially previous is null
+		ListNode<T> prev = null;
+		while(current != null) {
+			ListNode<T> next = current.getNext();
+			current.setNext(prev);
+			prev = current;
+			current = next;
+		}
+		return prev;
+		
 	}
 
 	public static void main(String[] args) {
-		_15_FindMiddleOfLinkedList_UsingTwoPointers<Integer> mainClass = new _15_FindMiddleOfLinkedList_UsingTwoPointers<>();
+		_1_h_ReverseLinkedList_Iterative<Integer> mainClass = new _1_h_ReverseLinkedList_Iterative<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -32,11 +39,12 @@ public class _15_FindMiddleOfLinkedList_UsingTwoPointers<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(6);
 		System.out.println(ll.toString());
-		ll.insertAtEnd(7);
+		ll.insertAtEnd(22);
 		System.out.println(ll.toString());
-
-		ListNode<Integer> middle = mainClass.findMiddle(ll.getHead());
-		System.out.println(middle.getData());
+		
+		ListNode<Integer> newList = mainClass.reverseSinglyLinkedList(ll.getHead());
+		
+		System.out.println(ll.toString(newList));
 	}
 
 }

@@ -3,29 +3,25 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _8_ReverseLinkedList_Iterative<T> {
+public class _1_g_InsertInSortedLinkedList<T> {
 
-	public ListNode<T> reverseSinglyLinkedList(ListNode<T> head) {
+	public void insertInSortedLinkedList(ListNode<T> head, ListNode<T> newNode) {
 		if(head == null) {
-			return null;
+			head = newNode;
+		}
+		ListNode<T> current = head, temp = null;
+		while(current != null && (Integer)current.getData() < (Integer)newNode.getData()) {
+			temp = current;
+			current = current.getNext();
 		}
 		
-		//Initially, current is head
-		ListNode<T> current = head;
-		//Initially previous is null
-		ListNode<T> prev = null;
-		while(current != null) {
-			ListNode<T> next = current.getNext();
-			current.setNext(prev);
-			prev = current;
-			current = next;
-		}
-		return prev;
+		newNode.setNext(current);
+		temp.setNext(newNode);
 		
 	}
 
 	public static void main(String[] args) {
-		_8_ReverseLinkedList_Iterative<Integer> mainClass = new _8_ReverseLinkedList_Iterative<>();
+		_1_g_InsertInSortedLinkedList<Integer> mainClass = new _1_g_InsertInSortedLinkedList<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -42,9 +38,11 @@ public class _8_ReverseLinkedList_Iterative<T> {
 		ll.insertAtEnd(22);
 		System.out.println(ll.toString());
 		
-		ListNode<Integer> newList = mainClass.reverseSinglyLinkedList(ll.getHead());
+		ListNode<Integer> newNode = new ListNode<>(11);
 		
-		System.out.println(ll.toString(newList));
+		mainClass.insertInSortedLinkedList(ll.getHead(), newNode);
+		
+		System.out.println(ll.toString());
 	}
 
 }

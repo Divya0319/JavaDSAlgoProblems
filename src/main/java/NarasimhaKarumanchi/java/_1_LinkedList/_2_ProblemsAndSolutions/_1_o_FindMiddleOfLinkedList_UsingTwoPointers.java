@@ -3,25 +3,22 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _7_InsertInSortedLinkedList<T> {
+public class _1_o_FindMiddleOfLinkedList_UsingTwoPointers<T> {
 
-	public void insertInSortedLinkedList(ListNode<T> head, ListNode<T> newNode) {
-		if(head == null) {
-			head = newNode;
+	public ListNode<T> findMiddle(ListNode<T> head) {
+		ListNode<T> ptr1, ptr2;
+		ptr1 = ptr2 = head;
+		while (ptr1 != null && ptr1.getNext() != null) {
+			ptr1 = ptr1.getNext().getNext();
+			ptr2 = ptr2.getNext();
 		}
-		ListNode<T> current = head, temp = null;
-		while(current != null && (Integer)current.getData() < (Integer)newNode.getData()) {
-			temp = current;
-			current = current.getNext();
-		}
-		
-		newNode.setNext(current);
-		temp.setNext(newNode);
-		
+
+		return ptr2;
+
 	}
 
 	public static void main(String[] args) {
-		_7_InsertInSortedLinkedList<Integer> mainClass = new _7_InsertInSortedLinkedList<>();
+		_1_o_FindMiddleOfLinkedList_UsingTwoPointers<Integer> mainClass = new _1_o_FindMiddleOfLinkedList_UsingTwoPointers<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -35,14 +32,11 @@ public class _7_InsertInSortedLinkedList<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(6);
 		System.out.println(ll.toString());
-		ll.insertAtEnd(22);
+		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
-		
-		ListNode<Integer> newNode = new ListNode<>(11);
-		
-		mainClass.insertInSortedLinkedList(ll.getHead(), newNode);
-		
-		System.out.println(ll.toString());
+
+		ListNode<Integer> middle = mainClass.findMiddle(ll.getHead());
+		System.out.println(middle.getData());
 	}
 
 }

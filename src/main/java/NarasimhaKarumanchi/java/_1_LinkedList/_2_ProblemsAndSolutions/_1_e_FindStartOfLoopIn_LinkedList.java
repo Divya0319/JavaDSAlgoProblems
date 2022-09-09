@@ -3,11 +3,11 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _6_FindLengthOfLoopIn_LinkedList<T> {
+public class _1_e_FindStartOfLoopIn_LinkedList<T> {
 
-	public int findLengthOfLoop(ListNode<T> head) {
+	public ListNode<T> findStartOfLoop(ListNode<T> head) {
 		if(head == null) {
-			return -1;
+			return null;
 		}
 		ListNode<T> fastPtr = head, slowPtr = head;
 		boolean loopExists = false;
@@ -26,22 +26,16 @@ public class _6_FindLengthOfLoopIn_LinkedList<T> {
 				slowPtr = slowPtr.getNext();
 				fastPtr = fastPtr.getNext();
 			}
-		} 
+			return fastPtr;
+		} else {
+			return null;
+		}
 		
-		int length = 0;
-		do {
-			slowPtr = slowPtr.getNext();
-			length++;
-		} while(slowPtr != fastPtr);
 		
-		if(loopExists) 
-			return length;
-		else 
-			return -1;
 	}
 
 	public static void main(String[] args) {
-		_6_FindLengthOfLoopIn_LinkedList<Integer> mainClass = new _6_FindLengthOfLoopIn_LinkedList<>();
+		_1_e_FindStartOfLoopIn_LinkedList<Integer> mainClass = new _1_e_FindStartOfLoopIn_LinkedList<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -59,9 +53,9 @@ public class _6_FindLengthOfLoopIn_LinkedList<T> {
 		System.out.println(ll.toString());
 		ll.insertAndCreateLoop(45, 5);
 		
-		int loopLength = mainClass.findLengthOfLoop(ll.getHead());
-		if(loopLength != -1)
-			System.out.println("Loop exists and its length is : " + loopLength);
+		ListNode<Integer> startOfLoopNode = mainClass.findStartOfLoop(ll.getHead());
+		if(startOfLoopNode != null)
+			System.out.println("Loop exists and it starts from : " + startOfLoopNode.getData());
 		else
 			System.out.println("Loop does not exist in given linked list");
 	}

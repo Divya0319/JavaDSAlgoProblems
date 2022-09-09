@@ -1,27 +1,33 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
+import java.util.HashMap;
+
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _4_CheckIfLoopExistsInLinkedList_Floyds_algo<T> {
+public class _1_c_CheckIfLoopExistsInLinkedList_UsingHashing<T> {
 
 	public boolean checkIfLoopExists(ListNode<T> head) {
 		if(head == null) {
 			return false;
 		}
-		ListNode<T> fastPtr = head, slowPtr = head;
-		while(fastPtr != null && fastPtr.getNext() != null) {
-			fastPtr = fastPtr.getNext().getNext();
-			slowPtr = slowPtr.getNext();
-			if(slowPtr == fastPtr)
+		HashMap<ListNode<T>, Integer> map = new HashMap<>();
+		
+		ListNode<T> temp = head;
+		
+		while(temp != null) {
+			if(map.containsKey(temp)) 
 				return true;
+			 else 
+				map.put(temp, 1);
+			temp = temp.getNext();
 		}
 		
 		return false;
 	}
 
 	public static void main(String[] args) {
-		_4_CheckIfLoopExistsInLinkedList_Floyds_algo<Integer> mainClass = new _4_CheckIfLoopExistsInLinkedList_Floyds_algo<>();
+		_1_c_CheckIfLoopExistsInLinkedList_UsingHashing<Integer> mainClass = new _1_c_CheckIfLoopExistsInLinkedList_UsingHashing<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -39,11 +45,11 @@ public class _4_CheckIfLoopExistsInLinkedList_Floyds_algo<T> {
 		System.out.println(ll.toString());
 		ll.insertAndCreateLoop(45, 3);
 		
-		boolean isLoopExist = mainClass.checkIfLoopExists(ll.getHead());
-		if(isLoopExist)
-			System.out.println("Loop exists in given linked list");
-		else
-			System.out.println("Loop does not exist in given linked list");
+		boolean isLoopExists = mainClass.checkIfLoopExists(ll.getHead());
+		if(isLoopExists) 
+			System.out.println("Loop exists");
+		 else
+			 System.out.println("Loop does not exist");
 	}
 
 }

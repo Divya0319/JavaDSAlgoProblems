@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _12_MergePointInTwoLinkedLists_Efficient<T> {
+public class _1_l_MergePointInTwoLinkedLists_Efficient<T> {
 
 	public ListNode<T> mergePointInTwoLinkedLists(ListNode<T> h1, ListNode<T> h2) {
 		int len1 = 0, len2 = 0, diff = 0;

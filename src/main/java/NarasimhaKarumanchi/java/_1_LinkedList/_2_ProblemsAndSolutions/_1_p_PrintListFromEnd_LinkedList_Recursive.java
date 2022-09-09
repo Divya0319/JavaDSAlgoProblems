@@ -3,35 +3,18 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _2_FindNthNodeFromEndOfLinkedList_Optimised<T> {
+public class _1_p_PrintListFromEnd_LinkedList_Recursive<T> {
 
-	public T findNthNodeFromEnd(ListNode<T> head, int n) {
+	public void printLinkedListRecursive(ListNode<T> head) {
 		if(head == null) {
-			return null;
+			return;
 		}
-		ListNode<T> ptr1 = head, ptr2 = head;
-		int count = 0;
-		while(count < n) {
-			if(ptr1 == null) {
-				return null;
-			}
-			ptr1 = ptr1.getNext();
-			count++;
-		}
-		
-		if(ptr1 == null) {
-			return head.getData();
-		} else {
-			while(ptr1 != null) {
-				ptr2 = ptr2.getNext();
-				ptr1 = ptr1.getNext();
-			}
-			return ptr2.getData();
-		}
+		printLinkedListRecursive(head.getNext());
+		System.out.print(head.getData() + " ");;
 	}
 
 	public static void main(String[] args) {
-		_2_FindNthNodeFromEndOfLinkedList_Optimised<Integer> mainClass = new _2_FindNthNodeFromEndOfLinkedList_Optimised<>();
+		_1_p_PrintListFromEnd_LinkedList_Recursive<Integer> mainClass = new _1_p_PrintListFromEnd_LinkedList_Recursive<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -48,10 +31,7 @@ public class _2_FindNthNodeFromEndOfLinkedList_Optimised<T> {
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
 		
-		int n = 5;
-
-		Integer nthNodeFromEnd = mainClass.findNthNodeFromEnd(ll.getHead(), n);
-		System.out.println(n + "th node from end is : " + nthNodeFromEnd);
+		mainClass.printLinkedListRecursive(ll.getHead());
 	}
 
 }

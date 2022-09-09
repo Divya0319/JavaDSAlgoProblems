@@ -1,41 +1,34 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
-import java.util.ArrayList;
-
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
-import main.java.NarasimhaKarumanchi.java._3_Queues.StackUsingLinkedList;
 
-public class _17_PrintListFromEnd_LinkedList_Iterative<T> {
+public class _1_a_FindNthNodeFromEndOfLinkedList<T> {
 
-	public ArrayList<T> printListFromEnd(ListNode<T> head) {
-		ArrayList<T> result = new ArrayList<>();
-		
-		if(head == null) {
-			return null;
-		}
-
-		if(head.getNext() == null) {
-			result.add(head.getData());
-			return result;
-		}
-		
-		StackUsingLinkedList<T> stk = new StackUsingLinkedList<>();
+	public T findNthNodeFromEnd(ListNode<T> head, int n) {
+		int length = 0;
 		ListNode<T> temp = head;
 		while(temp != null) {
-			stk.push(temp.getData());
+			temp = temp.getNext();
+			length++;
+		}
+		
+		if(length < n) {
+			return null;
+		}
+		
+		temp = head;
+		
+		for(int i = 1; i < length - n + 1; i++) {
 			temp = temp.getNext();
 		}
 		
-		while(!stk.isEmpty()) {
-			result.add(stk.pop());
-		}
-		return result;
-		
+		return temp.getData();
+
 	}
 
 	public static void main(String[] args) {
-		_17_PrintListFromEnd_LinkedList_Iterative<Integer> mainClass = new _17_PrintListFromEnd_LinkedList_Iterative<>();
+		_1_a_FindNthNodeFromEndOfLinkedList<Integer> mainClass = new _1_a_FindNthNodeFromEndOfLinkedList<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -52,8 +45,10 @@ public class _17_PrintListFromEnd_LinkedList_Iterative<T> {
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
 		
-		ArrayList<Integer> result = mainClass.printListFromEnd(ll.getHead());
-		System.out.println("Linked List from end: " + result);
+		int n = 4;
+
+		Integer nthNodeFromEnd = mainClass.findNthNodeFromEnd(ll.getHead(), n);
+		System.out.println(n + "th node from end is : " + nthNodeFromEnd);
 	}
 
 }

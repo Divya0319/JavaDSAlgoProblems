@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _11_MergePointInTwoLinkedLists_UsingHashing<T> {
+public class _1_k_MergePointInTwoLinkedLists_UsingHashing<T> {
 
 	public ListNode<T> mergePointInTwoLinkedLists(ListNode<T> h1, ListNode<T> h2) {
 		HashSet<ListNode<T>> hs = new HashSet<>();
