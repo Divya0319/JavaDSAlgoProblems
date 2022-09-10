@@ -9,8 +9,9 @@ public class _1_v_ReverseInPairInLinkedList_Iterative<T> {
 	public ListNode<T> reverseInPair(ListNode<T> head) {
 		ListNode<T> temp = head;
 		
-		// next of temp or temp itself shouldn't be null 
-		// otherwise data can't be fetched
+		/* next of temp or temp itself shouldn't be null 
+		 * otherwise data can't be fetched
+		 */
 		while(temp != null && temp.getNext() != null) {
 			
 			// store data of temp temporarily
