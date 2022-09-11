@@ -28,9 +28,9 @@ public class _1_x_SplitCircularLinkedListIntoTwoParts<T> {
 		
 		
 		// this condition is checked to make sure that 
-		// even if list has odd no. of nodes
+		// even if list has even no. of nodes
 		// and fast reached second last node
-		// while advancing twice every time
+		// while advancing twice every time,
 		// at last, fast must be present at
 		// last node, to make second list circular
 		if(fast.getNext().getNext() == head) {
