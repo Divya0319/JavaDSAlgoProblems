@@ -3,30 +3,33 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _2_h_FindModularNodeFromBeginningInLinkedList<T> {
+public class _2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<T> {
 	
-	public ListNode<T> findModularNode(ListNode<T> head, int k) {
-		ListNode<T> modularNode = null;
-		if(k <= 0) return null;
+	public ListNode<T> findFractionalNode(ListNode<T> head, int k) {
 		
+		if(k <= 0) return null;
+		if(head == null) return null;
+		
+		ListNode<T> fractionalNode = null;
 		int i = 1;
 		
 		ListNode<T> temp = head;
-		
 		while(temp != null) {
-			if(i % k == 0) 
-				modularNode = temp;
-
+			if(i % k == 0) {
+				if(fractionalNode == null) 
+					fractionalNode = head;
+				else 
+					fractionalNode = fractionalNode.getNext();
+			}
 			i++;
 			temp = temp.getNext();
-
 		}
-			
-		return modularNode;
+		
+		return fractionalNode;
 	}
 		
 	public static void main(String[] args) {
-		_2_h_FindModularNodeFromBeginningInLinkedList<Integer> mainClass = new _2_h_FindModularNodeFromBeginningInLinkedList<>();
+		_2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<Integer> mainClass = new _2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<>();
 
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
@@ -68,8 +71,8 @@ public class _2_h_FindModularNodeFromBeginningInLinkedList<T> {
 		ll.insertAtEnd(19);
 		System.out.println(ll.toString());
 		
-		ListNode<Integer> modularNode = mainClass.findModularNode(ll.getHead(), 3);
-		System.out.println("Modular Node of Linked List : " + modularNode.getData());
+		ListNode<Integer> modularNode = mainClass.findFractionalNode(ll.getHead(), 3);
+		System.out.println("N/kth Node of Linked List : " + modularNode.getData());
 	}
 
 }

@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _1_b_FindNthNodeFromEndOfLinkedList_Optimised<T> {
+public class _1_b_FindNthNodeFromEndOfLinkedList_SinglePass<T> {
 
 	public T findNthNodeFromEnd(ListNode<T> head, int n) {
 		if(head == null) {
@@ -31,7 +31,7 @@ public class _1_b_FindNthNodeFromEndOfLinkedList_Optimised<T> {
 	}
 
 	public static void main(String[] args) {
-		_1_b_FindNthNodeFromEndOfLinkedList_Optimised<Integer> mainClass = new _1_b_FindNthNodeFromEndOfLinkedList_Optimised<>();
+		_1_b_FindNthNodeFromEndOfLinkedList_SinglePass<Integer> mainClass = new _1_b_FindNthNodeFromEndOfLinkedList_SinglePass<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
@@ -48,7 +48,7 @@ public class _1_b_FindNthNodeFromEndOfLinkedList_Optimised<T> {
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
 		
-		int n = 5;
+		int n = 6;
 
 		Integer nthNodeFromEnd = mainClass.findNthNodeFromEnd(ll.getHead(), n);
 		System.out.println(n + "th node from end is : " + nthNodeFromEnd);
