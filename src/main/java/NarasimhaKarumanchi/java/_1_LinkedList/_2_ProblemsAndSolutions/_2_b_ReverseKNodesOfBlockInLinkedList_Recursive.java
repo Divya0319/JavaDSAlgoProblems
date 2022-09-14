@@ -51,7 +51,7 @@ public class _2_b_ReverseKNodesOfBlockInLinkedList_Recursive<T> {
 		System.out.println(ll.toString());
 		int k = 3;
 		ListNode<Integer> exchangedList = mainClass.reverseKNodes(ll.getHead(), k);
-		System.out.println("Linked list after reversing " + k + "blocks of nodes: " + ll.toString(exchangedList));
+		System.out.println("Linked list after reversing " + k + " blocks of nodes: " + ll.toString(exchangedList));
 
 	}
 
