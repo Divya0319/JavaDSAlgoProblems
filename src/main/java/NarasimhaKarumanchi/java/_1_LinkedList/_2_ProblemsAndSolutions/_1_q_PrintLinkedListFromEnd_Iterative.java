@@ -6,7 +6,7 @@ import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 import main.java.NarasimhaKarumanchi.java._3_Queues.StackUsingLinkedList;
 
-public class _1_q_PrintListFromEnd_LinkedList_Iterative<T> {
+public class _1_q_PrintLinkedListFromEnd_Iterative<T> {
 
 	public ArrayList<T> printListFromEnd(ListNode<T> head) {
 		ArrayList<T> result = new ArrayList<>();
@@ -35,7 +35,7 @@ public class _1_q_PrintListFromEnd_LinkedList_Iterative<T> {
 	}
 
 	public static void main(String[] args) {
-		_1_q_PrintListFromEnd_LinkedList_Iterative<Integer> mainClass = new _1_q_PrintListFromEnd_LinkedList_Iterative<>();
+		_1_q_PrintLinkedListFromEnd_Iterative<Integer> mainClass = new _1_q_PrintLinkedListFromEnd_Iterative<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());

@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _1_p_PrintListFromEnd_LinkedList_Recursive<T> {
+public class _1_p_PrintLinkedListFromEnd_Recursive<T> {
 
 	public void printLinkedListRecursive(ListNode<T> head) {
 		if(head == null) {
@@ -14,7 +14,7 @@ public class _1_p_PrintListFromEnd_LinkedList_Recursive<T> {
 	}
 
 	public static void main(String[] args) {
-		_1_p_PrintListFromEnd_LinkedList_Recursive<Integer> mainClass = new _1_p_PrintListFromEnd_LinkedList_Recursive<>();
+		_1_p_PrintLinkedListFromEnd_Recursive<Integer> mainClass = new _1_p_PrintLinkedListFromEnd_Recursive<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
