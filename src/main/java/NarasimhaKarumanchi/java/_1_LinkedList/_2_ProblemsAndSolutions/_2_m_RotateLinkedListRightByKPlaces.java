@@ -40,7 +40,7 @@ public class _2_m_RotateLinkedListRightByKPlaces<T> {
 			jumps--;
 		}
 		
-		//New head is now kth node from end
+		// New head is now kth node from end
 		ListNode<T> newHead = temp.getNext();
 		
 		// Next of (k+1)th node from end is made null now
