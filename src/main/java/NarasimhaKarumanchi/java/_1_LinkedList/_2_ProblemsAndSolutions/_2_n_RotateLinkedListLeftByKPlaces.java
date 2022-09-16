@@ -3,54 +3,61 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _2_m_RotateLinkedListRightByKPlaces<T> {
+public class _2_n_RotateLinkedListLeftByKPlaces<T> {
 	
-	public ListNode<T> rotateListRight(ListNode<T> head, int k) {
+	public ListNode<T> rotateListLeft(ListNode<T> head, int k) {
 		
 		// invalid value of k
 		if(k < 1 || head == null) {
 			return head;
 		}
 		
-		ListNode<T> temp = head;
+		ListNode<T> curr = head;
 		int n = 0;
 		
-		// this loop runs just to get to last element of list
-		// and calculate list length while doing so
-		while(temp.getNext() != null) {
-			temp = temp.getNext();
+		// this loop calculates list length
+		while(curr != null) {
+			curr = curr.getNext();
 			n++;
 		}
-		
-		// make last node connect to head
-		temp.setNext(head);
 		
 		// when k is greater than n
 		// then taking modulo with list length
 		// prevents unnecessary rotation
-		k = k % (n+1);
+		k = k % n;
 		
-		temp = head;
+		curr = head;
 		
-		int jumps = n - k;
+		int count = 1;
 		
-		// Here, we are finding (k+1)th node from end
-		while(jumps > 0) {
-			temp = temp.getNext();
-			jumps--;
+		// this loop finds kth node from start
+		while(count < k && curr != null) {
+			curr = curr.getNext();
+			count++;
 		}
 		
-		// New head is now kth node from end
-		ListNode<T> newHead = temp.getNext();
+		// storing kth node for later use
+		ListNode<T> kthNode = curr;
 		
-		// Next of (k+1)th node from end is made null now
-		temp.setNext(null);
+		// going to last node of list
+		while(curr.getNext() != null) {
+			curr = curr.getNext();
+		}
 		
-		return newHead;
+		// pointing last node to head
+		curr.setNext(head);
+		
+		// making (k+1)th node from start as head
+		head = kthNode.getNext();
+		
+		// breaking link from kth to (k+1)th node
+		kthNode.setNext(null);
+		
+		return head;
 	}
 		
 	public static void main(String[] args) {
-		_2_m_RotateLinkedListRightByKPlaces<Integer> mainClass = new _2_m_RotateLinkedListRightByKPlaces<>();
+		_2_n_RotateLinkedListLeftByKPlaces<Integer> mainClass = new _2_n_RotateLinkedListLeftByKPlaces<>();
 
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
@@ -93,7 +100,7 @@ public class _2_m_RotateLinkedListRightByKPlaces<T> {
 		System.out.println(ll.toString());
 	
 		int k = 5;
-		ListNode<Integer> newHead = mainClass.rotateListRight(ll.getHead(), k);
+		ListNode<Integer> newHead = mainClass.rotateListLeft(ll.getHead(), k);
 		System.out.println("Rotated List by " + k + " places : " + ll.toString(newHead));
 	}
 
