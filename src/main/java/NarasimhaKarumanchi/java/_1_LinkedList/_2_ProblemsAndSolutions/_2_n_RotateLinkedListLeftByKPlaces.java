@@ -101,7 +101,7 @@ public class _2_n_RotateLinkedListLeftByKPlaces<T> {
 	
 		int k = 5;
 		ListNode<Integer> newHead = mainClass.rotateListLeft(ll.getHead(), k);
-		System.out.println("Rotated List by " + k + " places : " + ll.toString(newHead));
+		System.out.println("Rotated List left by " + k + " places : " + ll.toString(newHead));
 	}
 
 }

@@ -94,7 +94,7 @@ public class _2_m_RotateLinkedListRightByKPlaces<T> {
 	
 		int k = 5;
 		ListNode<Integer> newHead = mainClass.rotateListRight(ll.getHead(), k);
-		System.out.println("Rotated List by " + k + " places : " + ll.toString(newHead));
+		System.out.println("Rotated List right by " + k + " places : " + ll.toString(newHead));
 	}
 
 }
