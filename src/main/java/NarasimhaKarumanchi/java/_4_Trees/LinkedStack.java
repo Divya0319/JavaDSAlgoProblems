@@ -4,14 +4,14 @@ import java.util.EmptyStackException;
 import java.util.Stack;
 
 
-public class StackUsingLinkedList<T> implements StackService<T> {
+public class LinkedStack<T> implements StackService<T> {
 	
 	static Stack<Integer> stk = new Stack<>();
 	
 	private int length;
 	private ListNode<T> top;
 	
-	public StackUsingLinkedList() {
+	public LinkedStack() {
 		length = 0;
 		top = null;
 	}
@@ -294,7 +294,7 @@ public class StackUsingLinkedList<T> implements StackService<T> {
 	
 	
 	public static void main(String[] args) {
-		StackUsingLinkedList<Integer> stack = new StackUsingLinkedList<>();
+		LinkedStack<Integer> stack = new LinkedStack<>();
 		try {
 			stack.push(6);
 			System.out.println(stack.toString());
@@ -368,8 +368,8 @@ public class StackUsingLinkedList<T> implements StackService<T> {
 }
 
 class QueueUsingTwoStacks<T> {
-	private StackUsingLinkedList<T> s1 = new StackUsingLinkedList<>();
-	private StackUsingLinkedList<T> s2 = new StackUsingLinkedList<>();
+	private LinkedStack<T> s1 = new LinkedStack<>();
+	private LinkedStack<T> s2 = new LinkedStack<>();
 	
 	public void enQueue(T data) {
 		s1.push(data);
@@ -399,7 +399,7 @@ class QueueUsingTwoStacks<T> {
 //					toString();
 //					System.out.print(x + " ");
 //					s1.push(x);
-					StackUsingLinkedList<T> tempStack = new StackUsingLinkedList<>();
+					LinkedStack<T> tempStack = new LinkedStack<>();
 					ListNode<T> top = s1.getTop();
 					while(top != null) {
 						tempStack.push(top.getData());
@@ -412,7 +412,7 @@ class QueueUsingTwoStacks<T> {
 					
 				} else {
 					ListNode<T> top1 = s1.getTop();
-					StackUsingLinkedList<T> tempStack = new StackUsingLinkedList<>();
+					LinkedStack<T> tempStack = new LinkedStack<>();
 					ListNode<T> top2 = s2.getTop();
 					while(top2 != null) {
 						result += top2.getData() + " ";

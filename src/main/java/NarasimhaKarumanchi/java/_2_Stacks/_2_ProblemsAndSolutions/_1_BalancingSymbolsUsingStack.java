@@ -1,12 +1,12 @@
 package main.java.NarasimhaKarumanchi.java._2_Stacks._2_ProblemsAndSolutions;
 
 
-import main.java.NarasimhaKarumanchi.java._2_Stacks.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
 
 public class _1_BalancingSymbolsUsingStack {
 	
 	public boolean isValidSymbolPattern(String s) {
-    	StackUsingLinkedList<Character> stk = new StackUsingLinkedList<>();
+    	LinkedStack<Character> stk = new LinkedStack<>();
     	if(s == null || s.length() == 0) {
     		return true;
     	}

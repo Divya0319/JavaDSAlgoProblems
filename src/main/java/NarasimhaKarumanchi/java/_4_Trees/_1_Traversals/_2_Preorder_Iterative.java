@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._1_Traversals;
 import java.util.ArrayList;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
-import main.java.NarasimhaKarumanchi.java._4_Trees.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedStack;
 
 public class _2_Preorder_Iterative<T> {
 
@@ -11,7 +11,7 @@ public class _2_Preorder_Iterative<T> {
 		ArrayList<T> res = new ArrayList<>();
 		if (root == null)
 			return res;
-		StackUsingLinkedList<BinaryTreeNode<T>> s = new StackUsingLinkedList<>();
+		LinkedStack<BinaryTreeNode<T>> s = new LinkedStack<>();
 		BinaryTreeNode<T> currentNode = root;
 		while (true) {
 			while (currentNode != null) {

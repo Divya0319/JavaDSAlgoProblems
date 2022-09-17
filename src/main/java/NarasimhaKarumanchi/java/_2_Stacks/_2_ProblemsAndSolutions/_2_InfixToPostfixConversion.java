@@ -1,6 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._2_Stacks._2_ProblemsAndSolutions;
 
-import main.java.NarasimhaKarumanchi.java._2_Stacks.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
 
 public class _2_InfixToPostfixConversion {
 	
@@ -22,7 +22,7 @@ public class _2_InfixToPostfixConversion {
 	
 	public String infixToPostFix(String exp) {
 		String result = new String("");
-		StackUsingLinkedList<Character> stk = new StackUsingLinkedList<>();
+		LinkedStack<Character> stk = new LinkedStack<>();
 		
 		for(int i = 0; i < exp.length(); i++) {
 			char c = exp.charAt(i);

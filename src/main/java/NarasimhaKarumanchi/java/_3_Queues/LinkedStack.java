@@ -3,12 +3,12 @@ package main.java.NarasimhaKarumanchi.java._3_Queues;
 import java.util.EmptyStackException;
 
 
-public class StackUsingLinkedList<T> implements StackService<T> {
+public class LinkedStack<T> implements StackService<T> {
 		
 	private int length;
 	private ListNode<T> top;
 	
-	public StackUsingLinkedList() {
+	public LinkedStack() {
 		length = 0;
 		top = null;
 	}
@@ -64,7 +64,7 @@ public class StackUsingLinkedList<T> implements StackService<T> {
 	}
 	
 	public static void main(String[] args) {
-		StackUsingLinkedList<Integer> stack = new StackUsingLinkedList<>();
+		LinkedStack<Integer> stack = new LinkedStack<>();
 		try {
 			stack.push(6);
 			System.out.println(stack.toString());

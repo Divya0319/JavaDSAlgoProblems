@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
-import main.java.NarasimhaKarumanchi.java._3_Queues.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedStack;
 
 public class _1_q_PrintLinkedListFromEnd_Iterative<T> {
 
@@ -20,7 +20,7 @@ public class _1_q_PrintLinkedListFromEnd_Iterative<T> {
 			return result;
 		}
 		
-		StackUsingLinkedList<T> stk = new StackUsingLinkedList<>();
+		LinkedStack<T> stk = new LinkedStack<>();
 		ListNode<T> temp = head;
 		while(temp != null) {
 			stk.push(temp.getData());

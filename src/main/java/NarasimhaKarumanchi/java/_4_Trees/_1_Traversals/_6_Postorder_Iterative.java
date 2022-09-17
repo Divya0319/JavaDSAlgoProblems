@@ -3,14 +3,14 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._1_Traversals;
 import java.util.ArrayList;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
-import main.java.NarasimhaKarumanchi.java._4_Trees.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedStack;
 
 public class _6_Postorder_Iterative<T> {
 	private ArrayList<T> postOrderIterative(BinaryTreeNode<T> root) {
 		ArrayList<T> res = new ArrayList<>();
 		if (root == null)
 			return res;
-		StackUsingLinkedList<BinaryTreeNode<T>> s = new StackUsingLinkedList<>();
+		LinkedStack<BinaryTreeNode<T>> s = new LinkedStack<>();
 		BinaryTreeNode<T> previous = null;
 		BinaryTreeNode<T> current = root;
 		while (true) {

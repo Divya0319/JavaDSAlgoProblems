@@ -1,11 +1,11 @@
 package main.java.NarasimhaKarumanchi.java._2_Stacks._2_ProblemsAndSolutions;
 
-import main.java.NarasimhaKarumanchi.java._2_Stacks.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
 
 public class _3_PostfixEvaluation {
 	
 	public int evaluatePostFix(String s) {
-		StackUsingLinkedList<Integer> stk = new StackUsingLinkedList<>();
+		LinkedStack<Integer> stk = new LinkedStack<>();
 		for(int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			

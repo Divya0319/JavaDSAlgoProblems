@@ -1,13 +1,13 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
-import main.java.NarasimhaKarumanchi.java._3_Queues.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedStack;
 
 
 public class _1_ReverseQueueUsingStack<T> {
 	
 	public LinkedQueue<T> reverseQueueUsingStack(LinkedQueue<T> queue) throws Exception {
-		StackUsingLinkedList<T> stk = new StackUsingLinkedList<>();
+		LinkedStack<T> stk = new LinkedStack<>();
 		while(!queue.isEmpty()) {
 			stk.push(queue.deQueue());
 		}

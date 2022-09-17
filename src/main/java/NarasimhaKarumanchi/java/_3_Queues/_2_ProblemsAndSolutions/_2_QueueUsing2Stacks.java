@@ -2,12 +2,12 @@ package main.java.NarasimhaKarumanchi.java._3_Queues._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._3_Queues.ListNode;
 import main.java.NarasimhaKarumanchi.java._3_Queues.QueueService;
-import main.java.NarasimhaKarumanchi.java._3_Queues.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedStack;
 
 public class _2_QueueUsing2Stacks<T> implements QueueService<T> {
 
-	private StackUsingLinkedList<T> s1 = new StackUsingLinkedList<>();
-	private StackUsingLinkedList<T> s2 = new StackUsingLinkedList<>();
+	private LinkedStack<T> s1 = new LinkedStack<>();
+	private LinkedStack<T> s2 = new LinkedStack<>();
 
 	@Override
 	public void enQueue(T data) {
@@ -50,7 +50,7 @@ public class _2_QueueUsing2Stacks<T> implements QueueService<T> {
 				// toString();
 				// System.out.print(x + " ");
 				// s1.push(x);
-				StackUsingLinkedList<T> tempStack = new StackUsingLinkedList<>();
+				LinkedStack<T> tempStack = new LinkedStack<>();
 				ListNode<T> top = s1.getTop();
 				while (top != null) {
 					tempStack.push(top.getData());
@@ -62,7 +62,7 @@ public class _2_QueueUsing2Stacks<T> implements QueueService<T> {
 
 			} else {
 				ListNode<T> top1 = s1.getTop();
-				StackUsingLinkedList<T> tempStack = new StackUsingLinkedList<>();
+				LinkedStack<T> tempStack = new LinkedStack<>();
 				ListNode<T> top2 = s2.getTop();
 				while (top2 != null) {
 					result += top2.getData() + " ";
