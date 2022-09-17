@@ -63,7 +63,7 @@ public class DynamicArrayStack<T> implements DynamicStackService<T> {
 		System.arraycopy(stackRep, 0, newStack, 0, length);
 		stackRep = newStack;
 		capacity = capacity << 1;
-		
+		System.out.println("Stack expanded : New capacity -> " + capacity);
 	}
 	
 	private void shrink() {
@@ -73,6 +73,7 @@ public class DynamicArrayStack<T> implements DynamicStackService<T> {
 			T[] newStack  = (T[])new Object[capacity];
 			System.arraycopy(stackRep, 0, newStack, 0, length);
 			stackRep = newStack;
+			System.out.println("Stack shrinked : New capacity -> " + capacity);
 		}
 	}
 	
