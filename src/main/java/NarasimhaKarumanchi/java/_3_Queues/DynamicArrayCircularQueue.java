@@ -1,6 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues;
 
-public class DynamicArrayQueue<T> implements DynamicQueueService<T> {
+public class DynamicArrayCircularQueue<T> implements DynamicQueueService<T> {
 	//Array used to implement queue
 	private T[] queueRep;
 	private int size, front, rear;
@@ -9,7 +9,7 @@ public class DynamicArrayQueue<T> implements DynamicQueueService<T> {
 	private int capacity = 8;   //Default queue size
 	
 	//Initializes the queue to use an array of default length.
-	public DynamicArrayQueue() {
+	public DynamicArrayCircularQueue() {
 		queueRep = (T[])new Object[capacity];
 		size = 0; front = 0; rear = 0;
 	}
@@ -19,7 +19,7 @@ public class DynamicArrayQueue<T> implements DynamicQueueService<T> {
 	}
 	
 	//Initializes the queue to use an array of given length
-	public DynamicArrayQueue(int cap) {
+	public DynamicArrayCircularQueue(int cap) {
 		queueRep = (T[])new Object[cap];
 		size = 0; front = 0; rear = 0;
 	}
@@ -113,7 +113,7 @@ public class DynamicArrayQueue<T> implements DynamicQueueService<T> {
 
 	public static void main(String[] args) {
 		
-		DynamicArrayQueue<Integer> lq = new DynamicArrayQueue<>();
+		DynamicArrayCircularQueue<Integer> lq = new DynamicArrayCircularQueue<>();
 		lq.enQueue(1);
 		lq.enQueue(2);
 		lq.enQueue(3);

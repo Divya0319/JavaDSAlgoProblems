@@ -1,6 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues;
 
-public class FixedSizeArrayQueue<T> implements FixedQueueService<T> {
+public class FixedSizeArrayCircularQueue<T> implements FixedQueueService<T> {
 	//Array used to implement queue
 	private T[] queueRep;
 	private int size, front, rear;
@@ -9,14 +9,14 @@ public class FixedSizeArrayQueue<T> implements FixedQueueService<T> {
 	private static final int capacity = 8;  //default queue size
 	
 	//Initializes the queue to use an array of default length
-	public FixedSizeArrayQueue() {
+	public FixedSizeArrayCircularQueue() {
 		queueRep = (T[])new Object[capacity];
 		size = 0; front = 0; rear = 0;
 	}
 	
 	
 	//Initializes the queue to use an array of given length
-	public FixedSizeArrayQueue(int capacity) {
+	public FixedSizeArrayCircularQueue(int capacity) {
 		queueRep = (T[])new Object[capacity];
 		size = 0; front = 0; rear = 0;
 		
@@ -80,7 +80,7 @@ public class FixedSizeArrayQueue<T> implements FixedQueueService<T> {
 	}
 
 	public static void main(String[] args) {
-		FixedSizeArrayQueue<Integer> fsaq = new FixedSizeArrayQueue<>();
+		FixedSizeArrayCircularQueue<Integer> fsaq = new FixedSizeArrayCircularQueue<>();
 		fsaq.enQueue(1);
 		fsaq.enQueue(2);
 		fsaq.enQueue(3);
