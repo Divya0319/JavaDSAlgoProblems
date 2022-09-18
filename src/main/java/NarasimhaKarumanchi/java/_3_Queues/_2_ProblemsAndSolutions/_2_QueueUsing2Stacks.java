@@ -1,10 +1,10 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._3_Queues.ListNode;
-import main.java.NarasimhaKarumanchi.java._3_Queues.QueueService;
+import main.java.NarasimhaKarumanchi.java._3_Queues.DynamicQueueService;
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedStack;
 
-public class _2_QueueUsing2Stacks<T> implements QueueService<T> {
+public class _2_QueueUsing2Stacks<T> implements DynamicQueueService<T> {
 
 	private LinkedStack<T> s1 = new LinkedStack<>();
 	private LinkedStack<T> s2 = new LinkedStack<>();

@@ -1,7 +1,7 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues;
 
 
-public class LinkedQueue<T> implements QueueService<T>{
+public class LinkedQueue<T> implements DynamicQueueService<T>{
 	private int length;
 	private ListNode<T> front, rear;
 	

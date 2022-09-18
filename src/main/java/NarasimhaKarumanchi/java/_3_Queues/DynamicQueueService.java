@@ -1,6 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues;
 
-public interface QueueService<T> {
+public interface DynamicQueueService<T> {
 	
 	void enQueue(T data);
 	

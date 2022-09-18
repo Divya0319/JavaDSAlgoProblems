@@ -1,6 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._3_Queues;
 
-public class DynamicArrayQueue<T> implements QueueService<T> {
+public class DynamicArrayQueue<T> implements DynamicQueueService<T> {
 	//Array used to implement queue
 	private T[] queueRep;
 	private int size, front, rear;
@@ -41,7 +41,7 @@ public class DynamicArrayQueue<T> implements QueueService<T> {
 			throw new IllegalStateException("Queue is empty. Underflow");
 		} else {
 			size--;
-			T data = queueRep[(front % capacity)];
+			T data = queueRep[front % capacity];
 			queueRep[front] = null;
 			front = (front + 1) % capacity;
 			shrink();
