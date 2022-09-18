@@ -24,7 +24,7 @@ public class _2_t_PrintCommonElementsBetweenTwoSortedLinkedLists {
 				head = head.getNext();
 				
 				// if l2 list has smaller element than l1
-				// we advance pointer of l2 only bcz lists are sorted
+				// we advance pointer of l2 only,  bcz lists are sorted
 			} else if(l1.getData() > l2.getData()) {
 				l2 = l2.getNext();
 			} else {
