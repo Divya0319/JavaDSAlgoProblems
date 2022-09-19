@@ -2,7 +2,7 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
-import main.java.NarasimhaKarumanchi.java._1_LinkedList.StackUsingLinkedList;
+import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedStack;
 
 public class _2_j_ReorderingLinkedList_UsingStack<T> {
 	
@@ -17,7 +17,7 @@ public class _2_j_ReorderingLinkedList_UsingStack<T> {
 		}
 		ListNode<T> newHead = slowPtr.getNext();
 		slowPtr.setNext(null);
-		StackUsingLinkedList<ListNode<T>> stk = new StackUsingLinkedList<>();
+		LinkedStack<ListNode<T>> stk = new LinkedStack<>();
 		while(newHead != null) {
 			ListNode<T> temp = newHead;
 			newHead = newHead.getNext();

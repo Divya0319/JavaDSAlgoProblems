@@ -3,12 +3,12 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList;
 import java.util.EmptyStackException;
 
 
-public class StackUsingLinkedList<T> implements StackService<T> {
+public class LinkedStack<T> implements StackService<T> {
 		
 	private int length;
 	private ListNode<T> top;
 	
-	public StackUsingLinkedList() {
+	public LinkedStack() {
 		length = 0;
 		top = null;
 	}
@@ -53,18 +53,18 @@ public class StackUsingLinkedList<T> implements StackService<T> {
 	}
 	
 	public String toString() {
-		String result = "";
+		String result = "[";
 		ListNode<T> current = top;
-		while(current != null) {
-			result = result + current.getData() + " ";
+		while(current.getNext() != null) {
+			result = result + current.getData() + ", ";
 			current = current.getNext();
 		}
 		
-		return result;
+		return result + current.getData() + "]";
 	}
 	
 	public static void main(String[] args) {
-		StackUsingLinkedList<Integer> stack = new StackUsingLinkedList<>();
+		LinkedStack<Integer> stack = new LinkedStack<>();
 		try {
 			stack.push(6);
 			System.out.println(stack.toString());
