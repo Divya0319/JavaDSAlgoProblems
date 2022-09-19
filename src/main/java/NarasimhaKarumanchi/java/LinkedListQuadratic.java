@@ -1,10 +1,12 @@
 package main.java.NarasimhaKarumanchi.java;
 
+import java.util.LinkedList;
+
 public class LinkedListQuadratic {
 	
 	
 	public static void main(String[] args) {
-		java.util.LinkedList<Integer> k = new java.util.LinkedList<Integer>();
+		LinkedList<Integer> k = new LinkedList<Integer>();
 		int n = 100;
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
