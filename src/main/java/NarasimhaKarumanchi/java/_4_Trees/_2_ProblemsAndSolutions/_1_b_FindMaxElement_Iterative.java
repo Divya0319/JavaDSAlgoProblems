@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._2_ProblemsAndSolutions;
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 
-public class _2_FindMaxElement_Iterative<T> {
+public class _1_b_FindMaxElement_Iterative<T> {
 	
 	private int maxElementIterative(BinaryTreeNode<T> root) {
 		if (root == null) {
@@ -36,7 +36,7 @@ public class _2_FindMaxElement_Iterative<T> {
 	}
 	
 	public static void main(String[] args) {
-		_2_FindMaxElement_Iterative<Integer> bt = new _2_FindMaxElement_Iterative<>();
+		_1_b_FindMaxElement_Iterative<Integer> bt = new _1_b_FindMaxElement_Iterative<>();
 
 		BinaryTreeNode<Integer> btn = new BinaryTreeNode<>(1);
 		btn.setLeft(new BinaryTreeNode<>(2));

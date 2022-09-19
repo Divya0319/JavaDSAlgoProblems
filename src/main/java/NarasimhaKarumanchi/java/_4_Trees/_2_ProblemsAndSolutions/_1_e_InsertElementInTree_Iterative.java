@@ -1,35 +1,13 @@
 package main.java.NarasimhaKarumanchi.java._4_Trees._2_ProblemsAndSolutions;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 
-public class _7_FindSizeOfTree_Iterative<T> {
-	
-	public int findSize(BinaryTreeNode<T> root) {
-		int count = 0;
-		if (root == null) {
-			return 0;
-		}
-		LinkedQueue<BinaryTreeNode<T>> q = new LinkedQueue<>();
-		q.enQueue(root);
-		while (!q.isEmpty()) {
-			BinaryTreeNode<T> tmp;
-			try {
-				tmp = q.deQueue();
-				count++;
-				if (tmp.getLeft() != null)
-					q.enQueue(tmp.getLeft());
-				if (tmp.getRight() != null)
-					q.enQueue(tmp.getRight());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-		}
-
-		return count;
-	}
+public class _1_e_InsertElementInTree_Iterative<T> {
 	
 	private ArrayList<T> levelOrderTraversal(BinaryTreeNode<T> root) {
 		ArrayList<T> res = new ArrayList<>();
@@ -59,10 +37,37 @@ public class _7_FindSizeOfTree_Iterative<T> {
 
 		return res;
 	}
+	
+	private BinaryTreeNode<T> insertInBinaryTreeLevelOrder(BinaryTreeNode<T> root, T data) {
+		if (root == null)
+			return null;
+		Queue<BinaryTreeNode<T>> q = new LinkedList<>();
+		q.add(root);
+		while (!q.isEmpty()) {
+			BinaryTreeNode<T> tmp = q.remove();
+			if (tmp.getLeft() != null) {
+				q.add(tmp.getLeft());
+			} else {
+				tmp.setLeft(new BinaryTreeNode<>(data));
+				System.out.println(data + " Inserted on left of : " + tmp.getData());
+				return root;
+			}
+
+			if (tmp.getRight() != null) {
+				q.add(tmp.getRight());
+			} else {
+				tmp.setRight(new BinaryTreeNode<>(data));
+				System.out.println(data + "Inserted on right of : " + tmp.getData());
+				return root;
+			}
+		}
+
+		return root;
+	}
 
 	
 	public static void main(String[] args) {
-		_7_FindSizeOfTree_Iterative<Integer> bt = new _7_FindSizeOfTree_Iterative<>();
+		_1_e_InsertElementInTree_Iterative<Integer> bt = new _1_e_InsertElementInTree_Iterative<>();
 
 		BinaryTreeNode<Integer> btn = new BinaryTreeNode<>(1);
 		btn.setLeft(new BinaryTreeNode<>(2));
@@ -72,8 +77,8 @@ public class _7_FindSizeOfTree_Iterative<T> {
 		btn.getRight().setLeft(new BinaryTreeNode<>(6));
 		btn.getRight().setRight(new BinaryTreeNode<>(7));
 		
-		System.out.println(bt.levelOrderTraversal(btn));
-		System.out.println("Size of given tree is :" + bt.findSize(btn));
+		BinaryTreeNode<Integer> newRoot = bt.insertInBinaryTreeLevelOrder(btn, 40);
+		System.out.println(bt.levelOrderTraversal(newRoot));
 
 	}
 

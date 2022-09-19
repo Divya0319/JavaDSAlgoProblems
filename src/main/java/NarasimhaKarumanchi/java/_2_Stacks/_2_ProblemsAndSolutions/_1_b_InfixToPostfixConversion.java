@@ -2,8 +2,12 @@ package main.java.NarasimhaKarumanchi.java._2_Stacks._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
 
-public class _2_InfixToPostfixConversion {
+public class _1_b_InfixToPostfixConversion {
 	
+	
+	/*	Precedence order
+	 *    '^'   >   '/'  >  '*'  >  '+/-'
+	 */
 	public static int Prec(char c) {
 		switch(c) 
 		{
@@ -62,7 +66,7 @@ public class _2_InfixToPostfixConversion {
 
 	public static void main(String[] args) {
 		
-		_2_InfixToPostfixConversion mainClass = new _2_InfixToPostfixConversion();
+		_1_b_InfixToPostfixConversion mainClass = new _1_b_InfixToPostfixConversion();
 		
 		String s = "(A+B)-(E+G^Y^H)";
 		System.out.println("Given infix expression: " + s);

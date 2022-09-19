@@ -2,7 +2,7 @@ package main.java.NarasimhaKarumanchi.java._2_Stacks._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
 
-public class _3_PostfixEvaluation {
+public class _1_d_InfixEvaluation_SinglePass {
 	
 	public int evaluatePostFix(String s) {
 		LinkedStack<Integer> stk = new LinkedStack<>();
@@ -43,7 +43,7 @@ public class _3_PostfixEvaluation {
 
 	public static void main(String[] args) {
 		
-		_3_PostfixEvaluation mainClass = new _3_PostfixEvaluation();
+		_1_d_InfixEvaluation_SinglePass mainClass = new _1_d_InfixEvaluation_SinglePass();
 		
 		String exp = "252^+9-";
 		System.out.println("Given postfix expression: " + exp);

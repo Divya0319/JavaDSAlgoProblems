@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-public class _5_MaxElementInSlidingWindow_Optimised {
+public class _1_e_MaxElementInSlidingWindow_UsingDeque {
 	
 	public int[] maxEleSlidingWindowOptimised(int[] inp, int k) {
 		int n = inp.length;
@@ -70,7 +70,7 @@ public class _5_MaxElementInSlidingWindow_Optimised {
 	}
 	
 	public static void main(String[] args) {
-		_5_MaxElementInSlidingWindow_Optimised mainClass = new _5_MaxElementInSlidingWindow_Optimised();
+		_1_e_MaxElementInSlidingWindow_UsingDeque mainClass = new _1_e_MaxElementInSlidingWindow_UsingDeque();
 		
 		int[] inp = new int[] {1,3,-1,-3,5,3,6,7, 18, 4, 16, -2};
 		System.out.println("Input: " + Arrays.toString(inp));

@@ -4,7 +4,7 @@ import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
 import main.java.NarasimhaKarumanchi.java._3_Queues.ListNode;
 import main.java.NarasimhaKarumanchi.java._3_Queues.StackService;
 
-public class _3_StackUsing2Queues<T> implements StackService<T> {
+public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 	
 	private LinkedQueue<T> q1 = new LinkedQueue<T>();
 	private LinkedQueue<T> q2= new LinkedQueue<T>();
@@ -86,7 +86,7 @@ public class _3_StackUsing2Queues<T> implements StackService<T> {
 	}
 	
 	public static void main(String[] args) {
-		_3_StackUsing2Queues<Integer> swtq = new _3_StackUsing2Queues<>();
+		_1_c_StackUsingTwoQueues<Integer> swtq = new _1_c_StackUsingTwoQueues<>();
 		try {
 		swtq.push(5);
 		System.out.println(swtq.toString());

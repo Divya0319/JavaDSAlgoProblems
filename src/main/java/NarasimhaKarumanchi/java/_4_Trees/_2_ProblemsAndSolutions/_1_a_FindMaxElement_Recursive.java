@@ -2,7 +2,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 
-public class _1_FindMaxElement_Recursive<T> {
+public class _1_a_FindMaxElement_Recursive<T> {
 	
 	private Integer maxElementRecursive(BinaryTreeNode<T> root) {
 		int maxValue = Integer.MIN_VALUE;
@@ -23,7 +23,7 @@ public class _1_FindMaxElement_Recursive<T> {
 	}
 	
 	public static void main(String[] args) {
-		_1_FindMaxElement_Recursive<Integer> bt = new _1_FindMaxElement_Recursive<>();
+		_1_a_FindMaxElement_Recursive<Integer> bt = new _1_a_FindMaxElement_Recursive<>();
 
 		BinaryTreeNode<Integer> btn = new BinaryTreeNode<>(1);
 		btn.setLeft(new BinaryTreeNode<>(2));

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 
-public class _16_NoOfLeavesInTree_Iterative<T> {
+public class _1_p_NoOfLeavesInTree_Iterative<T> {
 	
 	public int findNoOfLeaves(BinaryTreeNode<T> root) {
 		int count = 0;
@@ -63,7 +63,7 @@ public class _16_NoOfLeavesInTree_Iterative<T> {
 
 	
 	public static void main(String[] args) {
-		_16_NoOfLeavesInTree_Iterative<Integer> bt = new _16_NoOfLeavesInTree_Iterative<>();
+		_1_p_NoOfLeavesInTree_Iterative<Integer> bt = new _1_p_NoOfLeavesInTree_Iterative<>();
 
 		BinaryTreeNode<Integer> btn = new BinaryTreeNode<>(1);
 		btn.setLeft(new BinaryTreeNode<>(2));

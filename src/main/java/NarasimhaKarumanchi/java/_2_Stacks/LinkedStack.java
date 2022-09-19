@@ -53,14 +53,14 @@ public class LinkedStack<T> implements DynamicStackService<T> {
 	}
 	
 	public String toString() {
-		String result = "";
+		String result = "[";
 		ListNode<T> current = top;
-		while(current != null) {
-			result = result + current.getData() + " ";
+		while(current.getNext() != null) {
+			result = result + current.getData() + ", ";
 			current = current.getNext();
 		}
 		
-		return result;
+		return result + current.getData() + "]";
 	}
 	
 	public static void main(String[] args) {

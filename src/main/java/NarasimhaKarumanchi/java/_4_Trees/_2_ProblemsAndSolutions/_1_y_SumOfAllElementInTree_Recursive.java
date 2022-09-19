@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 
-public class _25_SumOfAllElementInTree_Recursive<T> {
+public class _1_y_SumOfAllElementInTree_Recursive<T> {
 	
 	private int sumOfAllElements(BinaryTreeNode<T> root) {
 		if (root == null)
@@ -48,7 +48,7 @@ public class _25_SumOfAllElementInTree_Recursive<T> {
 
 	
 	public static void main(String[] args) {
-		_25_SumOfAllElementInTree_Recursive<Integer> bt = new _25_SumOfAllElementInTree_Recursive<>();
+		_1_y_SumOfAllElementInTree_Recursive<Integer> bt = new _1_y_SumOfAllElementInTree_Recursive<>();
 
 		BinaryTreeNode<Integer> btn = new BinaryTreeNode<>(1);
 		btn.setLeft(new BinaryTreeNode<>(2));

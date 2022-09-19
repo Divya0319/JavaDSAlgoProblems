@@ -4,7 +4,7 @@ import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedStack;
 
 
-public class _1_ReverseQueueUsingStack<T> {
+public class _1_a_ReverseQueueUsingStack<T> {
 	
 	public LinkedQueue<T> reverseQueueUsingStack(LinkedQueue<T> queue) throws Exception {
 		LinkedStack<T> stk = new LinkedStack<>();
@@ -20,7 +20,7 @@ public class _1_ReverseQueueUsingStack<T> {
 	}
 	
 	public static void main(String[] args) {
-		_1_ReverseQueueUsingStack<Integer> mainClass = new _1_ReverseQueueUsingStack<>();
+		_1_a_ReverseQueueUsingStack<Integer> mainClass = new _1_a_ReverseQueueUsingStack<>();
 		LinkedQueue<Integer> lq = new LinkedQueue<>();
 		lq.enQueue(5);
 		System.out.println(lq.toString());

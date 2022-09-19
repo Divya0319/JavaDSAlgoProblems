@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._3_Queues._2_ProblemsAndSolutions;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class _4_MaxElementInSlidingWindow {
+public class _1_d_MaxElementInSlidingWindow_BruteForce {
 	
 	public void maxEleSlidingWindow(int[] inp, int k) {
 		int j, max;
@@ -32,7 +32,7 @@ public class _4_MaxElementInSlidingWindow {
 	}
 	
 	public static void main(String[] args) {
-		_4_MaxElementInSlidingWindow mainClass = new _4_MaxElementInSlidingWindow();
+		_1_d_MaxElementInSlidingWindow_BruteForce mainClass = new _1_d_MaxElementInSlidingWindow_BruteForce();
 		
 		int[] inp = new int[] {1,3,-1,-3,5,3,6,7, 18, 4, 16, -2};
 		System.out.println("Input: " + Arrays.toString(inp));

@@ -2,7 +2,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 
-public class _3_SearchElementInTree_Recursive<T> {
+public class _1_c_SearchElementInTree_Recursive<T> {
 	
 	private boolean searchInBinaryTree(BinaryTreeNode<T> root, int target) {
 		if (root == null)
@@ -14,7 +14,7 @@ public class _3_SearchElementInTree_Recursive<T> {
 	}
 	
 	public static void main(String[] args) {
-		_3_SearchElementInTree_Recursive<Integer> bt = new _3_SearchElementInTree_Recursive<>();
+		_1_c_SearchElementInTree_Recursive<Integer> bt = new _1_c_SearchElementInTree_Recursive<>();
 
 		BinaryTreeNode<Integer> btn = new BinaryTreeNode<>(1);
 		btn.setLeft(new BinaryTreeNode<>(2));

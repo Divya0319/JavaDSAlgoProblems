@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._2_ProblemsAndSolutions;
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 
-public class _4_SearchElementInTree_Iterative<T> {
+public class _1_d_SearchElementInTree_Iterative<T> {
 	
 	private boolean searchInBinaryTreeIterative(BinaryTreeNode<T> root, int target) {
 		if (root == null)
@@ -31,7 +31,7 @@ public class _4_SearchElementInTree_Iterative<T> {
 	}
 	
 	public static void main(String[] args) {
-		_4_SearchElementInTree_Iterative<Integer> bt = new _4_SearchElementInTree_Iterative<>();
+		_1_d_SearchElementInTree_Iterative<Integer> bt = new _1_d_SearchElementInTree_Iterative<>();
 
 		BinaryTreeNode<Integer> btn = new BinaryTreeNode<>(1);
 		btn.setLeft(new BinaryTreeNode<>(2));

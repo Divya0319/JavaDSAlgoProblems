@@ -4,7 +4,7 @@ import main.java.NarasimhaKarumanchi.java._3_Queues.ListNode;
 import main.java.NarasimhaKarumanchi.java._3_Queues.DynamicQueueService;
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedStack;
 
-public class _2_QueueUsing2Stacks<T> implements DynamicQueueService<T> {
+public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 
 	private LinkedStack<T> s1 = new LinkedStack<>();
 	private LinkedStack<T> s2 = new LinkedStack<>();
@@ -84,7 +84,7 @@ public class _2_QueueUsing2Stacks<T> implements DynamicQueueService<T> {
 
 	public static void main(String[] args) {
 		try {
-			_2_QueueUsing2Stacks<Integer> quts = new _2_QueueUsing2Stacks<>();
+			_1_b_QueueUsingTwoStacks<Integer> quts = new _1_b_QueueUsingTwoStacks<>();
 			quts.enQueue(1);
 			System.out.println(quts.toString());
 			quts.enQueue(2);
