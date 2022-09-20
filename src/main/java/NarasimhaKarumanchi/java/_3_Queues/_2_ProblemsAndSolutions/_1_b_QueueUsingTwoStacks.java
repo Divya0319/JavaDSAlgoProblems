@@ -40,7 +40,7 @@ public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 	}
 
 	public String toString() {
-		String result = "";
+		String result = "[";
 		try {
 			if (s2.isEmpty()) {
 				// if(s1.isEmpty()) {
@@ -57,7 +57,7 @@ public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 					top = top.getNext();
 				}
 				while (!tempStack.isEmpty()) {
-					result += tempStack.pop() + " ";
+					result += tempStack.pop() + ", ";
 				}
 
 			} else {
@@ -65,7 +65,7 @@ public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 				LinkedStack<T> tempStack = new LinkedStack<>();
 				ListNode<T> top2 = s2.getTop();
 				while (top2 != null) {
-					result += top2.getData() + " ";
+					result += top2.getData() + ", ";
 					top2 = top2.getNext();
 				}
 				while (top1 != null) {
@@ -73,13 +73,13 @@ public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 					top1 = top1.getNext();
 				}
 				while (!tempStack.isEmpty()) {
-					result += tempStack.pop() + " ";
+					result += tempStack.pop() + ", ";
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;
+		return result + "]";
 	}
 
 	public static void main(String[] args) {

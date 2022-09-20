@@ -68,21 +68,21 @@ public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 	
 	public String toString() {
 		String result = "[";
-		ListNode<T> front;
+		ListNode<T> front = null;
 		try {
 		if(q1.isEmpty()) 
 			front = q2.getFront();
 		 else 
 			front = q1.getFront();
 			
-		 while(front != null) {
-			result += front.getData() + " ";
+		 while(front.getNext() != null) {
+			result += front.getData() + ", ";
 			front = front.getNext();
 		 }
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		return result + "]";
+		return result + front.getData() + "]";
 	}
 	
 	public static void main(String[] args) {

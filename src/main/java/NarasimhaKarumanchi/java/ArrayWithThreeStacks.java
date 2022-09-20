@@ -1,6 +1,5 @@
 package main.java.NarasimhaKarumanchi.java;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EmptyStackException;
 

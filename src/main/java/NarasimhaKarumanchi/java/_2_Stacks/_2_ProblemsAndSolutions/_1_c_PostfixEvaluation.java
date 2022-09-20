@@ -9,11 +9,25 @@ public class _1_c_PostfixEvaluation {
 		for(int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			
+			// if input character is digit(operand)
+			// push it into stack
+			// after converting character to number
 			if(Character.isDigit(c)) {
-				stk.push(c- '0');
-			} else {
+				stk.push(c - '0');
+			}
+			
+			// else when input character is operator
+			else {
+				
+				// pop two operands from stack one by one
 				int val1 = stk.pop();
 				int val2 = stk.pop();
+				
+				// operate onto operands by placing 
+				// 2nd popped operand at first position
+				// in calculation
+				
+				// and push the result back to stack
 				switch(c) {
 				case '-' : stk.push(val2-val1);
 				break;
@@ -29,12 +43,22 @@ public class _1_c_PostfixEvaluation {
 			}
 		}
 		
+		
+		// finally, pop the calculated result
+		// and put in output
 		return stk.pop();
 	}
 	
-	public int pow(int val1, int val2) {
+	
+	// custom power function
+	// to calculate power of integer constants
+	// given as input
+	public int pow(int val1, int n) {
 		int result = 1;
-		for(int i = 0; i < val2; i++) {
+		for(int i = 0; i < n; i++) {
+			
+			// multiplying the previously calculated result 
+			// with 'val1' again and again, 'n' times. 
 			result = result * val1;
 		}
 		
