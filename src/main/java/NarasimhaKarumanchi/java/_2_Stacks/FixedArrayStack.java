@@ -24,7 +24,7 @@ public class FixedArrayStack<T> implements FixedStackService<T> {
 	}
 	
 	public boolean isEmpty() {
-		return (top < 1);
+		return (top < 0);
 	}
 	
 	public T peek() throws Exception {
