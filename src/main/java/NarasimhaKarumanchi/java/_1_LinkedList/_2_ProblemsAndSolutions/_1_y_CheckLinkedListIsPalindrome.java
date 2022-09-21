@@ -3,10 +3,10 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _1_y_CheckLinkedListIsPalindrome {
+public class _1_y_CheckLinkedListIsPalindrome<T> {
 	
-	public ListNode<Integer> findMiddle(ListNode<Integer> head) {
-		ListNode<Integer> fast = head, slow = head;
+	public ListNode<T> findMiddle(ListNode<T> head) {
+		ListNode<T> fast = head.getNext(), slow = head;
 		
 		while(fast != null && fast.getNext() != null) {
 			fast = fast.getNext().getNext();
@@ -16,17 +16,17 @@ public class _1_y_CheckLinkedListIsPalindrome {
 		return slow;
 	}
 	
-	public ListNode<Integer> reverse(ListNode<Integer> head) {
+	public ListNode<T> reverse(ListNode<T> head) {
 		if(head == null) {
 			return null;
 		}
 		
 		//Initially, current is head
-		ListNode<Integer> current = head;
+		ListNode<T> current = head;
 		//Initially previous is null
-		ListNode<Integer> prev = null;
+		ListNode<T> prev = null;
 		while(current != null) {
-			ListNode<Integer> next = current.getNext();
+			ListNode<T> next = current.getNext();
 			current.setNext(prev);
 			prev = current;
 			current = next;
@@ -35,7 +35,7 @@ public class _1_y_CheckLinkedListIsPalindrome {
 		
 	}
 
-	public boolean isLinkedListPalindrome(ListNode<Integer> head) {
+	public boolean isLinkedListPalindrome(ListNode<T> head) {
 		
 		// case when linked list is empty, or has 1 node only
 		if(head == null || head.getNext() == null) 
@@ -50,10 +50,10 @@ public class _1_y_CheckLinkedListIsPalindrome {
 			}
 		}
 		
-		ListNode<Integer> middle = findMiddle(head);
-		ListNode<Integer> last = reverse(middle.getNext());
+		ListNode<T> middle = findMiddle(head);
+		ListNode<T> last = reverse(middle.getNext());
 		
-		ListNode<Integer> current = head;
+		ListNode<T> current = head;
 		
 		/* After reversing second half above, last node of original list 
 		 * is returned, so, we increment pointer of first half,
@@ -74,7 +74,7 @@ public class _1_y_CheckLinkedListIsPalindrome {
 	}
 
 	public static void main(String[] args) {
-		_1_y_CheckLinkedListIsPalindrome mainClass = new _1_y_CheckLinkedListIsPalindrome();
+		_1_y_CheckLinkedListIsPalindrome<Integer> mainClass = new _1_y_CheckLinkedListIsPalindrome<>();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());
