@@ -2,7 +2,7 @@ package main.java.NarasimhaKarumanchi.java._2_Stacks._2_ProblemsAndSolutions;
 
 import main.java.NarasimhaKarumanchi.java._2_Stacks.FixedArrayStack;
 
-public class _1_i_CheckStringWIthXIsPalindrome_UsingStack<T> {
+public class _1_i_CheckStringWithXIsPalindrome_UsingStack<T> {
 	
 	public boolean isPalindrome(char[] inp) {
 		
@@ -39,7 +39,7 @@ public class _1_i_CheckStringWIthXIsPalindrome_UsingStack<T> {
 	
 	public static void main(String[] args) {
 						
-		_1_i_CheckStringWIthXIsPalindrome_UsingStack<Character> mainClass = new _1_i_CheckStringWIthXIsPalindrome_UsingStack<>();
+		_1_i_CheckStringWithXIsPalindrome_UsingStack<Character> mainClass = new _1_i_CheckStringWithXIsPalindrome_UsingStack<>();
 		
 		String inp = "aabccdXdccbaa";
 		
