@@ -9,6 +9,12 @@ public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 	private LinkedQueue<T> q1 = new LinkedQueue<T>();
 	private LinkedQueue<T> q2= new LinkedQueue<T>();
 
+	
+	/* 
+	 * for pushing, we push into whichever queue is empty
+	 * and time complexity for it is O(1)
+	 */
+	
 	@Override
 	public void push(T data) {
 		if(q1.isEmpty()) {
@@ -18,6 +24,15 @@ public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 		}
 		
 	}
+	
+	/*
+	 * for popping, we pop from whichever queue is not empty
+	 * if q2 is empty, we transfer n-1 elements from q2 to q1, 
+	 * and pop last element from q2
+	 *  else we transfer n-1 elements from q1 to q2
+	 *  and pop last element from q1.
+	 *  In either case, time complexity comes out as O(1).
+	 */
 
 	@Override
 	public T pop() {
@@ -44,6 +59,9 @@ public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 		return null;
 	}
 
+	// it simply returns front of q2 or 
+	// rear of q1,
+	// so it runs in O(1) time
 	@Override
 	public T peek() {
 		if(!q2.isEmpty()) {
@@ -101,6 +119,8 @@ public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 		swtq.push(10);
 		System.out.println(swtq.toString());
 		swtq.push(11);
+		System.out.println(swtq.toString());
+		swtq.pop();
 		System.out.println(swtq.toString());
 		swtq.pop();
 		System.out.println(swtq.toString());

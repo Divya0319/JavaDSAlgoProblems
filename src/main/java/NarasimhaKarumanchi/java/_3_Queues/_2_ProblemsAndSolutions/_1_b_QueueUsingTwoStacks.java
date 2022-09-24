@@ -9,12 +9,17 @@ public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 	private LinkedStack<T> s1 = new LinkedStack<>();
 	private LinkedStack<T> s2 = new LinkedStack<>();
 
+	
+	// Time COmplexity:  O(1)
 	@Override
 	public void enQueue(T data) {
 		s1.push(data);
 
 	}
 
+	// while dequeuing, have to pop (n-1) elements from s1, to push to s2
+	// and then pop 1 element from s1.
+	// so, time complexity comes out as O(n)
 	@Override
 	public T deQueue() {
 		int i = 0, size;
