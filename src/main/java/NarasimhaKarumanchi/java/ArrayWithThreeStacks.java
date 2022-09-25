@@ -162,7 +162,7 @@ public class ArrayWithThreeStacks {
 
 	public boolean isEmpty(int stackId) {
 		if (stackId == 1) {
-			return topTwo == -1;
+			return topOne == -1;
 		} else if (stackId == 2) {
 			return topTwo == getSize();
 		} else if (stackId == 3) {

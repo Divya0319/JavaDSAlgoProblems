@@ -87,21 +87,21 @@ public class _1_l_ArrayWithTwoStacks<T> {
 
 	public static void main(String[] args) {
 		
-		Integer popped;
+		String popped;
 		
-		_1_l_ArrayWithTwoStacks<Integer> awts = new _1_l_ArrayWithTwoStacks<>(4);
-		awts.push(1, 4);
+		_1_l_ArrayWithTwoStacks<String> awts = new _1_l_ArrayWithTwoStacks<>(4);
+		awts.push(1, "Aman");
 		System.out.println(awts.toString());
-		awts.push(1, 7);
+		awts.push(1, "Parkour");
 		System.out.println(awts.toString());
-		awts.push(2, 9);
+		awts.push(2, "Norman");
 		System.out.println(awts.toString());
-		awts.push(1, 5);
+		awts.push(1, "Gillfoyl");
 		System.out.println(awts.toString());
 		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
-		awts.push(2, 73);
+		awts.push(2, "Tony");
 		System.out.println(awts.toString());
 		
 		popped = awts.pop(1);
