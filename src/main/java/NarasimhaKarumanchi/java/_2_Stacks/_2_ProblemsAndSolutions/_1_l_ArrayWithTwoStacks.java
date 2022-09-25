@@ -89,30 +89,30 @@ public class _1_l_ArrayWithTwoStacks<T> {
 		
 		Integer popped;
 		
-		_1_l_ArrayWithTwoStacks<Integer> quts = new _1_l_ArrayWithTwoStacks<>(4);
-		quts.push(1, 4);
-		System.out.println(quts.toString());
-		quts.push(1, 7);
-		System.out.println(quts.toString());
-		quts.push(2, 9);
-		System.out.println(quts.toString());
-		quts.push(1, 5);
-		System.out.println(quts.toString());
-		popped = quts.pop(1);
+		_1_l_ArrayWithTwoStacks<Integer> awts = new _1_l_ArrayWithTwoStacks<>(4);
+		awts.push(1, 4);
+		System.out.println(awts.toString());
+		awts.push(1, 7);
+		System.out.println(awts.toString());
+		awts.push(2, 9);
+		System.out.println(awts.toString());
+		awts.push(1, 5);
+		System.out.println(awts.toString());
+		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
-		System.out.println(quts.toString());
-		quts.push(2, 73);
-		System.out.println(quts.toString());
+		System.out.println(awts.toString());
+		awts.push(2, 73);
+		System.out.println(awts.toString());
 		
-		popped = quts.pop(1);
+		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
-		System.out.println(quts.toString());
-		popped = quts.pop(1);
+		System.out.println(awts.toString());
+		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
-		System.out.println(quts.toString());
-		popped = quts.pop(1);
+		System.out.println(awts.toString());
+		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
-		System.out.println(quts.toString());
+		System.out.println(awts.toString());
 		
 			
 	}
