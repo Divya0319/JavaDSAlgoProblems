@@ -16,43 +16,65 @@ public class _1_n_ArrayWithMStacks<T> {
 		top = new int[m];
 		next = new int[size];
 		
+		// setting top array as -1 initially
+		// as nothing there in array at beginning
 		for(int i = 0; i < m; i++) {
 			top[i] = -1;
 		}
 		
+		// setting next elements as next[0] = 1, next[1] = 2, so on,
+		// initially stores next free space after current index.
 		for(int j = 0; j < size; j++) {
 			next[j] = j+1;
 		}
 		
+		// last element does not have more elements after that,
+		// hence, it stores -1 initially
 		next[size-1] = -1;
 		
+		
+		// since array is empty initially,
+		// 0th index is free, hence, setting freeSpot as 0
 		freeSpot = 0;
 	}
+	
 	
 	public void push(int stackId, T data) {
 		if(stackId > m) {
 			return;
 		}
 		
+		// When no freeSpot is there, we detect stack is full
 		if(freeSpot == -1)
 			throw new StackOverflowError("Stack is full");
 		
-		// find index
+		// FIND INDEX: 
+		// have to find index at which we can push this element. 
+		// freeSpot holds that index of free space.
 		int index = freeSpot;
 		
-		// update freeSpot
+		// UPDATE FREESPOT: Now since freeSpot will be filled, 
+		// we have to point it to new free space.
+		// We can find it from next array
 		freeSpot = next[index];
 		
-		// insert element into array
+		// INSERT ELEMENT INTO ARRAY: 
 		dataArray[index] = data;
 		
-		// update next
+		// UPDATE NEXT: 
+		// Now, whenever anything stores in arr, we have to update next.
+		// -1 is done because of 0-based indexing
 		next[index] = top[stackId - 1];
 		
-		// update top
+		// Now that element is inserted, we have to UPDATE TOP.
+		// top[m-1] will now become index at which we inserted.
 		top[stackId-1] = index;
 	}
 	
+	// Steps in pop are exactly opposite of push, 
+	// bottom to top, 
+	// and also LHS becomes RHS, 
+	// RHS becomes LHS in this.
 	public T pop(int stackId) {
 		if(stackId > m) {
 			return null;
@@ -61,26 +83,27 @@ public class _1_n_ArrayWithMStacks<T> {
 			throw new EmptyStackException();
 		}
 		
-		// get index of top of stackId
+		// getting index of top element
 		int index = top[stackId-1];
 		
 		
-		// get data
+		// storing popped element
 		T data = dataArray[index];
 		
 		
-		// update top
+		// updating top as next element after top in stack
 		top[stackId - 1] = next[index];
 				
 		
-		// update next
+		// updating next as next available freeSpot
 		next[index] = freeSpot;
 		
 		
-		// update freeSpot
+		//  updating freeSpot as current index, 
+		// as element is popped from this index
 		freeSpot = index;
 		
-		// make space in array null
+		 // making space of popped element free in dataArray
 		dataArray[index] = null;
 		
 		return data;
