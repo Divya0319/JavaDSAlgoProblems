@@ -8,8 +8,15 @@ public class _1_o_FindingSpans_BruteForce {
 		int[] spans = new int[prices.length];
 		spans[0] = 1;
 		
-		for(int i = 0; i < prices.length; i++) {
+		for(int i = 1; i < prices.length; i++) {
+			
+			// Initially, every index will be maximum in itself, 
+			// before beginning of comparison
 			spans[i] = 1;
+			
+			// here, we take every index,
+			// and we check every element from beginning for that index
+			// hence, we get O(n) time complexity
 			for(int j = i - 1; (j >= 0) && (prices[j] <= prices[i]); j--) {
 				spans[i]++;
 			}
