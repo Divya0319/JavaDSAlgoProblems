@@ -7,22 +7,36 @@ import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
 public class _1_o_FindingSpans_UsingStack {
 	
 	public int[] findSpans(int[] prices) {
-		int[] spans = new int[prices.length];
+		int n = prices.length;
+		
+		// Stack will hold indices of elements of array
 		LinkedStack<Integer> stk = new LinkedStack<>();
 		
+		int[] spans = new int[n];
+		// Initially, stack will have 0th index, 
+		// because 1st element is already processed from array
 		stk.push(0);
+		// first element of spans array will be 1
+		// because for first element in array,
+		// it will be maximum only from its past
+		spans[0] = 1;
 		
-		for(int i = 0; i < prices.length; i++) {
-			while(!stk.isEmpty() && prices[stk.peek()] <= prices[i]) {
+		// we will begin counting from 2nd element of array
+		for(int i = 1; i < n; i++) {
+			
+			// unless stack is not empty
+			// and current index element is greater or equal to stack top
+			// we pop from stack
+			while(!stk.isEmpty() && prices[i] >= prices[stk.peek()]) {
 				stk.pop();
 			}
 			
-			if(stk.isEmpty()) {
-				spans[i] = i + 1;
-			} else {
-				spans[i] = i - stk.peek();
-			}
+			// if stack becomes empty, we set that index's span as i+1
+			// or else, we set it as (i - stack's top)
+			spans[i] = stk.isEmpty() ? i + 1 : i - stk.peek();
 			
+			// at last, we push current index to stack
+			// to be available for next index element
 			stk.push(i);
 		}
 		
