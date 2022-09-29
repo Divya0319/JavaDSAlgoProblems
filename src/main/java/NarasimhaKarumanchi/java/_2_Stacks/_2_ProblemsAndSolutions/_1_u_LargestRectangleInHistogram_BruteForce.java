@@ -2,7 +2,7 @@ package main.java.NarasimhaKarumanchi.java._2_Stacks._2_ProblemsAndSolutions;
 
 import java.util.Arrays;
 
-public class _1_p_LargestRectangleInHistogram_BruteForce {
+public class _1_u_LargestRectangleInHistogram_BruteForce {
 	
 	public int largestRectangleInHistogram(int[] heights) {
 		
@@ -41,13 +41,16 @@ public class _1_p_LargestRectangleInHistogram_BruteForce {
 				if(right > n-1) break;
 			}
 			
+			int l = heights[i];
+			int b = right - left - 1;
+			
 			// updating max area by comparing
 			// previously calculated max area
 			// with current area
-			maxArea = Math.max(maxArea, (right - left - 1) * heights[i]);
+			maxArea = Math.max(maxArea, l * b);
 			
-			System.out.println("Area considering " + heights[i] + " is (" + right + "-(" + left + ")-1) *" + heights[i]
-					+ " = " + ((right - left - 1) * heights[i]));
+			System.out.println("Area considering " + heights[i] + " is (" + right + "-(" + left + ")-1) * " + heights[i]
+					+ " = " + (l * b));
 						
 		}
 		
@@ -59,7 +62,7 @@ public class _1_p_LargestRectangleInHistogram_BruteForce {
 	
 	public static void main(String[] args) {
 				
-		_1_p_LargestRectangleInHistogram_BruteForce mainClass = new _1_p_LargestRectangleInHistogram_BruteForce();
+		_1_u_LargestRectangleInHistogram_BruteForce mainClass = new _1_u_LargestRectangleInHistogram_BruteForce();
 		
 		int[] inp = new int[] {2, 3, 1, 6, 9, 14, 8, 7};
 		

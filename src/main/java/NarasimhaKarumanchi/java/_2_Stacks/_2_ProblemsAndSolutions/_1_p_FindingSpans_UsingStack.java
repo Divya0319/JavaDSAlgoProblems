@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
 
-public class _1_o_FindingSpans_UsingStack {
+public class _1_p_FindingSpans_UsingStack {
 	
 	public int[] findSpans(int[] prices) {
 		int n = prices.length;
@@ -47,7 +47,7 @@ public class _1_o_FindingSpans_UsingStack {
 	
 	public static void main(String[] args) {
 				
-		_1_o_FindingSpans_UsingStack mainClass = new _1_o_FindingSpans_UsingStack();
+		_1_p_FindingSpans_UsingStack mainClass = new _1_p_FindingSpans_UsingStack();
 		
 		int[] inp = new int[] {2, 3, 1, 6, 9, 14, 8, 7};
 		
