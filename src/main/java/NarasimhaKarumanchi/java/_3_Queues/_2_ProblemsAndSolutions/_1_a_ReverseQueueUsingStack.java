@@ -33,10 +33,10 @@ public class _1_a_ReverseQueueUsingStack<T> {
 		lq.enQueue(9);
 		System.out.println(lq.toString());
 		lq.enQueue(10);
-		System.out.println(lq.toString());
+		System.out.println("Given queue: " + lq.toString());
 		
 		try {
-			System.out.println(mainClass.reverseQueueUsingStack(lq).toString());
+			System.out.println("Reversed queue: " + mainClass.reverseQueueUsingStack(lq).toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

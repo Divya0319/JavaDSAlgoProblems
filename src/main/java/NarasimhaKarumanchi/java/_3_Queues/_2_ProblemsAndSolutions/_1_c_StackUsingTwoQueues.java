@@ -11,7 +11,7 @@ public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 
 	
 	/* 
-	 * for pushing, we push into whichever queue is empty
+	 * for pushing, we push into whichever queue is NOT empty
 	 * and time complexity for it is O(1)
 	 */
 	
@@ -26,7 +26,7 @@ public class _1_c_StackUsingTwoQueues<T> implements StackService<T> {
 	}
 	
 	/*
-	 * for popping, we pop from whichever queue is not empty
+	 * for popping, we pop from whichever queue is NOT empty
 	 * if q2 is empty, we transfer n-1 elements from q2 to q1, 
 	 * and pop last element from q2
 	 *  else we transfer n-1 elements from q1 to q2

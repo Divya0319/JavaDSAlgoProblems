@@ -10,7 +10,7 @@ public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 	private LinkedStack<T> s2 = new LinkedStack<>();
 
 	
-	// Time COmplexity:  O(1)
+	// Time Complexity:  O(1)
 	@Override
 	public void enQueue(T data) {
 		s1.push(data);
@@ -48,6 +48,9 @@ public class _1_b_QueueUsingTwoStacks<T> implements DynamicQueueService<T> {
 		String result = "[";
 		try {
 			if (s2.isEmpty()) {
+					/*
+						Recursive approach to print stack elements
+			 		*/
 				// if(s1.isEmpty()) {
 				// return result;
 				// }
