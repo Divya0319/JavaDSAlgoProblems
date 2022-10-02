@@ -6,7 +6,7 @@ import java.util.EmptyStackException;
 public class _1_n_ArrayWithMStacks<T> {
 
 	private T[] dataArray;
-	private int[] top, next;
+	private int[] top, next, sizeStack;
 	private int freeSpot, m;
 	
 	public _1_n_ArrayWithMStacks(int size, int m) {
@@ -15,11 +15,17 @@ public class _1_n_ArrayWithMStacks<T> {
 		dataArray = (T[])new Object[size];
 		top = new int[m];
 		next = new int[size];
+		sizeStack = new int[m];
+		
 		
 		// setting top array as -1 initially
 		// as nothing there in array at beginning
 		for(int i = 0; i < m; i++) {
 			top[i] = -1;
+		}
+		
+		for(int i = 0; i < m; i++) {
+			sizeStack[i] = 0;
 		}
 		
 		// setting next elements as next[0] = 1, next[1] = 2, so on,
@@ -69,6 +75,8 @@ public class _1_n_ArrayWithMStacks<T> {
 		// Now that element is inserted, we have to UPDATE TOP.
 		// top[m-1] will now become index at which we inserted.
 		top[stackId-1] = index;
+		
+		sizeStack[stackId-1]++;
 	}
 	
 	// Steps in pop are exactly opposite of push, 
@@ -106,6 +114,9 @@ public class _1_n_ArrayWithMStacks<T> {
 		 // making space of popped element free in dataArray
 		dataArray[index] = null;
 		
+		sizeStack[stackId-1]--;
+
+		
 		return data;
 	}
 	
@@ -113,46 +124,91 @@ public class _1_n_ArrayWithMStacks<T> {
 		return Arrays.toString(dataArray);
 	}
 	
+	public String toString(int n) {
+		String s = "[";
+		if(n > m || top[n-1] == -1) 
+			return "[]";
+		T[] newDataArray = (T[])new Object[dataArray.length];
+		System.arraycopy(dataArray, 0, newDataArray, 0, dataArray.length);
+		
+		while(top[n-1] != -1) {
+			if(sizeStack[n-1] == 1) {
+				s = s + pop(n);
+			}
+			else {
+				s = s + pop(n) + ", ";
+			}
+			
+		}
+		
+		dataArray = newDataArray;
+		
+		return s + "]";
+	}
+	
+	public int getSizeOfStack(int n) {
+		if(n > m) {
+			return -1;
+		}
+		
+		return sizeStack[n-1];
+	}
+	
 	public static void main(String[] args) {
 		
 		String popped;
 		
 		_1_n_ArrayWithMStacks<String> awts = new _1_n_ArrayWithMStacks<>(15, 5);
+		System.out.println("Pushed to 1");
 		awts.push(1, "Aman");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 1");
 		awts.push(1, "Parkour");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 2");
 		awts.push(2, "Norman");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 3");
 		awts.push(3, "Gillfoyl");
 		System.out.println(awts.toString());
 		
+		System.out.println("Popped from 1");
 		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
 		
+		System.out.println("Pushed to 2");
 		awts.push(2, "Tony");
 		System.out.println(awts.toString());
 		
+		System.out.println("Popped from 1");
 		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
+		System.out.println("Popped from 2");
 		popped = awts.pop(2);
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
 		
-		awts.push(2, "Tony");
+		System.out.println("Pushed to 2");
+		awts.push(2, "Steve");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 2");
 		awts.push(2, "Mark");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 2");
 		awts.push(2, "Ironman");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 2");
 		awts.push(2, "Peter");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 2");
 		awts.push(2, "Wanda");
 		System.out.println(awts.toString());
+		System.out.println("Pushed to 3");
 		awts.push(3, "Vision");
 		System.out.println(awts.toString());
+		System.out.println("Popped from 2");
 		popped = awts.pop(2);
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
@@ -177,6 +233,19 @@ public class _1_n_ArrayWithMStacks<T> {
 		popped = awts.pop(5);
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
+		
+		System.out.println("Pushing to 4");
+		awts.push(4, "Yuri");
+		System.out.println(awts.toString());
+		System.out.println("Pushing to 4");
+		awts.push(4, "Goro");
+		System.out.println(awts.toString());
+
+		
+		int n = 4;
+		System.out.println("Size of stack " + n + " is " + awts.getSizeOfStack(n));
+		System.out.println("Contents of stack " + n + " is " + awts.toString(n));
+
 			
 	}
 

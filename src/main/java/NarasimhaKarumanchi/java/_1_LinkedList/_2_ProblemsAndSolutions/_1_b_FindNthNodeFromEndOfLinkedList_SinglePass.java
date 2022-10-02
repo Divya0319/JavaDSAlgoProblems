@@ -9,8 +9,14 @@ public class _1_b_FindNthNodeFromEndOfLinkedList_SinglePass<T> {
 		if(head == null) {
 			return null;
 		}
+		
+		// created two pointers,
+		// first will travel till nth node from start initially
+		// second pointer will actually find nth node from end
 		ListNode<T> ptr1 = head, ptr2 = head;
 		int count = 0;
+		
+		// ptr1 going till nth node from start
 		while(count < n) {
 			if(ptr1 == null) {
 				return null;
@@ -22,6 +28,11 @@ public class _1_b_FindNthNodeFromEndOfLinkedList_SinglePass<T> {
 		if(ptr1 == null) {
 			return head.getData();
 		} else {
+			
+			// then both pointers travel one step
+			// until ptr1 reaches the end.
+			// At this stage, ptr2 will point to
+			// nth node from end
 			while(ptr1 != null) {
 				ptr2 = ptr2.getNext();
 				ptr1 = ptr1.getNext();

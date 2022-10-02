@@ -3,14 +3,14 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _1_g_InsertInSortedLinkedList<T> {
+public class _1_g_InsertInSortedLinkedList {
 
-	public void insertInSortedLinkedList(ListNode<T> head, ListNode<T> newNode) {
+	public void insertInSortedLinkedList(ListNode<Integer> head, ListNode<Integer> newNode) {
 		if(head == null) {
 			head = newNode;
 		}
-		ListNode<T> current = head, temp = null;
-		while(current != null && (Integer)current.getData() < (Integer)newNode.getData()) {
+		ListNode<Integer> current = head, temp = null;
+		while(current != null && current.getData() < newNode.getData()) {
 			temp = current;
 			current = current.getNext();
 		}
@@ -21,7 +21,7 @@ public class _1_g_InsertInSortedLinkedList<T> {
 	}
 
 	public static void main(String[] args) {
-		_1_g_InsertInSortedLinkedList<Integer> mainClass = new _1_g_InsertInSortedLinkedList<>();
+		_1_g_InsertInSortedLinkedList mainClass = new _1_g_InsertInSortedLinkedList();
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
 		System.out.println(ll.toString());

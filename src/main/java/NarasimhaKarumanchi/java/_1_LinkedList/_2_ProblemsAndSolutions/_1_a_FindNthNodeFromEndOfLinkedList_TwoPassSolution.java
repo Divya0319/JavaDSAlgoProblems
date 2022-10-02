@@ -8,6 +8,8 @@ public class _1_a_FindNthNodeFromEndOfLinkedList_TwoPassSolution<T> {
 	public T findNthNodeFromEnd(ListNode<T> head, int n) {
 		int length = 0;
 		ListNode<T> temp = head;
+		
+		// calculate length of linked list
 		while(temp != null) {
 			temp = temp.getNext();
 			length++;
@@ -19,6 +21,8 @@ public class _1_a_FindNthNodeFromEndOfLinkedList_TwoPassSolution<T> {
 		
 		temp = head;
 		
+		// Go to nth node from end,
+		// by going length-n node from start
 		for(int i = 1; i < length - n + 1; i++) {
 			temp = temp.getNext();
 		}

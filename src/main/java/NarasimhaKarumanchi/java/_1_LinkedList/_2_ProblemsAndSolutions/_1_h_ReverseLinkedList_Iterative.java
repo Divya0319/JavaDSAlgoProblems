@@ -15,9 +15,14 @@ public class _1_h_ReverseLinkedList_Iterative<T> {
 		//Initially previous is null
 		ListNode<T> prev = null;
 		while(current != null) {
+			
+			// next holding next node to current node
 			ListNode<T> next = current.getNext();
+			// current's next will point to previous node
 			current.setNext(prev);
+			// previous now advanced to current
 			prev = current;
+			// current now advanced to next
 			current = next;
 		}
 		return prev;
