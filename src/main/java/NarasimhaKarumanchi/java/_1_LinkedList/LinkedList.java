@@ -62,6 +62,8 @@ public class LinkedList<T> implements LinkedListService<T> {
         temp.setNext(newNode);
         newNode.setNext(temp);
         length++;
+        
+        System.out.println("Loop created from " + temp.getData() + " to " + newNode.getData());
     }
     
     @Override

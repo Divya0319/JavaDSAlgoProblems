@@ -1,6 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
@@ -11,15 +11,22 @@ public class _1_c_CheckIfLoopExistsInLinkedList_UsingHashing<T> {
 		if(head == null) {
 			return false;
 		}
-		HashMap<ListNode<T>, Integer> map = new HashMap<>();
+		HashSet<ListNode<T>> map = new HashSet<>();
 		
 		ListNode<T> temp = head;
 		
 		while(temp != null) {
-			if(map.containsKey(temp)) 
+			
+			// checking if current node of list 
+			// is already present in hashmap
+			if(map.contains(temp)) 
 				return true;
+			
+			// if not present, we put it in hashmap
 			 else 
-				map.put(temp, 1);
+				map.add(temp);
+			
+			// going to next node of list
 			temp = temp.getNext();
 		}
 		

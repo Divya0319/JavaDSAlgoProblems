@@ -9,14 +9,23 @@ public class _1_g_InsertInSortedLinkedList {
 		if(head == null) {
 			head = newNode;
 		}
-		ListNode<Integer> current = head, temp = null;
+		ListNode<Integer> current = head, prev = null;
+		
+		// traversing through list until
+		// a bigger element than inserting element
+		// is not found
 		while(current != null && current.getData() < newNode.getData()) {
-			temp = current;
+			
+			// prev is always pointing to one node
+			// previous to current node of list
+			prev = current;
 			current = current.getNext();
 		}
 		
+		// making next of new node point to its bigger element
 		newNode.setNext(current);
-		temp.setNext(newNode);
+		// making next of smaller node than new node point to new node
+		prev.setNext(newNode);
 		
 	}
 
@@ -40,9 +49,11 @@ public class _1_g_InsertInSortedLinkedList {
 		
 		ListNode<Integer> newNode = new ListNode<>(11);
 		
+		System.out.println("Element to insert: 11" );
+		
 		mainClass.insertInSortedLinkedList(ll.getHead(), newNode);
 		
-		System.out.println(ll.toString());
+		System.out.println("List after insertion: "  + ll.toString());
 	}
 
 }

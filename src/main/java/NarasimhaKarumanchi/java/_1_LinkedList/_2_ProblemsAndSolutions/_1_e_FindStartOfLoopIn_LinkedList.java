@@ -11,6 +11,8 @@ public class _1_e_FindStartOfLoopIn_LinkedList<T> {
 		}
 		ListNode<T> fastPtr = head, slowPtr = head;
 		boolean loopExists = false;
+		
+		// first checking if loop exists of not
 		while(fastPtr != null && fastPtr.getNext() != null) {
 			fastPtr = fastPtr.getNext().getNext();
 			slowPtr = slowPtr.getNext();
@@ -19,13 +21,25 @@ public class _1_e_FindStartOfLoopIn_LinkedList<T> {
 				break;
 			}
 		}
-			
+		
+		// checking loop length only when loop exists
 		if(loopExists) {
+			
+			// we set slowPtr to head initially
+			// (can set any pointer to head,
+			// but then, in the end, have to check other pointer for
+			// starting of loop)
 			slowPtr = head;
 			while(slowPtr != fastPtr) {
+				
+				// now both pointers are going one step at a time
+				// until both pointers meet
 				slowPtr = slowPtr.getNext();
 				fastPtr = fastPtr.getNext();
 			}
+			
+			// now, both pointers point to start
+			// of loop
 			return fastPtr;
 		} else {
 			return null;

@@ -11,6 +11,8 @@ public class _1_f_FindLengthOfLoopIn_LinkedList<T> {
 		}
 		ListNode<T> fastPtr = head, slowPtr = head;
 		boolean loopExists = false;
+		
+		// checking is loop exists
 		while(fastPtr != null && fastPtr.getNext() != null) {
 			fastPtr = fastPtr.getNext().getNext();
 			slowPtr = slowPtr.getNext();
@@ -19,23 +21,32 @@ public class _1_f_FindLengthOfLoopIn_LinkedList<T> {
 				break;
 			}
 		}
-			
+		
+		// if loop exists, finding start of loop
 		if(loopExists) {
 			slowPtr = head;
 			while(slowPtr != fastPtr) {
 				slowPtr = slowPtr.getNext();
 				fastPtr = fastPtr.getNext();
 			}
-		} 
+		}
+		
+		// now both pointers hold start of loop
+		
+		// moving any of pointers one step at a time
+		// until it meets other pointer again
+		// and meanwhile incrementing a counter 
+		// gives length of loop
 		
 		int length = 0;
-		do {
-			slowPtr = slowPtr.getNext();
-			length++;
-		} while(slowPtr != fastPtr);
 		
-		if(loopExists) 
+		if(loopExists) {
+			do {
+				slowPtr = slowPtr.getNext();
+				length++;
+			} while(slowPtr != fastPtr);
 			return length;
+		}
 		else 
 			return -1;
 	}
@@ -57,7 +68,7 @@ public class _1_f_FindLengthOfLoopIn_LinkedList<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
-		ll.insertAndCreateLoop(45, 5);
+//		ll.insertAndCreateLoop(45, 5);
 		
 		int loopLength = mainClass.findLengthOfLoop(ll.getHead());
 		if(loopLength != -1)

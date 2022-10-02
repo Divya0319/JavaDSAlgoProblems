@@ -9,10 +9,21 @@ public class _1_d_CheckIfLoopExistsInLinkedList_Floyds_algo<T> {
 		if(head == null) {
 			return false;
 		}
+		
+		// for checking loop, we use two pointers
+		// one will travel twice as fast than other
 		ListNode<T> fastPtr = head, slowPtr = head;
+		
+		// until fast pointer or its next becomes null, we proceed
 		while(fastPtr != null && fastPtr.getNext() != null) {
+			
+			// advancing fast pointer twice
 			fastPtr = fastPtr.getNext().getNext();
+			// advancing slow pointer once
 			slowPtr = slowPtr.getNext();
+			
+			// if at anytime two pointers meet
+			// there is a loop in linked list
 			if(slowPtr == fastPtr)
 				return true;
 		}
@@ -37,7 +48,6 @@ public class _1_d_CheckIfLoopExistsInLinkedList_Floyds_algo<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(7);
 		System.out.println(ll.toString());
-		ll.insertAndCreateLoop(45, 3);
 		
 		ListNode<Integer> head = new ListNode<>(11);
 		ListNode<Integer> n1 = new ListNode<>(12);
@@ -48,7 +58,7 @@ public class _1_d_CheckIfLoopExistsInLinkedList_Floyds_algo<T> {
 		n2.setNext(n3);		
 		n3.setNext(n2);
 		
-		boolean isLoopExist = mainClass.checkIfLoopExists(head);
+		boolean isLoopExist = mainClass.checkIfLoopExists(ll.getHead());
 		if(isLoopExist)
 			System.out.println("Loop exists in given linked list");
 		else
