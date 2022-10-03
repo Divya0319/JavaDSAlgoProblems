@@ -242,7 +242,7 @@ public class _1_n_ArrayWithMStacks<T> {
 		System.out.println(awts.toString());
 
 		
-		int n = 4;
+		int n = 2;
 		System.out.println("Size of stack " + n + " is " + awts.getSizeOfStack(n));
 		System.out.println("Contents of stack " + n + " is " + awts.toString(n));
 

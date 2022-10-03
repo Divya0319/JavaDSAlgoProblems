@@ -70,15 +70,21 @@ public class _1_x_SplitCircularLinkedListIntoTwoParts<T> {
 	
 	public String printList(ListNode<T> head) {
 		ListNode<T> temp = head;
-		String s = "";
+		String s = "[";
 		if(head != null) {
 			do {
-				s = s + temp.getData() + " ";
+				if(temp.getNext() == head) {
+					s = s + temp.getData();
+					temp = temp.getNext();
+				} else {
+				s = s + temp.getData() + ", ";
 				temp = temp.getNext();
+				}
+				
 			} while(temp != head);
 		}
 		
-		return s;
+		return s + "]";
 	}
 
 	public static void main(String[] args) {
