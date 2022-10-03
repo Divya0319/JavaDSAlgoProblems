@@ -6,10 +6,18 @@ import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 public class _1_p_PrintLinkedListFromEnd_Recursive<T> {
 
 	public void printLinkedListRecursive(ListNode<T> head) {
+		
+		// when reached end of list
+		// returning from recursion
 		if(head == null) {
 			return;
 		}
+		
+		// first going recursively till end of list
 		printLinkedListRecursive(head.getNext());
+		
+		// while returning, printing the list
+		// from end
 		System.out.print(head.getData() + " ");;
 	}
 

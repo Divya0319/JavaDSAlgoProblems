@@ -14,7 +14,13 @@ public class _1_i_ReverseLinkedList_Recursive<T> {
 		}
 		
 		ListNode<T> newHeadNode = reverseSinglyLinkedList(head.getNext());
+		
+		// this line actually reverses 
+		// the link direction of next node, to current node
 		head.getNext().setNext(head);
+		
+		// and head will be last node,
+		// so its next will be null
 		head.setNext(null);
 		
 		return newHeadNode;

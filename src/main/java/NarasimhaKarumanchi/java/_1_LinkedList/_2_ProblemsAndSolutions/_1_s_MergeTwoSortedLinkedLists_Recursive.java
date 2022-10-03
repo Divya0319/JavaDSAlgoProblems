@@ -11,12 +11,22 @@ public class _1_s_MergeTwoSortedLinkedLists_Recursive<T> {
 			return head2;
 		if(head2 == null) 
 			return head1;
+		
+		// Initially setting smallest element (0) 
+		// as head of resulting list
 		ListNode<Integer> head = new ListNode<>(0);
 		if(head1.getData() <= head2.getData()) {
+			
+			// if head1 is smaller than head2
+			// make head of result list as head1
+			// and progress recursion with next of head1
 			head = head1;
 			head.setNext(mergeTwoSortedLinkedLists(head1.getNext(), head2));
 		}
 		else {
+			// else if head2 is smaller than head1
+			// make head of result list as head2
+			// and progress recursion with next of head2
 			head = head2;
 			head.setNext(mergeTwoSortedLinkedLists(head2.getNext(), head1));
 		}
@@ -47,8 +57,8 @@ public class _1_s_MergeTwoSortedLinkedLists_Recursive<T> {
 		
 		ListNode<Integer> headL2 = new ListNode<>(11);
 		ListNode<Integer> n1 = new ListNode<>(12);
-		headL2.setNext(n1);
 		ListNode<Integer> n2 = new ListNode<>(23);
+		headL2.setNext(n1);
 		n1.setNext(n2);
 		n2.setNext(null);
 		

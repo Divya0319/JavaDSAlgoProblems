@@ -15,18 +15,26 @@ public class _1_q_PrintLinkedListFromEnd_Iterative<T> {
 			return null;
 		}
 
+		// case for single node list
 		if(head.getNext() == null) {
 			result.add(head.getData());
 			return result;
 		}
 		
+		// replicating recursion using a stack
 		LinkedStack<T> stk = new LinkedStack<>();
 		ListNode<T> temp = head;
+		
+		// until we reach end of list
+		// we push node data one by one to stack
 		while(temp != null) {
 			stk.push(temp.getData());
 			temp = temp.getNext();
 		}
 		
+		// when list is over
+		// we pop from stack
+		// and add it to result array
 		while(!stk.isEmpty()) {
 			result.add(stk.pop());
 		}

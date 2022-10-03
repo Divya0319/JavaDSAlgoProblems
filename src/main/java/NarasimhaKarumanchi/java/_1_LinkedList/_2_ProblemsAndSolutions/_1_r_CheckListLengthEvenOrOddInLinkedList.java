@@ -7,11 +7,17 @@ import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 public class _1_r_CheckListLengthEvenOrOddInLinkedList<T> {
 
 	public boolean checkListLengthEven(ListNode<T> head) {
+		
+		// Traversing the list two steps at a time
 		while(head != null && head.getNext() != null) 
 			head = head.getNext().getNext();
-			
+		
+		// if we reached end of list
+		// list length is even
 		if(head == null) return true;
 		
+		
+		// else, length is odd
 		return false;
 
 	}
