@@ -9,23 +9,39 @@ public class _2_f_CopyLinkedListWithRandomPointer_UsingHashMap<T> {
 	
 	public ListNodeWithRandomPointer<T> copyListWithRandomPointer(ListNodeWithRandomPointer<T> head) {
 		HashMap<ListNodeWithRandomPointer<T>, ListNodeWithRandomPointer<T>> map = new HashMap<>();
-		ListNodeWithRandomPointer<T> temp = head, copy;
+		ListNodeWithRandomPointer<T> orig = head, copy;
 		
-		while(temp != null) {
-			copy = new ListNodeWithRandomPointer<>(temp.getData());
-			map.put(temp, copy);
-			temp = temp.getNext();
+		// creating, and storing copy nodes
+		// into hashmap
+		// using original node as key, and copy node as value
+		// Copy nodes are created using data of original nodes
+		// next and random of all copy nodes are null initially
+		while(orig != null) {
+			copy = new ListNodeWithRandomPointer<>(orig.getData());
+			map.put(orig, copy);
+			orig = orig.getNext();
 		}
 		
-		temp = head;
+		orig = head;
 		
-		while(temp != null) {
-			copy = map.get(temp);
-			copy.setNext(map.get(temp.getNext()));
-			copy.setRandom(map.get(temp.getRandom()));
-			temp = temp.getNext();
+		// retrieving stored copy nodes
+		// and setting their next and random pointers
+		while(orig != null) {
+			
+			// retrieving copy node using original node as key
+			copy = map.get(orig);
+			
+			// setting next of copy node using using stored original's next's data as key from hashmap
+			copy.setNext(map.get(orig.getNext()));
+			
+			// setting random of copy node using using stored original's random's data as key from hashmap
+			copy.setRandom(map.get(orig.getRandom()));
+			
+			//advancing original reference to next original node
+			orig = orig.getNext();
 		}
 		
+		// returning reference to first copy node
 		return map.get(head);
 	}
 	
