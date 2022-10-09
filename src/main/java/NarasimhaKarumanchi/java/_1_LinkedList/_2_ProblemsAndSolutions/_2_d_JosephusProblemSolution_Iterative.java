@@ -2,16 +2,20 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 
 
 public class _2_d_JosephusProblemSolution_Iterative {
+	
+	/*
+	 * Reference:  https://iq.opengenus.org/josephus-problem/
+	 */
 
 	public int josephusSolution(int n, int k) {
 		
-		int sum = 0;
+		int pos = 1;
 		
 		for(int i = 2; i <= n; i++) {
-			sum = (sum + k) % i;
+			pos = (pos + k - 1) % i + 1;
 		}
 		
-		return sum + 1;
+		return pos;
 
 	}
 

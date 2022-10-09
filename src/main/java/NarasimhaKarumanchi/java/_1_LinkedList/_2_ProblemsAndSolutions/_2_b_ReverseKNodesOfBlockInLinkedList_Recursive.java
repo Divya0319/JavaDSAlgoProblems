@@ -4,6 +4,17 @@ import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
 public class _2_b_ReverseKNodesOfBlockInLinkedList_Recursive<T> {
+	
+	/*
+	 * We are solving reverse problem for 1st group of size k(using iterative reverse algo)
+	 * until count < k ---> it reverses first k nodes
+	 * and calling recursion for rest of the groups
+	 * 
+	 * For next part, we do
+	 * head.next = recursion output
+	 * 
+	 * return head of reversed linked list ---> prev
+	 */
 
 	public ListNode<T> reverseKNodes(ListNode<T> head, int k) {
 		
@@ -12,6 +23,7 @@ public class _2_b_ReverseKNodesOfBlockInLinkedList_Recursive<T> {
 		ListNode<T> curr = head, next = null, prev = null;
 		int count = 0;
 		
+		// reversing only starting k nodes
 		while(count < k && curr != null) {
 			next = curr.getNext();
 			curr.setNext(prev);
@@ -49,7 +61,9 @@ public class _2_b_ReverseKNodesOfBlockInLinkedList_Recursive<T> {
 		System.out.println(ll.toString());
 		ll.insertAtEnd(9);
 		System.out.println(ll.toString());
-		int k = 3;
+		ll.insertAtEnd(10);
+		System.out.println(ll.toString());
+		int k = 4;
 		ListNode<Integer> exchangedList = mainClass.reverseKNodes(ll.getHead(), k);
 		System.out.println("Linked list after reversing " + k + " blocks of nodes: " + ll.toString(exchangedList));
 

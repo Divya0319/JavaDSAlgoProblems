@@ -1,5 +1,6 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
+import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
 public class _2_e_JosephusProblemSolution_CircularLinkedList<T> {
@@ -9,55 +10,81 @@ public class _2_e_JosephusProblemSolution_CircularLinkedList<T> {
 		int i;
 		
 		q = p = head;
+		
+		// while only one node is left in linked list
 		while(p.getNext() != p) {
+			
+			// going to kth node
 			for(i = 0; i < k - 1; i++) {
 				q = p;
 				p = p.getNext();
 			}
 			
+			// pointing node before kth node
+			// to node after kth node
+			// (q is node before kth node p)
 			q.setNext(p.getNext());
 			System.out.println(p.getData() + " has been killed");
+			
+			// setting p to next of q, to be used in next iteration
 			p = q.getNext();
 		}
-		
-		head = p;
-		
+				
 		return p.getData();
 	}
 	
 	public String printList(ListNode<T> head) {
 		ListNode<T> temp = head;
-		String s = "";
+		String s = "[";
 		if(head != null) {
 			do {
-				s = s + temp.getData() + " ";
-				temp = temp.getNext();
+				if(temp.getNext() == head) {
+					s = s + temp.getData();
+					temp = temp.getNext();
+				} else {
+					s = s + temp.getData() + ", ";
+					temp = temp.getNext();
+				}
 			} while(temp != head);
 		}
 		
-		return s;
+		return s + "]";
 	}
+	
+	public void convertToCircular(ListNode<T> head) {
+        ListNode<T> temp = head;
+        
+        while(temp.getNext() != null) {
+        	temp = temp.getNext();
+        }
+        
+        temp.setNext(head);
+    }
 
 	public static void main(String[] args) {
 		_2_e_JosephusProblemSolution_CircularLinkedList<Integer> mainClass = new _2_e_JosephusProblemSolution_CircularLinkedList<>();
 		
 		Integer survived, skip;
 				
-		ListNode<Integer> head = new ListNode<>(4);
-		head.setNext(new ListNode<>(2));
-		head.getNext().setNext(new ListNode<>(7));
-		head.getNext().getNext().setNext(new ListNode<>(9));
-		head.getNext().getNext().getNext().setNext(new ListNode<>(3));
-		head.getNext().getNext().getNext().getNext().setNext(new ListNode<>(5));
-		head.getNext().getNext().getNext().getNext().getNext().setNext(new ListNode<>(1));
-		head.getNext().getNext().getNext().getNext().getNext().getNext().setNext(head);
-		
+		LinkedList<Integer> ll = new LinkedList<>();
+		ll.insertAtBegin(1);
+		ll.insertAtEnd(2);
+		ll.insertAtEnd(3);
+		ll.insertAtEnd(4);
+		ll.insertAtEnd(5);
+		ll.insertAtEnd(6);
+		ll.insertAtEnd(7);
+		ll.insertAtEnd(8);
+		ll.insertAtEnd(9);
+		ll.insertAtEnd(10);
+		mainClass.convertToCircular(ll.getHead());
+				
 		System.out.println("The persons in circular linked list are : "); 
-		System.out.println(mainClass.printList(head));
+		System.out.println(mainClass.printList(ll.getHead()));
 		
-		skip = 3;
+		skip = 9;
 		System.out.println("Enter the number of persons to be skipped: " + skip);
-		survived = mainClass.survivor(head, skip);
+		survived = mainClass.survivor(ll.getHead(), skip);
 		
 		System.out.println("The person to survive is : " + survived);
 		

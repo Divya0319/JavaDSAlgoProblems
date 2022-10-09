@@ -7,6 +7,7 @@ public class _2_a_ReverseKNodesOfBlockInLinkedList_Iterative<T> {
 
 	public ListNode<T> reverseKNodes(ListNode<T> head, int k) {
 		
+		 
 		if(head == null || k == 1) return head;
 				
 		ListNode<T> dummy = new ListNode<>((T)new Integer(0));
@@ -15,12 +16,18 @@ public class _2_a_ReverseKNodesOfBlockInLinkedList_Iterative<T> {
 		ListNode<T> curr = dummy, nex = dummy, pre = dummy;
 		int count = 0;
 		
+		// counting number of nodes in list
 		while(curr.getNext() != null) {
 			curr = curr.getNext();
 			count++;
 		}
 		
 		while(count >= k) {
+			
+			// making sure that curr is standing
+			// at first node of group of size-k
+			// and nex is standing at second of 
+			// group of size-k
 			curr = pre.getNext();
 			nex = curr.getNext();
 			
@@ -32,6 +39,9 @@ public class _2_a_ReverseKNodesOfBlockInLinkedList_Iterative<T> {
 			}
 			
 			pre = curr;
+			
+			// after every k nodes reversal
+			// count gets decreased by k
 			count -= k;
 		}
 		
@@ -61,7 +71,7 @@ public class _2_a_ReverseKNodesOfBlockInLinkedList_Iterative<T> {
 		ll.insertAtEnd(9);
 		System.out.println(ll.toString());
 		 
-		int k = 4;
+		int k = 5;
 		ListNode<Integer> exchangedList = mainClass.reverseKNodes(ll.getHead(), k);
 		System.out.println("Linked list after reversing " + k + " blocks of nodes: " + ll.toString(exchangedList));
 

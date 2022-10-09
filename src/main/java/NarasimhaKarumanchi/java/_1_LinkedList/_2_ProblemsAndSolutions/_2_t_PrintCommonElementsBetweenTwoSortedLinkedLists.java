@@ -50,7 +50,7 @@ public class _2_t_PrintCommonElementsBetweenTwoSortedLinkedLists {
 		ll1.insertAtEnd(11);
 		ll1.insertAtEnd(16);
 
-		System.out.println(ll1.toString());
+		System.out.println("First List: " + ll1.toString());
 		
 		LinkedList<Integer> ll2 = new LinkedList<>();
 		ll2.insertAtBegin(2);
@@ -60,7 +60,7 @@ public class _2_t_PrintCommonElementsBetweenTwoSortedLinkedLists {
 		ll2.insertAtEnd(15);
 		ll2.insertAtEnd(54);
 		
-		System.out.println(ll2.toString());
+		System.out.println("Second List: " + ll2.toString());
 
 		ListNode<Integer> commonElementList = mainClass.printCommonElements(ll1.getHead(), ll2.getHead());
 		System.out.println("Common elements in given linked lists: " + ll1.toString(commonElementList));

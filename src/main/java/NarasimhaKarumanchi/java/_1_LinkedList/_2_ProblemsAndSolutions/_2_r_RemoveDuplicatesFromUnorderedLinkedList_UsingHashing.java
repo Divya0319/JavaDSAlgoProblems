@@ -1,7 +1,7 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
@@ -14,7 +14,7 @@ public class _2_r_RemoveDuplicatesFromUnorderedLinkedList_UsingHashing {
 		
 		// Creating a hashmap which will hold
 		// Integer value of linked list node data
-		Map<Integer, Integer> map = new HashMap<>();
+		Set<Integer> map = new HashSet<>();
 		
 		// curr will supply value for comparison
 		// with hashmap
@@ -25,7 +25,7 @@ public class _2_r_RemoveDuplicatesFromUnorderedLinkedList_UsingHashing {
 		ListNode<Integer> prev = head;
 		
 		// Initially, head's data is stored in map
-		map.put(curr.getData(), 1);
+		map.add(curr.getData());
 		
 		// and curr advanced to second node
 		curr = curr.getNext();
@@ -34,13 +34,13 @@ public class _2_r_RemoveDuplicatesFromUnorderedLinkedList_UsingHashing {
 			// if hashmap already contains data of node
 			// then we update reference of previous node
 			// to next of current node
-			if(map.containsKey(curr.getData())) {
+			if(map.contains(curr.getData())) {
 				prev.setNext(curr.getNext());
 			} else {
 				
 				// else, we put that node's data to map
 				// and update previous node pointer to current node
-				map.put(curr.getData(), 1);
+				map.add(curr.getData());
 				prev = curr;
 			}
 			
