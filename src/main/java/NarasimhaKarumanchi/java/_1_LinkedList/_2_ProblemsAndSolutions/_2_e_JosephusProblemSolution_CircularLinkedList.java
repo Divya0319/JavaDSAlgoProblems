@@ -15,6 +15,8 @@ public class _2_e_JosephusProblemSolution_CircularLinkedList<T> {
 		while(p.getNext() != p) {
 			
 			// going to kth node
+			// incrementing (k-1) times
+			// as p is already at head
 			for(i = 0; i < k - 1; i++) {
 				q = p;
 				p = p.getNext();
@@ -29,7 +31,8 @@ public class _2_e_JosephusProblemSolution_CircularLinkedList<T> {
 			// setting p to next of q, to be used in next iteration
 			p = q.getNext();
 		}
-				
+		
+		// at this point, p is the only node left in linked list, so it is returned
 		return p.getData();
 	}
 	
