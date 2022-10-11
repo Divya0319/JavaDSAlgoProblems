@@ -13,6 +13,13 @@ public class _2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<T> {
 		ListNode<T> fractionalNode = null;
 		int i = 1;
 		
+		
+		// we set fractional node for every k movements of a temp pointer
+		// if fractional node is null, and we moved temp k times, we move 
+		// fractional node to head.
+		// and for every other k movements of temp, we move fractional node one step forward
+		// If we reached end of list, current value of fractional node is (n/k)th) node from beginning
+		
 		ListNode<T> temp = head;
 		while(temp != null) {
 			if(i % k == 0) {
@@ -21,6 +28,8 @@ public class _2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<T> {
 				else 
 					fractionalNode = fractionalNode.getNext();
 			}
+			
+			// i used to keep track of how many times k movements of temp are done
 			i++;
 			temp = temp.getNext();
 		}
@@ -71,8 +80,8 @@ public class _2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<T> {
 		ll.insertAtEnd(19);
 		System.out.println(ll.toString());
 		
-		ListNode<Integer> modularNode = mainClass.findFractionalNode(ll.getHead(), 3);
-		System.out.println("N/kth Node of Linked List : " + modularNode.getData());
+		ListNode<Integer> modularNode = mainClass.findFractionalNode(ll.getHead(), 13);
+		System.out.println("N/13th Node of Linked List : " + modularNode.getData());
 	}
 
 }

@@ -9,10 +9,16 @@ public class _2_h_FindModularNodeFromBeginningInLinkedList<T> {
 		ListNode<T> modularNode = null;
 		if(k <= 0) return null;
 		
-		int i = 1;
+		int i = 0;
 		
 		ListNode<T> temp = head;
 		
+		
+		// we are setting modular node
+		// every time we find a node whose position
+		// is divisible by k
+		// This is done until end of list.
+		// The last modular node set is the answer.
 		while(temp != null) {
 			if(i % k == 0) 
 				modularNode = temp;
@@ -68,7 +74,7 @@ public class _2_h_FindModularNodeFromBeginningInLinkedList<T> {
 		ll.insertAtEnd(19);
 		System.out.println(ll.toString());
 		
-		ListNode<Integer> modularNode = mainClass.findModularNode(ll.getHead(), 3);
+		ListNode<Integer> modularNode = mainClass.findModularNode(ll.getHead(), 23);
 		System.out.println("Modular Node of Linked List : " + modularNode.getData());
 	}
 

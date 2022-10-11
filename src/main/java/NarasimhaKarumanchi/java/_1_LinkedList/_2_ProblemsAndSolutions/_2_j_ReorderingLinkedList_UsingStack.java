@@ -10,14 +10,28 @@ public class _2_j_ReorderingLinkedList_UsingStack<T> {
 		
 		if(head == null) return null;
 		
+		
+		// finding middle node here
+		// slowPtr will point to middle node
+		
+		// middle node:  ceil(n+1/2), when n is even
+		//               ceil(n/2), when n is odd
 		ListNode<T> slowPtr = head, fastPtr = head.getNext();
 		while(fastPtr != null && fastPtr.getNext() != null) {
 			slowPtr = slowPtr.getNext();
 			fastPtr = fastPtr.getNext().getNext();
 		}
 		ListNode<T> newHead = slowPtr.getNext();
+		
+		// middle node will be last node in final result
+		// so setting its next to null
 		slowPtr.setNext(null);
 		LinkedStack<ListNode<T>> stk = new LinkedStack<>();
+		
+		// storing all nodes after middle node
+		// into stack, in order to operate them in reverse
+		// when popped next time
+		// (Note: all node's next are set to null before storing to stack)
 		while(newHead != null) {
 			ListNode<T> temp = newHead;
 			newHead = newHead.getNext();
@@ -25,10 +39,17 @@ public class _2_j_ReorderingLinkedList_UsingStack<T> {
 			stk.push(temp);
 		}
 		
+		// taking out all nodes after middle node
+		// in reverse
+		// and attaching them in spiral manner
+		// as required
 		while(!stk.isEmpty()) {
 			ListNode<T> temp = stk.pop();
+			// last node's next pointed to 2nd node of list
 			temp.setNext(head.getNext());
+			// 1st node's next pointed to last node
 			head.setNext(temp);
+			// head advanced to 2nd node of list now
 			head = temp.getNext();
 		}
 		
