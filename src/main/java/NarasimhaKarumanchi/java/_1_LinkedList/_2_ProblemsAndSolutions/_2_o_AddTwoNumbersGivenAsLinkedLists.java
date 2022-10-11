@@ -18,7 +18,7 @@ public class _2_o_AddTwoNumbersGivenAsLinkedLists {
 		// or 2nd list not over
 		// or when carry is not zero, we loop the lists
 		while(head1 != null || head2 != null || carry != 0) {
-			// for every iteration, we reset the sum
+			// for every iteration, we reset the sum variable
 			int sum = 0;
 			if(head1 != null) {
 				// current node of list1's data added to sum

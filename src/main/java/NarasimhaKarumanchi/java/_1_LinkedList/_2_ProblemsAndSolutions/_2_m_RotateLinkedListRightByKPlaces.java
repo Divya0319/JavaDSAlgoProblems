@@ -36,7 +36,6 @@ public class _2_m_RotateLinkedListRightByKPlaces<T> {
 		
 		temp = head;
 		
-		// this jump will calculate k+2 position from end
 		int jumps = n - k - 1;
 		
 		// Here, we are finding (k+1)th node from end

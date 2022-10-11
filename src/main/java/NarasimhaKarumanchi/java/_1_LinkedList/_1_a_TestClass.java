@@ -2,88 +2,56 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList;
 
 public class _1_a_TestClass {
 	
-	public ListNode<Integer> rotateListRoghtByK(ListNode<Integer> head, int k) {
-		if(k < 1 || head == null || head.getNext() == null) {
-			return head;
+	public ListNode<Integer> partitionListBasedOnK(ListNode<Integer> head, int k) {
+		ListNode<Integer> left = new ListNode<>(0);
+		ListNode<Integer> right = new ListNode<>(0);
+		
+		ListNode<Integer> l = left, r = right;
+		
+		while(head != null) {
+			if(head.getData() < k) {
+				l.setNext(head);
+				l = l.getNext();
+			} else {
+				r.setNext(head);
+				r = r.getNext();
+			}
+			
+			head = head.getNext();
 		}
+
+		l.setNext(right.getNext());
+		r.setNext(null);
 		
-		ListNode<Integer> temp = head;
-		int n = 0;
+		return left.getNext();
 		
-		while(temp.getNext() != null) {
-			temp = temp.getNext();
-			n++;
-		}
-		
-		n++;
-		
-		temp.setNext(head);
-		
-		k = k % n;
-		
-		temp = head;
-		
-		int jumps = n - k - 1;
-		
-		while(jumps > 0) {
-			temp = temp.getNext();
-			jumps--;
-		}
-		
-		ListNode<Integer> newHead = temp.getNext();
-		
-		temp.setNext(null);
-		
-		return newHead;
 	}
 
 	
 	public static void main(String[] args) {
 		_1_a_TestClass mainClass = new _1_a_TestClass();
-		LinkedList<Integer> ll = new LinkedList<>();
-		ll.insertAtBegin(1);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(11);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(3);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(4);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(10);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(5);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(15);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(6);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(16);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(7);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(8);		
-		System.out.println(ll.toString());
-		ll.insertAtEnd(2);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(14);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(13);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(9);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(18);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(-17);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(19);
-		System.out.println(ll.toString());
-		ll.insertAtEnd(12);
-		System.out.println(ll.toString());
+		LinkedList<Integer> ll1 = new LinkedList<>();
 		
-		System.out.println("Original List: " + ll.toString());
-		ListNode<Integer> newHead = mainClass.rotateListRoghtByK(ll.getHead(), 5);
+		ll1.insertAtBegin(1);
+		ll1.insertAtEnd(3);
+		ll1.insertAtEnd(6);
+		ll1.insertAtEnd(2);
+		ll1.insertAtEnd(56);
+		ll1.insertAtEnd(48);
+		ll1.insertAtEnd(21);
+		ll1.insertAtEnd(4);
+		ll1.insertAtEnd(9);
+		ll1.insertAtEnd(89);
+		ll1.insertAtEnd(8);
+
+		
+		System.out.println("List : " + ll1.toString());
+		
+		int k = 19;
+
+		ListNode<Integer> sumList = mainClass.partitionListBasedOnK(ll1.getHead(), k);
 				
-		System.out.println("Sorted List: " + ll.toString(newHead));
+		System.out.println("Partition List based on " + k + " is " +  ll1.toString(sumList));
 	
 	}
 
