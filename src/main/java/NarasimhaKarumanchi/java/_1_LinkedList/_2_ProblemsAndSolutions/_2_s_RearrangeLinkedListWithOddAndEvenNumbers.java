@@ -9,27 +9,16 @@ public class _2_s_RearrangeLinkedListWithOddAndEvenNumbers {
 		
 		// even pointer will point to starting of even nodes
 		// and odd pointer will point to starting of odd nodes
-		ListNode<Integer> even = null, odd = null;
+		ListNode<Integer> even = new ListNode<>(-1);
+		ListNode<Integer> odd = new ListNode<>(-1);
 		
 		// e and o are used as a handle to generate segregated even and odd nodes
 		// in resulting linked list
-		ListNode<Integer> e = null, o = null;
+		ListNode<Integer> e = even, o = odd;
 		
 		while(head != null) {
 			if(head.getData() % 2 == 0) {
 				
-				// if data is even
-				// and this is first even node
-				if(even == null) {
-					
-					// updating even pointer
-					even = head;
-					// updating e pointer to start after head  
-					// next time
-					e = head;
-				} else {
-					
-					// even nodes are already present, then
 					// add current even node after previously
 					// present last even node
 					e.setNext(head);
@@ -37,21 +26,9 @@ public class _2_s_RearrangeLinkedListWithOddAndEvenNumbers {
 					// updating e pointer to this
 					// newly added even node
 					e = e.getNext();
-				}
-			} 
-			
-			// if data is odd
-			// and this is first odd node
-			else {
-				if(odd == null) {
-					// updating odd pointer
-					odd = head;
-					// updating o pointer to start after head  
-					// next time
-					o = head;
-				} else {
-					
-					// odd nodes are already present, then
+				
+			} else {
+				 
 					// add current odd node after previously
 					// present last odd node
 					o.setNext(head);
@@ -59,7 +36,7 @@ public class _2_s_RearrangeLinkedListWithOddAndEvenNumbers {
 					// updating o pointer to this
 					// newly added odd node
 					o = o.getNext();
-				}
+				
 			}
 			
 			// advancing head
@@ -71,16 +48,16 @@ public class _2_s_RearrangeLinkedListWithOddAndEvenNumbers {
 		
 		// if there is at least
 		// one even node in given list
-		if(e != null) {
+		if(even.getNext() != null) {
 			
 			// join odd node head
 			// after last even node
-			e.setNext(odd);
+			e.setNext(odd.getNext());
 		}
 		
 		// if there is at least
 		// one odd node in given list
-		if(o != null) {
+		if(odd.getNext() != null) {
 			
 			// set last even node's next as null
 			o.setNext(null);
@@ -89,11 +66,11 @@ public class _2_s_RearrangeLinkedListWithOddAndEvenNumbers {
 		
 		// if at least one even node is there in result
 		// return starting node of even nodes
-		if(even != null) 
-			return even;
+		if(even.getNext() != null) 
+			return even.getNext();
 		
 		// else return starting node of odd nodes
-		return odd;
+		return odd.getNext();
 	}
 		
 	public static void main(String[] args) {

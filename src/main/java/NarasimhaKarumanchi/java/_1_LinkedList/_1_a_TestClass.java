@@ -1,29 +1,39 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList;
 
+
 public class _1_a_TestClass {
 	
-	public ListNode<Integer> partitionListBasedOnK(ListNode<Integer> head, int k) {
-		ListNode<Integer> left = new ListNode<>(0);
-		ListNode<Integer> right = new ListNode<>(0);
+	public ListNode<Integer> rearrangeEvenOddInList(ListNode<Integer> head) {
 		
-		ListNode<Integer> l = left, r = right;
+		ListNode<Integer> even = new ListNode<>(-1);
+		ListNode<Integer> odd = new ListNode<>(-1);
+		
+		ListNode<Integer> e = even, o = odd;
 		
 		while(head != null) {
-			if(head.getData() < k) {
-				l.setNext(head);
-				l = l.getNext();
+			if(head.getData() % 2 == 0) {
+				e.setNext(head);
+				e = e.getNext();
 			} else {
-				r.setNext(head);
-				r = r.getNext();
+				o.setNext(head);
+				o = o.getNext();
 			}
 			
 			head = head.getNext();
 		}
-
-		l.setNext(right.getNext());
-		r.setNext(null);
 		
-		return left.getNext();
+		if(even.getNext() != null) {
+			e.setNext(odd.getNext());
+		}
+		
+		if(odd.getNext() != null) {
+			o.setNext(null);
+		}
+		
+		if(even.getNext() == null) {
+			return odd.getNext();
+		}
+		return even.getNext();
 		
 	}
 
@@ -42,16 +52,15 @@ public class _1_a_TestClass {
 		ll1.insertAtEnd(4);
 		ll1.insertAtEnd(9);
 		ll1.insertAtEnd(89);
+		ll1.insertAtEnd(48);
 		ll1.insertAtEnd(8);
 
 		
 		System.out.println("List : " + ll1.toString());
 		
-		int k = 19;
-
-		ListNode<Integer> sumList = mainClass.partitionListBasedOnK(ll1.getHead(), k);
+		ListNode<Integer> rearrangedHead = mainClass.rearrangeEvenOddInList(ll1.getHead());
 				
-		System.out.println("Partition List based on " + k + " is " +  ll1.toString(sumList));
+		System.out.println("Rearranged List: " + ll1.toString(rearrangedHead));
 	
 	}
 
