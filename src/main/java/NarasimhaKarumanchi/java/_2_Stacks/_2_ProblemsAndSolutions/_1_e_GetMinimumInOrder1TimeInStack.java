@@ -26,7 +26,7 @@ public class _1_e_GetMinimumInOrder1TimeInStack<T> implements DynamicStackServic
 		
 		// else we simply push top of minStack back to minStack
 		else {
-			minStack.push(minStack.pop());
+			minStack.push(minStack.peek());
 		}
 		
 	}

@@ -7,7 +7,7 @@ public class _1_d_InfixEvaluation_SinglePass {
 	public int infixEvaluationIn1Pass(String expr) {
 		
 		// Created two stacks
-		// one for storing operands, other for storing operands
+		// one for storing operands, other for storing operators
 		LinkedStack<Integer> opnds = new LinkedStack<>();
 		LinkedStack<Character> optors = new LinkedStack<>();
 		for(int i = 0; i < expr.length(); i++) {
@@ -30,7 +30,7 @@ public class _1_d_InfixEvaluation_SinglePass {
 			// perform operation as v2 op v1,
 			// and put result into operand stack
 			} else if(ch == ')') {
-				while(optors.peek() == '(') {
+				while(optors.peek() != '(') {
 					char optor = optors.pop();
 					int v2 = opnds.pop();
 					int v1 = opnds.pop();
