@@ -1,10 +1,10 @@
-package main.java.NarasimhaKarumanchi.java;
+package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
 
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach {
+public class _1_t_n_Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach {
 	
 	
 	public ListNode<Integer> merge2Lists(ListNode<Integer> l1, ListNode<Integer> l2) {
@@ -85,8 +85,8 @@ public class Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach {
 		System.out.println("Given list 2: " + l2.toString());
 
 		
-		Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach mainClass = 
-				new Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach();
+		_1_t_n_Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach mainClass = 
+				new _1_t_n_Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach();
 		ListNode<Integer> resultList = mainClass.merge2Lists(l1.getHead(), l2.getHead());
 		
 		System.out.println("Merged sorted list: " + l1.toString(resultList));

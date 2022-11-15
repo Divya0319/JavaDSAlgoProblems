@@ -4,7 +4,7 @@ package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
-public class _1_t_n_MergeKSortedLinkedLists<T> {
+public class _1_t_o_MergeKSortedLinkedLists<T> {
 
 	public ListNode<Integer> mergeKSortedLinkedLists(ListNode<Integer>[] lists, int si, int ei) {
 		if(si > ei) return null;
@@ -49,7 +49,7 @@ public class _1_t_n_MergeKSortedLinkedLists<T> {
 	}
 
 	public static void main(String[] args) {
-		_1_t_n_MergeKSortedLinkedLists<Integer> mainClass = new _1_t_n_MergeKSortedLinkedLists<>();
+		_1_t_o_MergeKSortedLinkedLists<Integer> mainClass = new _1_t_o_MergeKSortedLinkedLists<>();
 		LinkedList<Integer> l1 = new LinkedList<>();
 		l1.insertAtBegin(1);
 		System.out.println(l1.toString());
