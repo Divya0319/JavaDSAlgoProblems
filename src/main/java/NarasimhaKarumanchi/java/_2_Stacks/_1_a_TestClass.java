@@ -1,107 +1,83 @@
 package main.java.NarasimhaKarumanchi.java._2_Stacks;
 
-import main.java.NarasimhaKarumanchi.java._3_Queues.DynamicQueueService;
-import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedStack;
-import main.java.NarasimhaKarumanchi.java._3_Queues.ListNode;
+import java.util.Arrays;
+import java.util.EmptyStackException;
 
-public class _1_a_TestClass<T> implements DynamicQueueService<T> {
+public class _1_a_TestClass<T> {
 	
-	LinkedStack<T> s1 = new LinkedStack<>();
-	LinkedStack<T> s2 = new LinkedStack<>();
+	private T[] dataArray;
+	private int size, topOne, topTwo;
 
 	
-	@Override
-	public void enQueue(T data) {
+	public _1_a_TestClass(int size) {
+		if(size < 2)
+			throw new IllegalStateException("Size can't be less than 2");
 		
-		s1.push(data);
+		dataArray = (T[])new Object[size];
+		this.size = size;
+		topOne = -1;
+		topTwo = size;
 	}
-
-	@Override
-	public T deQueue() throws Exception {
+	
+	public void push(int stackId, T data) {
 		
-		if(s2.isEmpty()) {
-			while(s1.size() > 1) {
-				s2.push(s1.pop());
-			}
-			
-			return s1.pop();
-		} else {
-			return s2.pop();
+		if(topTwo == topOne + 1) {
+			throw new StackOverflowError("Array is full");
 		}
 		
-	}
-
-	@Override
-	public int size() {
-		return s1.size() + s2.size();
-	}
-
-	@Override
-	public boolean isEmpty() {
-		
-		return s1.isEmpty() && s2.isEmpty();
+		if(stackId == 1) {
+			dataArray[++topOne] = data;
+		} else if(stackId == 2) {
+			dataArray[--topTwo] = data;
+		} else
+			return;
 	}
 	
+	public T pop(int stackId) {
+		if(stackId == 1) {
+			if(topOne == -1) {
+				throw new EmptyStackException();
+			}
+			T popped = dataArray[topOne];
+			dataArray[topOne--] = null;
+			return popped;
+		} else if(stackId == 2) {
+			if(topTwo == size) {
+				throw new EmptyStackException();
+			}
+			T popped = dataArray[topTwo];
+			dataArray[topTwo++] = null;
+			return popped;
+		} else
+			return null;
+		
+	}
+	
+	@Override
 	public String toString() {
-		String result = "[";
-		try {
-			if (s2.isEmpty()) {
-
-				LinkedStack<T> tempStack = new LinkedStack<>();
-				ListNode<T> top = s1.getTop();
-				while (top != null) {
-					tempStack.push(top.getData());
-					top = top.getNext();
-				}
-				while (!tempStack.isEmpty()) {
-					result += tempStack.pop() + ", ";
-				}
-
-			} else {
-				ListNode<T> top1 = s1.getTop();
-				LinkedStack<T> tempStack = new LinkedStack<>();
-				ListNode<T> top2 = s2.getTop();
-				while (top2 != null) {
-					result += top2.getData() + ", ";
-					top2 = top2.getNext();
-				}
-				while (top1 != null) {
-					tempStack.push(top1.getData());
-					top1 = top1.getNext();
-				}
-				while (!tempStack.isEmpty()) {
-					result += tempStack.pop() + ", ";
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result + "]";
+		
+		return Arrays.toString(dataArray);
 	}
 
-	
 	public static void main(String[] args) {
-		_1_a_TestClass<Integer> mainClass = new _1_a_TestClass<>();
+		_1_a_TestClass<Integer> mainClass = new _1_a_TestClass<>(16);
 		
-		mainClass.enQueue(56);
-		mainClass.enQueue(5);
-		mainClass.enQueue(8);
-		mainClass.enQueue(23);
-		mainClass.enQueue(89);
-		mainClass.enQueue(21);
-		mainClass.enQueue(52);
-		mainClass.enQueue(90);
-		
-		System.out.println(mainClass.toString());
-		try {
-			mainClass.deQueue();
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
+		mainClass.push(1, 8);
+		mainClass.push(2, 9);
+		mainClass.push(1, 0);
+		mainClass.push(2, 4);
+		mainClass.push(1, 17);
+		mainClass.push(2, 98);
+		mainClass.push(1, 90);
+		mainClass.push(2, 74);
+		mainClass.push(1, 83);
+		mainClass.push(2, 86);
+		mainClass.push(1, 89);
+		mainClass.push(2, 81);
+		mainClass.push(1, 85);
 		
 		System.out.println(mainClass.toString());
-
+		
 		
 	}
 
