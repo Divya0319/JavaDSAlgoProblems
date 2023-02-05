@@ -237,7 +237,6 @@ public class _1_m_ArrayWithThreeStacks<T> {
 		System.out.println(awts.toString());
 		awts.push(2, "Norman");
 		System.out.println(awts.toString());
-		System.out.println(awts.topThree);
 		awts.push(3, "Gillfoyl");
 		System.out.println(awts.toString());
 		popped = awts.pop(1);
@@ -264,6 +263,12 @@ public class _1_m_ArrayWithThreeStacks<T> {
 		System.out.println(awts.toString());
 		awts.push(3, "Vision");
 		System.out.println(awts.toString());
+//		awts.pop(3);
+//		System.out.println(awts.toString());
+//		awts.pop(3);
+//		System.out.println(awts.toString());
+
+
 			
 	}
 
