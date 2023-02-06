@@ -60,9 +60,10 @@ public class CircularLinkedList<T> implements CircularLinkedListService<T> {
 	public ListNode<T> deleteFromBegin() {
 		ListNode<T> last = head;
 		ListNode<T> deleted = null;
-		if (head == null)
+		if (head == null) {
 			System.out.println("Underflow!!");
-		else if (last.getNext() == last) {
+			return null;
+		} else if (last.getNext() == last) {
 			deleted = head;
 			head = null;
 		} else {
@@ -76,6 +77,8 @@ public class CircularLinkedList<T> implements CircularLinkedListService<T> {
 			head = head.getNext();
 		}
 
+		length--;
+
 		return deleted;
 
 	}
@@ -85,9 +88,10 @@ public class CircularLinkedList<T> implements CircularLinkedListService<T> {
 		ListNode<T> secondLast = head;
 		ListNode<T> deleted = null;
 
-		if (head == null)
+		if (head == null) {
 			System.out.println("Underflow!!");
-		else if (secondLast.getNext() == secondLast) {
+			return null;
+		} else if (secondLast.getNext() == secondLast) {
 			deleted = head;
 			head = null;
 		} else {
@@ -99,6 +103,8 @@ public class CircularLinkedList<T> implements CircularLinkedListService<T> {
 			deleted = secondLast.getNext();
 			secondLast.setNext(head);
 		}
+
+		length--;
 
 		return deleted;
 	}
@@ -137,6 +143,16 @@ public class CircularLinkedList<T> implements CircularLinkedListService<T> {
 		cll.insertAtBegin(3);
 		cll.insertAtEnd(45);
 		cll.insertAtEnd(4);
+		cll.insertAtEnd(6);
+		cll.insertAtEnd(23);
+		cll.insertAtEnd(12);
+		cll.insertAtEnd(90);
+		cll.insertAtEnd(39);
+		cll.insertAtEnd(34);
+		cll.printList();
+		
+		cll.deleteFromBegin();
+		cll.deleteFromEnd();
 
 		cll.printList();
 
