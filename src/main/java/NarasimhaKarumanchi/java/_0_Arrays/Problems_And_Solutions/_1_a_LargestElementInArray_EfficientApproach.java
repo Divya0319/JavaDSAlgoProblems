@@ -1,6 +1,8 @@
 package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
 
 public class _1_a_LargestElementInArray_EfficientApproach {
+	
+	// T.C. will always be theta(n) time, not best case or worst case, it will always traverse theta(n) time
 	public static int findLargest(int[] arr) {
 
 		int n = arr.length;
