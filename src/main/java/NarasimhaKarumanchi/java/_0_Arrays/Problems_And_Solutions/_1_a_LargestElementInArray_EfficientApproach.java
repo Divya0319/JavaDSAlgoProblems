@@ -9,7 +9,7 @@ public class _1_a_LargestElementInArray_EfficientApproach {
 		int largest = 0;
 
 		for (int i = 1; i < n; i++) {
-			if(arr[i] > largest) {
+			if(arr[i] > arr[largest]) {
 				largest = i;
 			}
 		}
