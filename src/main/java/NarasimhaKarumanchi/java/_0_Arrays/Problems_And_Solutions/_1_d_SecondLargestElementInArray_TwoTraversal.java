@@ -33,8 +33,8 @@ public class _1_d_SecondLargestElementInArray_TwoTraversal {
 		int n = arr.length;
 		int largest = 0;
 		for (int i = 1; i < n; i++) {
-			if (arr[i] > arr[largest]) {
-				largest = i;
+			if (arr[i] > arr[largest]) { // if current element is greater than current largest
+				largest = i;  // update largest
 			}
 		}
 
@@ -42,8 +42,13 @@ public class _1_d_SecondLargestElementInArray_TwoTraversal {
 	}
 
 	public static void main(String[] args) {
-		int[] arr = new int[] { 10, 20, 40, 100, 80 };
-		System.out.println("Second largest element: " + arr[findIndexOfSecondLargest(arr)]);
+		int[] arr = new int[] { 10, 10, 10 };
+		int secondLargestIndex = findIndexOfSecondLargest(arr);
+		if (secondLargestIndex == -1)
+			System.out.println("No Second largest element");
+		else {
+			System.out.println("Second largest element: " + arr[findIndexOfSecondLargest(arr)]);
+		}
 	}
 
 }
