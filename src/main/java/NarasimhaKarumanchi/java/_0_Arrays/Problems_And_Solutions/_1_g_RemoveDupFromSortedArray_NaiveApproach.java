@@ -1,7 +1,7 @@
 package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
 
 
-public class _1_g_RemoveDupFromSortedArray {
+public class _1_g_RemoveDupFromSortedArray_NaiveApproach {
 
 	/**
 	 * We create a temp array of size equal to input array, and create a variable 'res' holding size of temp array
