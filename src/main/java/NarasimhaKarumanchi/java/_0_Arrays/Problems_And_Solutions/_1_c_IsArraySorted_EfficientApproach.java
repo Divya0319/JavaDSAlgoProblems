@@ -15,18 +15,24 @@ public class _1_c_IsArraySorted_EfficientApproach {
 		
 		int n = arr.length;
 		
-		for(int i = 1; i < n; i++) {
-			if(arr[i] < arr[i-1]) {
-				return false;
+		int inc = 0;
+		int dec = 0;
+		for(int i = 0; i < n-1; i++) {
+			if(arr[i] < arr[i+1]) {
+				inc++;
+			} else if(arr[i] > arr[i+1]) {
+				dec++;
 			}
 		}
-		
-		return true;
+		if(inc == 0 ||dec == 0) {
+			return true;
+		}
+		return false;
 		
 	}
 	
 	public static void main(String[] args) {
-		int[] inp = new int[] {7, 8, 8, 1};
+		int[] inp = new int[] {8, 8, 8, 8};
 		System.out.println("Is array sorted? :" + isSorted(inp));
 	}
 
