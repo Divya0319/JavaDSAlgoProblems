@@ -12,7 +12,9 @@ public class _1_p_PrintFactorialofNUsingRecursion {
 	/*
 	 *  converting above non-tail recursive to tail-recursive function
 	 *  1. We added a parameter k to method, and initially passing it as 1 when making function call
-	 *  2. In last line of method, where n is multiplied with recursion result, instead of that
+	 *  2. In base case, instead of return 1, we replace with return k. (if we were to return 0, then in 
+	 *  	replacement code, we write return (k-1).
+	 *  3. In last line of method, where n is multiplied with recursion result, instead of that
 	 *  	we multiply k with n in second parameter of recursion call.
 	 */
 
