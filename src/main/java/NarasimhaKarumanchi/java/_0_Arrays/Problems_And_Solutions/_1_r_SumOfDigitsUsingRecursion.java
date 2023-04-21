@@ -9,11 +9,18 @@ public class _1_r_SumOfDigitsUsingRecursion {
 	 */
 	static int sumOfDigits(int n) {
 		
-		if(n == 0) // handling both cases here, when n becomes zero after reduction,
-						// and when given n is itself zero.
+//		if(n <= 0) // handling both cases here, when n becomes zero after reduction,
+//						// and when given n is itself zero.
+//		{ 
+//			return 0; 
+//		}
+		
+		if(n <= 9) // handling case here, when n becomes single digit after reduction,
+				  // then we simply return n.
 		{ 
-			return 0; 
+			return n; 
 		}
+		
 		/*
 		 * Doing recursive call which removes last digit from number, and adds the value to this removed last digit 
 		 * 
