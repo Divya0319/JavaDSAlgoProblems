@@ -7,24 +7,24 @@ public class _1_r_SumOfDigitsUsingRecursion {
 	 * Takes O(n) worst case time(T(n) = T(n-2) + O(n)), 
 	 * and O(n) auxiliary space for recursion stack(takes n/2 space actually)
 	 */
-	static boolean isPalindrome(String s, int start, int end) {
+	static int sumOfDigits(int n) {
 		
-		if(start >= end) // handling both cases here, start=end happens when string becomes of length 0 for even length,
-						// and start>end happened when string becomes of length 1 for odd length
+		if(n == 0) // handling both cases here, when n becomes zero after reduction,
+						// and when given n is itself zero.
 		{ 
-			return true; 
+			return 0; 
 		}
 		/*
-		 * Checking first start and end characters are same, if they are, then only we make call for 
-		 * check of shrunk string
+		 * Doing recursive call which removes last digit from number, and adds the value to this removed last digit 
+		 * 
 		 */
-		return (s.charAt(start) == s.charAt(end) && isPalindrome(s, start+1, end-1));
+		return (sumOfDigits(n/10) + n % 10);
 		
 	}
 
 	public static void main(String[] args) {
-		String inp = "jabbaj";
-		System.out.println("Is " + inp + " palindrome? " + isPalindrome(inp, 0, inp.length() - 1));
+		int num = 12345;
+		System.out.println("Sum of digits of " + num + " is " + sumOfDigits(num));
 
 	}
 
