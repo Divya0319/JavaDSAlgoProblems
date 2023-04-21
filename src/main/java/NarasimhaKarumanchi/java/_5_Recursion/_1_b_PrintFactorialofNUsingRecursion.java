@@ -1,7 +1,7 @@
-package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
+package main.java.NarasimhaKarumanchi.java._5_Recursion;
 
 
-public class _1_p_PrintFactorialofNUsingRecursion {
+public class _1_b_PrintFactorialofNUsingRecursion {
 
 	static int fun1(int n) {
 		if (n == 0 || n == 1)

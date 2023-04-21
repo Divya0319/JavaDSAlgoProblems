@@ -1,7 +1,7 @@
-package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
+package main.java.NarasimhaKarumanchi.java._5_Recursion;
 
 
-public class _1_r_SumOfDigitsUsingRecursion {
+public class _1_d_SumOfDigitsUsingRecursion {
 
 	/*
 	 * If d is number of digits in n,

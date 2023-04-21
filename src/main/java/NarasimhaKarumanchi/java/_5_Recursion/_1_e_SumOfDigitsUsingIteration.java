@@ -1,7 +1,7 @@
-package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
+package main.java.NarasimhaKarumanchi.java._5_Recursion;
 
 
-public class _1_s_SumOfDigitsUsingIteration {
+public class _1_e_SumOfDigitsUsingIteration {
 
 	/*
 	 * Takes O(d) worst case time 

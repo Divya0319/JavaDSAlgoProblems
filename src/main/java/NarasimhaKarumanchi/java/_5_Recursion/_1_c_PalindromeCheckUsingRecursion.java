@@ -1,7 +1,7 @@
-package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
+package main.java.NarasimhaKarumanchi.java._5_Recursion;
 
 
-public class _1_q_PalindromeCheckUsingRecursion {
+public class _1_c_PalindromeCheckUsingRecursion {
 
 	/*
 	 * Takes O(n) worst case time(T(n) = T(n-2) + O(n)), 

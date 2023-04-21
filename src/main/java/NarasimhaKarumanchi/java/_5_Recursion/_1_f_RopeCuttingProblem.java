@@ -1,7 +1,7 @@
-package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
+package main.java.NarasimhaKarumanchi.java._5_Recursion;
 
 
-public class _1_t_RopeCuttingProblem {
+public class _1_f_RopeCuttingProblem {
 
 	
 	static int maxNoOfPieces(int n, int a, int b, int c) {

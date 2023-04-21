@@ -1,6 +1,6 @@
-package main.java.NarasimhaKarumanchi.java._0_Arrays.Problems_And_Solutions;
+package main.java.NarasimhaKarumanchi.java._5_Recursion;
 
-public class _1_o_PrintFrom1ToNUsingRecursion {
+public class _1_a_PrintFrom1ToNUsingRecursion {
 	
 	static void fun1(int n) {
 
