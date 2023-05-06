@@ -1,4 +1,4 @@
-package main.java.NarasimhaKarumanchi.java.hashing;
+package main.java.NarasimhaKarumanchi.java._6_Hashing;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
