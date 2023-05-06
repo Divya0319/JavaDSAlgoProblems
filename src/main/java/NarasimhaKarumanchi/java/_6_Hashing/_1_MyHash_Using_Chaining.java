@@ -18,15 +18,18 @@ public class _1_MyHash_Using_Chaining {
 	}
 	
 	void insert(int key) {
-		
+		int i = key % BUCKET;
+		table.get(i).add(key);
 	}
 	
 	boolean search(int key) {
-		return false;
+		int i = key % BUCKET;
+		return table.get(i).contains(key);	
 	}
 	
 	void remove(int key) {
-		
+		int i = key % BUCKET;
+		table.get(i).remove((Integer)i);
 	}
 
 }
