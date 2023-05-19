@@ -6,9 +6,10 @@ import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 public class _1_y_CheckLinkedListIsPalindrome<T> {
 	
 	public ListNode<T> findMiddle(ListNode<T> head) {
-		ListNode<T> fast = head.getNext(), slow = head;
+		ListNode<T> fast = head, slow = head;
 		
-		while(fast != null && fast.getNext() != null) {
+		while(fast.getNext() != null && fast.getNext().getNext() != null) { // in even list, if middle has to be first of the two nodes
+		// while(fast != null && fast.getNext() != null) {	// in even list, if middle has to be second of the two nodes
 			fast = fast.getNext().getNext();
 			slow = slow.getNext();
 		}

@@ -24,7 +24,7 @@ public class _2_d_JosephusProblemSolution_Iterative {
 		
 		int n = 10, k = 9;
 		
-		System.out.println("Last man standing in " + n + " is : " + mainClass.josephusSolution(n,  k));
+		System.out.println("Last man standing in " + n + " is at position : " + mainClass.josephusSolution(n,  k));
 		
 	}
 

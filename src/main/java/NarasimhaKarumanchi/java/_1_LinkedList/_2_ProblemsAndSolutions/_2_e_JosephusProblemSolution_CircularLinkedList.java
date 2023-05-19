@@ -67,7 +67,8 @@ public class _2_e_JosephusProblemSolution_CircularLinkedList<T> {
 	public static void main(String[] args) {
 		_2_e_JosephusProblemSolution_CircularLinkedList<Integer> mainClass = new _2_e_JosephusProblemSolution_CircularLinkedList<>();
 		
-		Integer survived, skip;
+		Integer survived;
+		Integer skip;
 				
 		LinkedList<Integer> ll = new LinkedList<>();
 		ll.insertAtBegin(1);
@@ -79,13 +80,12 @@ public class _2_e_JosephusProblemSolution_CircularLinkedList<T> {
 		ll.insertAtEnd(7);
 		ll.insertAtEnd(8);
 		ll.insertAtEnd(9);
-		ll.insertAtEnd(10);
 		mainClass.convertToCircular(ll.getHead());
 				
 		System.out.println("The persons in circular linked list are : "); 
 		System.out.println(mainClass.printList(ll.getHead()));
 		
-		skip = 9;
+		skip = 2;
 		System.out.println("Enter the number of persons to be skipped: " + skip);
 		survived = mainClass.survivor(ll.getHead(), skip);
 		

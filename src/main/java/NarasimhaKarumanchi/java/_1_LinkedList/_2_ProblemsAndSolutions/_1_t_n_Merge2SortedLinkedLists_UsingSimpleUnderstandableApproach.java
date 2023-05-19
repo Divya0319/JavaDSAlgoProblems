@@ -18,7 +18,7 @@ public class _1_t_n_Merge2SortedLinkedLists_UsingSimpleUnderstandableApproach {
 		ListNode<Integer> prev = dummy;
 		
 		// For keeping original heads of list intact,
-		// we use iterators c2 and c2 for the lists
+		// we use iterators c1 and c2 for the lists
 		ListNode<Integer> c1 = l1, c2 = l2;
 		
 		// until we reach end of any 1 list, we continue

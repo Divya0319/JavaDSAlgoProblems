@@ -15,7 +15,7 @@ public class _2_c_JosephusProblemSolution_Recursive {
 	public static void main(String[] args) {
 		_2_c_JosephusProblemSolution_Recursive mainClass = new _2_c_JosephusProblemSolution_Recursive();
 		
-		int n = 7, k = 3;
+		int n = 10, k = 9;
 		
 		System.out.println("Last man standing in " + n + " is at position : " + mainClass.josephusSolution(n,  k));
 		

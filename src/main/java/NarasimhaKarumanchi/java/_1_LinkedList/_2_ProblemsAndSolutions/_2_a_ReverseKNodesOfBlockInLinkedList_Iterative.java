@@ -25,12 +25,15 @@ public class _2_a_ReverseKNodesOfBlockInLinkedList_Iterative<T> {
 		while(count >= k) {
 			
 			// making sure that curr is standing
-			// at first node of group of size-k
-			// and nex is standing at second of 
-			// group of size-k
+			// at first node of any group of size k
+			// and nex is standing at second node of 
+			// any group of size k
 			curr = pre.getNext();
 			nex = curr.getNext();
 			
+			// if k is given, there will be k-1 operations
+			// we need to perform
+			// because there will be k-1 links we need to reverse
 			for(int i = 1; i < k; i++) {
 				curr.setNext(nex.getNext());
 				nex.setNext(pre.getNext());
@@ -38,6 +41,8 @@ public class _2_a_ReverseKNodesOfBlockInLinkedList_Iterative<T> {
 				nex = curr.getNext();
 			}
 			
+			// making sure that pre is moved to last node
+			// of previous reversed group of size k
 			pre = curr;
 			
 			// after every k nodes reversal
