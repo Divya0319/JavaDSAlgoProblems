@@ -10,7 +10,7 @@ public class _2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<T> {
 		if(k <= 0) return null;
 		if(head == null) return null;
 		
-		ListNode<T> fractionalNode = null;
+		ListNode<T> sp = null;
 		int i = 1;
 		
 		
@@ -20,21 +20,22 @@ public class _2_i_FindFractionalNByKthNodeFromBeginningInLinkedList<T> {
 		// and for every other k movements of temp, we move fractional node one step forward
 		// If we reached end of list, current value of fractional node is (n/k)th) node from beginning
 		
-		ListNode<T> temp = head;
-		while(temp != null) {
-			if(i % k == 0) {
-				if(fractionalNode == null) 
-					fractionalNode = head;
+		ListNode<T> fp = head;
+		while(fp != null) {
+			if(i % k == 0) { // for every k jumps of fast pointer
+				             // i mod k will be 0
+				if(sp == null) 
+					sp = head;
 				else 
-					fractionalNode = fractionalNode.getNext();
+					sp = sp.getNext();
 			}
 			
 			// i used to keep track of how many times k movements of temp are done
 			i++;
-			temp = temp.getNext();
+			fp = fp.getNext();
 		}
 		
-		return fractionalNode;
+		return sp;
 	}
 		
 	public static void main(String[] args) {

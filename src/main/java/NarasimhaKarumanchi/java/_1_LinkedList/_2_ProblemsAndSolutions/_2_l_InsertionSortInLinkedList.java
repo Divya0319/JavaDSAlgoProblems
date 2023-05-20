@@ -7,7 +7,7 @@ public class _2_l_InsertionSortInLinkedList {
 	
 	public ListNode<Integer> doInsertionSort(ListNode<Integer> head) {
 		
-		ListNode<Integer> dummy = new ListNode<>(1);
+		ListNode<Integer> dummy = new ListNode<>(0);
 		
 		// curr will take each node one by one for sorting
 		ListNode<Integer> curr = head;

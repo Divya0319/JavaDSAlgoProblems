@@ -106,7 +106,7 @@ public class _1_t_o_MergeKSortedLinkedLists<T> {
 		l3.insertAtEnd(58);
 		System.out.println("Third List:");
 		System.out.println(l3.toString());
-		ListNode<Integer>[] lists = (ListNode<Integer>[])new ListNode[] {l1.getHead(), l2.getHead(), l3.getHead()};
+		ListNode<Integer>[] lists = new ListNode[] {l1.getHead(), l2.getHead(), l3.getHead()};
 		
 		ListNode<Integer> mergedList = mainClass.mergeKSortedLinkedLists(lists);
 		System.out.println("Merged List: " + l1.toString(mergedList));

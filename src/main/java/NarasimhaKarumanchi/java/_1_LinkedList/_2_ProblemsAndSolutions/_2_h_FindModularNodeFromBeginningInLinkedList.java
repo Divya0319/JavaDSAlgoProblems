@@ -9,7 +9,7 @@ public class _2_h_FindModularNodeFromBeginningInLinkedList<T> {
 		ListNode<T> modularNode = null;
 		if(k <= 0) return null;
 		
-		int i = 0;
+		int i = 1;
 		
 		ListNode<T> temp = head;
 		
@@ -74,7 +74,7 @@ public class _2_h_FindModularNodeFromBeginningInLinkedList<T> {
 		ll.insertAtEnd(19);
 		System.out.println(ll.toString());
 		
-		ListNode<Integer> modularNode = mainClass.findModularNode(ll.getHead(), 23);
+		ListNode<Integer> modularNode = mainClass.findModularNode(ll.getHead(), 3);
 		System.out.println("Modular Node of Linked List : " + modularNode.getData());
 	}
 

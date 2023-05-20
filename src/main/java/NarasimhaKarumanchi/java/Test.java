@@ -1,61 +1,89 @@
 package main.java.NarasimhaKarumanchi.java;
 
-import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNodeWithRandomPointer;
+import main.java.NarasimhaKarumanchi.java._1_LinkedList.LinkedList;
+import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNode;
 
 public class Test<T> {
 	
 	
-	public ListNodeWithRandomPointer<T> copyListWithRandomPointer_NoExtraSpace(ListNodeWithRandomPointer<T> head) {
+	public ListNode<T> rotateListByKPlaces(ListNode<T> head, int k) {
 		
-		ListNodeWithRandomPointer<T> iter = head, front = head;
+		int n = 0;
 		
-		while(iter != null) {
-			
-			ListNodeWithRandomPointer<T> copy = new ListNodeWithRandomPointer<T>((T) new Integer(-1));
-			iter.setNext(copy);
-			copy.setNext(front);
-			
-			iter = front;
+		ListNode<T> temp = head;
+		
+		while(temp.getNext() != null) {
+			temp = temp.getNext();
+			n++;
 		}
 		
-		iter = head;
+		temp.setNext(head);
 		
-		while(iter != null) {
-			if(iter.getRandom() != null) {
-				
-				iter.getNext().setRandom(iter.getRandom().getNext());
-			}
+		k = k % (n+1);
+		
+		temp = head;
+		
+		int jumps = n - k;
+		
+		while(jumps > 0) {
+			temp = temp.getNext();
+			jumps--;
 		}
 		
-		iter = head;
+		ListNode<T> newHead = temp.getNext();
+		temp.setNext(null);
 		
-		ListNodeWithRandomPointer<T> ph = new ListNodeWithRandomPointer<T>((T) new Integer(-1));
-		ListNodeWithRandomPointer<T> copy = ph;
-		
-		while(iter != null) {
-			
-			front = iter.getNext().getNext();
-			
-			copy.setNext(iter.getNext());
-			
-			copy = copy.getNext();
-			
-			iter.setNext(front);
-			
-			iter = front;
-		}
-		
-		
-		return ph.getNext(); // returning 1st copy node
+		return newHead;
 		
 	}
-	
-	
 	
 	
 
 	public static void main(String[] args) {
 		Test<Integer> mainClass = new Test<>();
+				
+		LinkedList<Integer> ll = new LinkedList<>();
+		ll.insertAtBegin(1);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(11);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(3);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(4);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(10);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(5);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(15);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(6);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(16);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(7);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(8);		
+		System.out.println(ll.toString());
+		ll.insertAtEnd(2);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(14);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(13);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(9);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(18);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(17);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(19);
+		System.out.println(ll.toString());
+		ll.insertAtEnd(12);
+		System.out.println(ll.toString());
+	
+		ListNode<Integer> newHead = mainClass.rotateListByKPlaces(ll.getHead(), 5);
+		System.out.println("Rotated List by 5 places : " + ll.toString(newHead));
 		
 
 	}

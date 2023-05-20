@@ -31,7 +31,7 @@ public class _2_n_RotateLinkedListLeftByKPlaces<T> {
 		int count = 1;
 		
 		// this loop finds kth node from start
-		while(count < k && curr != null) {
+		while(count < k) {
 			curr = curr.getNext();
 			count++;
 		}

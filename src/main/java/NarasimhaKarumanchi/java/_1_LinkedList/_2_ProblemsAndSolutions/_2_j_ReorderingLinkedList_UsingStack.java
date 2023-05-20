@@ -16,8 +16,9 @@ public class _2_j_ReorderingLinkedList_UsingStack<T> {
 		
 		// middle node:  ceil(n+1/2), when n is even
 		//               ceil(n/2), when n is odd
-		ListNode<T> slowPtr = head, fastPtr = head.getNext();
-		while(fastPtr != null && fastPtr.getNext() != null) {
+		ListNode<T> slowPtr = head, fastPtr = head;
+		while(fastPtr != null && fastPtr.getNext() != null) { // when we want middle element to be first of the two nodes
+//		while(fast.getNext() != null && fast.getNext().getNext() != null) // when we want middle element to be second of the two nodes
 			slowPtr = slowPtr.getNext();
 			fastPtr = fastPtr.getNext().getNext();
 		}

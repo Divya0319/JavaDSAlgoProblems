@@ -22,37 +22,35 @@ public class _2_m_RotateLinkedListRightByKPlaces<T> {
 			n++;
 		}
 		
-		// n is 1 less than total number of nodes
-		// till this point, hence incrementing it
-		n++;
 		
 		// make last node connect to head
 		temp.setNext(head);
 		
-		// when k is greater than n
+		// n reaches 1 less than size of linked list, so n+1
+		// when k is greater than size of linked list
 		// then taking modulo with list length
 		// prevents unnecessary rotation
-		k = k % n;
+		k = k % (n+1);
 		
 		temp = head;
 		
-		int jumps = n - k - 1;
+		// jumps needed to go to resulting last node of the list
+		int jumps = n - k;
 		
-		// Here, we are finding (k+1)th node from end
 		while(jumps > 0) {
 			temp = temp.getNext();
 			
 			// at the end, jump will become zero
 			// and loop break,
-			// but before that, temp has moved till (k+1)th node
-			// from end. before breaking loop condition
+			// but before that, temp has moved to last node of resulting list
+			// before breaking loop condition
 			jumps--;
 		}
 		
-		// New head is now kth node from end
+		// New head is actually next to last node
 		ListNode<T> newHead = temp.getNext();
 		
-		// Next of (k+1)th node from end is made null now
+		// Next of last node is made null now
 		temp.setNext(null);
 		
 		return newHead;
