@@ -35,6 +35,6 @@ public class _1_a_TestClass<T>  {
 		
 		mainClass.findLargestAnd2ndLargest(inp);
 		
-		System.out.println("Largest: " + mainClass.l + " Second largest: " + mainClass.second_l);
+		System.out.println("Largest: " + mainClass.largest + " Second largest: " + mainClass.second_l);
 	}
 }
