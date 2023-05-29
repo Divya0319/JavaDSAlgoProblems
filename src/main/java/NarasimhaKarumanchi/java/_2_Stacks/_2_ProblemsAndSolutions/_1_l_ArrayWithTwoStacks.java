@@ -81,6 +81,24 @@ public class _1_l_ArrayWithTwoStacks<T> {
 		return size;
 	}
 	
+	public String toString(int stackId) {
+		String s = "[";
+		T[] newDataArray = (T[])new Object[dataArray.length];
+		System.arraycopy(dataArray, 0, newDataArray, 0, dataArray.length);
+		if(stackId == 1) {
+			while(topOne != -1) {
+				s = s + pop(1) + ", ";
+			}
+		} else {
+			while(topTwo != getSize()) {
+				s = s + pop(2) + ", ";
+			}
+		}
+		
+		dataArray = newDataArray;
+		return s + "]";
+	}
+	
 	public String toString() {
 		return Arrays.toString(dataArray);
 	}
@@ -110,9 +128,13 @@ public class _1_l_ArrayWithTwoStacks<T> {
 		popped = awts.pop(1);
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
-		popped = awts.pop(1);
-		System.out.println("Popped: " + popped);
-		System.out.println(awts.toString());
+//		popped = awts.pop(1);
+//		System.out.println("Popped: " + popped);
+//		System.out.println(awts.toString());
+		
+		int n = 1;
+		
+		System.out.println("Contents of stack " + n + " is " + awts.toString(n));
 		
 			
 	}
