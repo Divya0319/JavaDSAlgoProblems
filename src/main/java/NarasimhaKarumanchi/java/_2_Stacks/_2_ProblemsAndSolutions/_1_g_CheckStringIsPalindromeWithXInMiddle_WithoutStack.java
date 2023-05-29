@@ -35,7 +35,7 @@ public class _1_g_CheckStringIsPalindromeWithXInMiddle_WithoutStack{
 	
 	public static void main(String[] args) {
 		
-		String inp = "abcdtrXrodcba";
+		String inp = "abcdefXfedcba";
 		
 		_1_g_CheckStringIsPalindromeWithXInMiddle_WithoutStack mainClass = new _1_g_CheckStringIsPalindromeWithXInMiddle_WithoutStack();
 		
