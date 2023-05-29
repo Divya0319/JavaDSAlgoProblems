@@ -48,11 +48,12 @@ public class _1_b_InfixToPostfixConversion {
 				// check if stack is not empty 
 				// pop from stack until opening parenthesis
 				// is encountered
-				while(!stk.isEmpty() && stk.peek() != '(') 
+				while(!stk.isEmpty() && stk.peek() != '(') { 
 					result += stk.pop();
+				}	
 				
 				// pop the opening parenthesis as well
-					stk.pop();
+				stk.pop();
 					
 				// since '^' precedence is highest 
 				// among all operators
