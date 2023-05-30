@@ -21,6 +21,8 @@ public class _1_a_TestClass<T>  {
 		
 		for(int i = 0; i < n; i++) {
 			
+			// if there is no next smaller, then -1 would cause problem in area calculation
+			// hence we increase next smaller to n
 			if(ns[i] == -1) {
 				ns[i] = n;
 			}
@@ -41,17 +43,27 @@ public class _1_a_TestClass<T>  {
 		
 		LinkedStack<Integer> stk = new LinkedStack<>();
 		
+		// we start from n-1 because, for last element,
+		// next smaller will be -1, as nothing is there on right of last
+		// so, we begin next smaller calculation from last element for stack approach
 		for(int i = a.length - 1; i >= 0; i--) {
+			
+			// until stack has some contents, and element referred by top of stack is greater than current element of array
+			// keep popping from stack, until we find a smaller element index in stack
 			while(!stk.isEmpty() && a[stk.peek()] >= a[i]) {
 				stk.pop();
 			}
 			
+			
+			// if stack is empty, there is no next smaller for current element
+			// otherwise, if stack is non-empty, top of stack index is next smaller
 			if(stk.isEmpty()) {
 				ns[i] = -1;
 			} else {
 				ns[i] = stk.peek();
 			}
 			
+			// every time, we push the index of element, not the element
 			stk.push(i);
 		}
 		
@@ -63,17 +75,24 @@ public class _1_a_TestClass<T>  {
 		
 		LinkedStack<Integer> stk = new LinkedStack<>();
 		
+		// for first element, prev smaller will be -1 itself
+		// hence we begin prev smaller calculation from start of array
 		for(int i = 0; i < a.length; i++) {
+			// until stack has some contents, and element referred by top of stack is greater than current element of array
+			// keep popping from stack, until we find a smaller element index in stack
 			while(!stk.isEmpty() && a[stk.peek()] >= a[i]) {
 				stk.pop();
 			}
 			
+			// if stack is empty, there is no prev smaller for current element
+			// otherwise, if stack is non-empty, top of stack index is prev smaller
 			if(stk.isEmpty()) {
 				ps[i] = -1;
 			} else {
 				ps[i] = stk.peek();
 			}
 			
+			// every time, we push the index of element, not the element
 			stk.push(i);
 		}
 		
