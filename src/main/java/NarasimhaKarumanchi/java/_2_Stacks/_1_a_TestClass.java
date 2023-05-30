@@ -39,18 +39,20 @@ public class _1_a_TestClass<T>  {
 	int[] nextSmallerElement(int[] a) {
 		int[] ns = new int[a.length];
 		
-		for(int i = 0; i < ns.length; i++) {
-			ns[i] = -1;
-		}
+		LinkedStack<Integer> stk = new LinkedStack<>();
 		
-		for(int i = 0; i < a.length; i++) {
-			
-			for(int j = i+1; j < a.length; j++) {
-				if(a[j] <= a[i]) {
-					ns[i] = j;
-					break;
-				}
+		for(int i = a.length - 1; i >= 0; i--) {
+			while(!stk.isEmpty() && a[stk.peek()] >= a[i]) {
+				stk.pop();
 			}
+			
+			if(stk.isEmpty()) {
+				ns[i] = -1;
+			} else {
+				ns[i] = stk.peek();
+			}
+			
+			stk.push(i);
 		}
 		
 		return ns;
@@ -59,18 +61,20 @@ public class _1_a_TestClass<T>  {
 	int[] prevSmallerElement(int[] a) {
 		int[] ps = new int[a.length];
 		
-		for(int i = 0; i < ps.length; i++) {
-			ps[i] = -1;
-		}
+		LinkedStack<Integer> stk = new LinkedStack<>();
 		
 		for(int i = 0; i < a.length; i++) {
-			
-			for(int j = i-1; j >= 0; j--) {
-				if(a[j] <= a[i]) {
-					ps[i] = j;
-					break;
-				}
+			while(!stk.isEmpty() && a[stk.peek()] >= a[i]) {
+				stk.pop();
 			}
+			
+			if(stk.isEmpty()) {
+				ps[i] = -1;
+			} else {
+				ps[i] = stk.peek();
+			}
+			
+			stk.push(i);
 		}
 		
 		return ps;
