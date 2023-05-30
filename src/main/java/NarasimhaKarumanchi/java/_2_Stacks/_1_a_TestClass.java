@@ -7,20 +7,73 @@ public class _1_a_TestClass<T>  {
 	
 	int largest, second_l;
 	
-	public void findLargestAnd2ndLargest(int[] a) {
+	public int largestRectangleInHistogram(int[] heights) {
 		
-		largest = Integer.MIN_VALUE;
-		second_l = Integer.MIN_VALUE;
+		int n = heights.length;
+		
+		int maxArea = 0;
+		
+		int[] ns = new int[n];
+		int[] ps = new int[n];
+		
+		ns = nextSmallerElement(heights);
+		ps = prevSmallerElement(heights);
+		
+		for(int i = 0; i < n; i++) {
+			
+			if(ns[i] == -1) {
+				ns[i] = n;
+			}
+			
+			int currArea = (ns[i] - ps[i] - 1) * heights[i];
+			
+			maxArea = Math.max(maxArea, currArea);
+			
+			System.out.println("Area considering " + heights[i] + " is " + currArea);
+			
+		}
+		
+		return maxArea;
+	}
+	
+	int[] nextSmallerElement(int[] a) {
+		int[] ns = new int[a.length];
+		
+		for(int i = 0; i < ns.length; i++) {
+			ns[i] = -1;
+		}
 		
 		for(int i = 0; i < a.length; i++) {
-			if(a[i] > largest) {
-				second_l = largest;
-				largest = a[i];
-			} else if(a[i] > second_l && a[i] != largest) {
-				second_l = a[i];
-				
+			
+			for(int j = i+1; j < a.length; j++) {
+				if(a[j] <= a[i]) {
+					ns[i] = j;
+					break;
+				}
 			}
 		}
+		
+		return ns;
+	}
+	
+	int[] prevSmallerElement(int[] a) {
+		int[] ps = new int[a.length];
+		
+		for(int i = 0; i < ps.length; i++) {
+			ps[i] = -1;
+		}
+		
+		for(int i = 0; i < a.length; i++) {
+			
+			for(int j = i-1; j >= 0; j--) {
+				if(a[j] <= a[i]) {
+					ps[i] = j;
+					break;
+				}
+			}
+		}
+		
+		return ps;
 		
 	}
 	
@@ -33,8 +86,8 @@ public class _1_a_TestClass<T>  {
 		
 		System.out.println("Input: " + Arrays.toString(inp));
 		
-		mainClass.findLargestAnd2ndLargest(inp);
+		int maxArea = mainClass.largestRectangleInHistogram(inp);
 		
-		System.out.println("Largest: " + mainClass.largest + " Second largest: " + mainClass.second_l);
+		System.out.println("Max Area: " + maxArea);
 	}
 }
