@@ -1,4 +1,4 @@
-package main.java.NarasimhaKarumanchi.java.greedyapproaches;
+package main.java.NarasimhaKarumanchi.java._7_GreedyApproaches;
 
 import java.util.ArrayList;
 import java.util.Collections;
