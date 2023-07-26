@@ -68,8 +68,7 @@ public class _1_f_CheckSuccessiveNumbersInStackConsecutive_UsingQueue {
 		stack.push(13);
 		stack.push(14);
 		stack.push(15);
-		stack.push(78);
-		stack.push(43);
+		stack.push(44);
 		System.out.println("Input stack: " + stack.toString());
 		
 		boolean isPairwiseConsecutive = mainClass.checkSuccesssiveNosInStackConsecutive(stack);

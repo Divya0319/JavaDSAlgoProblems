@@ -10,9 +10,11 @@ public class _1_e_MaxElementInSlidingWindow_UsingDeque {
 		int n = inp.length;
 		
 		int ri = 0;
-		int r[] = new int[n-k+1];
 		
-		Deque<Integer> qi = new ArrayDeque<>();
+		// Final result will have n-k+1 elements
+		int res[] = new int[n-k+1];
+		
+		Deque<Integer> dq = new ArrayDeque<>();
 		
 		/* Process first k(or first window)
 		 * elements of array
@@ -23,49 +25,49 @@ public class _1_e_MaxElementInSlidingWindow_UsingDeque {
 			//For every element, the previous 
 			//smaller elements are useless	so
 			//remove them from qi
-			while(!qi.isEmpty() && inp[i] >= inp[qi.peekLast()]) {
+			while(!dq.isEmpty() && dq.peekLast() < inp[i]) {
 				
 				// remove from rear
-				qi.removeLast();
+				dq.removeLast();
 			}
 			
 			// Add new element at rear of queue
-			qi.addLast(i);
+			dq.addLast(inp[i]);
 		}
 		
-		r[ri++] = inp[qi.peek()];
+		res[ri++] = dq.peekFirst();
 		
 		
 		//Process rest of elements,
 		//i.e. from inp[k] to inp[n-1]
-		for(; i < n ; ++i) {
+		for(i = k; i < n ; ++i) {
 			//The element at the front of queue
 			//is the largest element of previous window,
 			//so print it
 			
 			//Remove the elements
 			//which are out of this window
-			while(!qi.isEmpty() && qi.peek() <= i-k) {
-				qi.removeFirst();
+			if(dq.peek() == inp[i-k]) {
+				dq.removeFirst();
 			}
 			
 			//remove all elements smaller
 			//than the currently being added element
 			//(remove useless elements)
-			while(!qi.isEmpty() && inp[i] >= inp[qi.peekLast()]) {
-				qi.removeLast();
+			while(!dq.isEmpty() && dq.peekLast() < inp[i]) {
+				dq.removeLast();
 			}
 			
 			
 			//add current element to rear of qi
-			qi.addLast(i);
+			dq.addLast(inp[i]);
 			
 			// Print the maximum element of last window
-			r[ri++] = inp[qi.peek()];
+			res[ri++] = dq.peek();
 			
 		}
 		
-		return r;
+		return res;
 		
 	}
 	
