@@ -21,13 +21,22 @@ public class _1_a_JobSequencingWithDeadline {
 		boolean result[] = new boolean[mD];
 
 		char job[] = new char[mD];
+		int jobProfit = 0;
 
 		for (int i = 0; i < n; i++) {
 
 			for (int j = arr.get(i).deadline - 1; j >= 0; j--) {
+				
+				// free slot found
 				if (result[j] == false) {
+					// mark that slot as filled
 					result[j] = true;
+					
+					// store this job in job array at this deadline index
 					job[j] = arr.get(i).id;
+					jobProfit += arr.get(i).profit;
+					
+					// breaking because a job can be performed on a single day only
 					break;
 				}
 			}
@@ -37,7 +46,7 @@ public class _1_a_JobSequencingWithDeadline {
 			System.out.print(jb + " ");
 		}
 
-		System.out.println();
+		System.out.println("Total profit : " + jobProfit);
 
 	}
 
@@ -60,10 +69,6 @@ public class _1_a_JobSequencingWithDeadline {
 	class Job {
 		char id;
 		int deadline, profit;
-
-		public Job() {
-
-		}
 
 		public Job(char id, int deadline, int profit) {
 			this.id = id;
