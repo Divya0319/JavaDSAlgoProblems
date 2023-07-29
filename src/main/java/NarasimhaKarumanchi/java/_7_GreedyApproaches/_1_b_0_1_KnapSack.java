@@ -31,7 +31,7 @@ public class _1_b_0_1_KnapSack {
 		int take = Integer.MIN_VALUE;
 		
 		if(wt[ind] <= W) {
-			take = val[ind] + _01_KnapsackSolution(ind - 1, W = wt[ind], wt, val);
+			take = val[ind] + _01_KnapsackSolution(ind - 1, W - wt[ind], wt, val);
 		}
 		
 		return Math.max(notTake, take);
@@ -43,13 +43,13 @@ public class _1_b_0_1_KnapSack {
 		
 		_1_b_0_1_KnapSack mainClass = new _1_b_0_1_KnapSack();
 		
-		int[] wt = new int[] {3, 2, 4};
-		int[] val = new int[] {30, 40, 60};
+		int[] wt = new int[] {10, 20, 30};
+		int[] val = new int[] {60, 100, 120};
 		
-		int maxProfit = mainClass._01_KnapsackSolution(2, 6, wt, val);
+		int maxProfit = mainClass._01_KnapsackSolution(2, 50, wt, val);
 		
 		System.out.println("Max profit: " + maxProfit);
-
+		
 		
 	}
 	
