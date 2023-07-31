@@ -14,9 +14,10 @@ package main.java.NarasimhaKarumanchi.java._7_GreedyApproaches;
  * using Recursion.
  * 
  */
-public class _1_b_0_1_KnapSack {
+public class _1_b_0_1_KnapSack {	
 	
-	public int _01_KnapsackSolution(int ind, int W, int[] wt, int[] val) {
+	
+	public int _01_KnapsackSolution(int ind, int W, int[] wt, int[] val, int[][] dp) {
 		
 		if(ind == 0) {
 			if(wt[0] <= W) {
@@ -26,15 +27,17 @@ public class _1_b_0_1_KnapSack {
 			}
 		}
 		
-		int notTake = 0 + _01_KnapsackSolution(ind - 1, W, wt, val);
+		int notTake = 0 + _01_KnapsackSolution(ind - 1, W, wt, val, dp);
 		
 		int take = Integer.MIN_VALUE;
 		
 		if(wt[ind] <= W) {
-			take = val[ind] + _01_KnapsackSolution(ind - 1, W - wt[ind], wt, val);
+			take = val[ind] + _01_KnapsackSolution(ind - 1, W - wt[ind], wt, val, dp);
 		}
 		
-		return Math.max(notTake, take);
+		
+		
+		return dp[ind][W] = Math.max(notTake, take);
 		
 	}
 	
@@ -43,10 +46,22 @@ public class _1_b_0_1_KnapSack {
 		
 		_1_b_0_1_KnapSack mainClass = new _1_b_0_1_KnapSack();
 		
-		int[] wt = new int[] {10, 20, 30};
-		int[] val = new int[] {60, 100, 120};
+		int[] wt = new int[] {3, 4, 6, 5};
+		int[] val = new int[] {2, 3, 1, 4};
 		
-		int maxProfit = mainClass._01_KnapsackSolution(2, 50, wt, val);
+		int maxWeight = 8;
+		
+		int n = wt.length;
+		
+		int[][] dp = new int[n][maxWeight+1];
+		
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j <= maxWeight; j++) {
+				dp[i][j] = -1;
+			}
+		}
+		
+		int maxProfit = mainClass._01_KnapsackSolution(n - 1, maxWeight, wt, val, dp);
 		
 		System.out.println("Max profit: " + maxProfit);
 		
