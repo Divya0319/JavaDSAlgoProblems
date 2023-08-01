@@ -1,11 +1,11 @@
-package main.java.NarasimhaKarumanchi.java._7_GreedyApproaches;
+package main.java.NarasimhaKarumanchi.java._8_DynamicProgramming;
 
 /*
  * 0-1 Knapsack problem solved using simple understandable approach of Dynamic Programming - Tabulation method
  * 
  * 
  */
-public class _1_f_0_1_KnapSack_DP_Pepcoding_Approach {	
+public class _1_a_0_1_KnapSack_DP_Pepcoding_Approach {	
 	
 	
 	public int _01_KnapsackSolution(int[] wt, int[] val, int n, int maxWeight) {
@@ -48,7 +48,7 @@ public class _1_f_0_1_KnapSack_DP_Pepcoding_Approach {
 	
 	public static void main(String[] args) {
 		
-		_1_f_0_1_KnapSack_DP_Pepcoding_Approach mainClass = new _1_f_0_1_KnapSack_DP_Pepcoding_Approach();
+		_1_a_0_1_KnapSack_DP_Pepcoding_Approach mainClass = new _1_a_0_1_KnapSack_DP_Pepcoding_Approach();
 		
 		int[] wt = new int[]{2, 5, 1, 3, 4};
 		int[] val = new int[]{15, 14, 10, 45, 30};
