@@ -11,10 +11,10 @@ package main.java.NarasimhaKarumanchi.java._7_GreedyApproaches;
  * than summing up single item having max profit.
  * 
  * So, we will try out all combinations, and among those combinations, we will take the best total value giving combination, 
- * using Recursion and Memorization, to reduce redundant recursive calls
+ * using Recursion and Memoization, to reduce redundant recursive calls
  * 
  */
-public class _1_d_0_1_KnapSack_UsingMemorizaton {	
+public class _1_d_0_1_KnapSack_UsingMemoizaton {	
 	
 	
 	public int _01_KnapsackSolution(int ind, int W, int[] wt, int[] val, int[][] dp) {
@@ -44,7 +44,7 @@ public class _1_d_0_1_KnapSack_UsingMemorizaton {
 	
 	public static void main(String[] args) {
 		
-		_1_d_0_1_KnapSack_UsingMemorizaton mainClass = new _1_d_0_1_KnapSack_UsingMemorizaton();
+		_1_d_0_1_KnapSack_UsingMemoizaton mainClass = new _1_d_0_1_KnapSack_UsingMemoizaton();
 		
 		int[] wt = new int[] {3, 4, 6, 5};
 		int[] val = new int[] {2, 3, 1, 4};
