@@ -3,7 +3,6 @@ package main.java.NarasimhaKarumanchi.java._7_GreedyApproaches;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import main.java.NarasimhaKarumanchi.java._7_GreedyApproaches._1_a_JobSequencingWithDeadline.Job;
 
 public class Practice {
 	
