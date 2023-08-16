@@ -1,75 +1,92 @@
 package main.java.NarasimhaKarumanchi.java._1_LinkedList._2_ProblemsAndSolutions;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import main.java.NarasimhaKarumanchi.java._1_LinkedList.ListNodeWithRandomPointer;
 
 public class _2_g_CopyLinkedListWithRandomPointer_NoExtraSpace<T> {
 	
-	public ListNodeWithRandomPointer<T> copyListWithRandomPointer(ListNodeWithRandomPointer<T> head) {
-		ListNodeWithRandomPointer<T> iter = head;
-		ListNodeWithRandomPointer<T> front = head;
+	public List<ListNodeWithRandomPointer<T>> insertAtTail(ListNodeWithRandomPointer<T> head, ListNodeWithRandomPointer<T> tail, T data) {
+		ListNodeWithRandomPointer<T> newNode = new ListNodeWithRandomPointer<>(data);
 		
-		// First round : make a copy of each node
-		// and link them together side by side in a single list
-		while(iter != null) {
+		if(head == null) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			tail.setNext(newNode);
+			tail = newNode;
 			
-			// storing second node after current node
-			front = iter.getNext();
-			
-			// creating copy node with original node data
-			ListNodeWithRandomPointer<T> copy = new ListNodeWithRandomPointer<T>(iter.getData());
-			// linking copy node after original node
-			iter.setNext(copy);
-			// setting copy node's next to node after original node
-			copy.setNext(front);
-			
-			// advancing iter pointer to next original node
-			iter = front;
 		}
 		
-		// Second round: assign random pointers for each copy node
-		iter = head;
-		while(iter != null) {
-			if(iter.getRandom() != null) {
-				
-				// since all copy nodes are placed in original list
-				// copy node's random is set as original node's random's next
-				// which is original node's random's copy
-				iter.getNext().setRandom(iter.getRandom().getNext());
+		List<ListNodeWithRandomPointer<T>> headTail = new ArrayList<>();
+		headTail.add(head);
+		headTail.add(tail);
+		
+		return headTail;
+	}
+	
+	public ListNodeWithRandomPointer<T> copyListWithRandomPointer(ListNodeWithRandomPointer<T> head) {
+		
+		// step1: create a clone list
+		ListNodeWithRandomPointer<T> cloneHead = null;
+		
+		ListNodeWithRandomPointer<T> cloneTail = null;
+		
+		ListNodeWithRandomPointer<T> temp = head;
+		
+		while(temp != null) {
+			List<ListNodeWithRandomPointer<T>> headTail = insertAtTail(cloneHead, cloneTail, temp.getData());
+			cloneHead = headTail.get(0);
+			cloneTail = headTail.get(1);
+			temp = temp.getNext();
+		}
+		
+		// step2: clone nodes add in between original list
+		ListNodeWithRandomPointer<T> origNode = head;
+		ListNodeWithRandomPointer<T> cloneNode = cloneHead;
+		
+		while(origNode != null && cloneNode != null) {
+			
+			ListNodeWithRandomPointer<T> next = origNode.getNext();
+			origNode.setNext(cloneNode);
+			origNode = next;
+			
+			next = cloneNode.getNext();
+			cloneNode.setNext(origNode);
+			cloneNode = next;
+			
+		}
+		
+		// step3: random pointer copy
+		temp = head;
+		while(temp != null) {
+			
+			if(temp.getNext() != null) {
+				temp.getNext().setRandom(temp.getRandom() != null ? temp.getRandom().getNext() : temp.getRandom());
 			}
 			
-			// going to next original node, skipping copy nodes
-			iter = iter.getNext().getNext();
+			
+			// so that we reach to next node of original list, bypassing the middle clone nodes
+			temp = temp.getNext().getNext();
 		}
 		
-		// Third round: restore the original list and extract the copy list
-		iter = head;
+		// step4: revert changes done in step4
+		origNode = head;
+		cloneNode = cloneHead;
 		
-		// keeping a pseudoHead of copy linked list, used during creation of 
-		// separated copy linked list
-		ListNodeWithRandomPointer<T> pseudoHead = new ListNodeWithRandomPointer<T>((T)new Integer(0));
-		ListNodeWithRandomPointer<T> copy = pseudoHead;
-		
-		while(iter != null) {
+		while(origNode != null && cloneNode != null) {
+			origNode.setNext(cloneNode.getNext());
+			origNode = origNode.getNext();
 			
-			// front will hold next original node
-			front = iter.getNext().getNext();
-			
-			
-			// extract the copy
-			copy.setNext(iter.getNext()); // dummy node's next will point to iter's next(which is 1st copy node)
-			copy = copy.getNext();  // copy pointer will now move to 1st copy node
-			// This keeps on going for 2nd copy node, 3rd, 4th and so on.
-			
-			// restore the original list
-			
-			// next links from original list is again restored, by skipping copy list nodes
-			iter.setNext(front);
-			
-			
-			// iter moved to next original node
-			iter = front;
+			if(origNode != null) {
+				cloneNode.setNext(origNode.getNext());
+			}
+			cloneNode = cloneNode.getNext();
 		}
-		return pseudoHead.getNext();
+		
+		// step5: return ans
+		return cloneHead;
 	}
 	
 	public String printList(ListNodeWithRandomPointer<T> head) {

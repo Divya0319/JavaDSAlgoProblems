@@ -6,82 +6,46 @@ import java.util.Collections;
 
 public class Practice {
 	
-	class Job {
+	private int solution(int n, int maxWeight, int[] wt, int[] val) {
 		
-		char id;
-		int deadline;
-		int profit;
+		int[][]dp = new int[n][maxWeight+1];
 		
-		public Job() {
-			
+		for(int W = wt[0]; W <= maxWeight; W++) {
+			dp[0][W] = val[0];
 		}
 		
-		public Job(char id, int deadline, int profit) {
-			this.id = id;
-			this.deadline = deadline;
-			this.profit = profit;
+		for(int ind = 1; ind < n; ind++) {
+			for(int W = 0; W <= maxWeight; W++) {
+				int notTake = 0 + dp[ind-1][W];
+				
+				int take = Integer.MIN_VALUE;
+				
+				if(wt[ind] <= W) {
+					take = val[ind] + dp[ind-1][W - wt[ind]];
+				}
+				
+				dp[ind][W] = Math.max(notTake, take);
+			}
 		}
+		
+		
+		
+		return dp[n-1][maxWeight];
 	}
 	
-	int jobSequencing(ArrayList<Job> jobs) {
-		
-		Collections.sort(jobs, (a,b) -> (b.profit - a.profit));
-		
-		int n = jobs.size();
-		
-		int mD = 0;
-		for(int i = 0; i < n; i++) {
-			if(jobs.get(i).deadline > mD) {
-				mD = jobs.get(i).deadline;
-			}
-		}
-		
-		char[] jSeq = new char[mD];
-		
-		boolean result[] = new boolean[mD];
-		
-		int maxProfit = 0;
-		
-		for(int i = 0; i < n; i++) {
-			for(int j = jobs.get(i).deadline - 1; j >=0; j--) {
-				if(result[j] == false) {
-					result[j] = true;
-					jSeq[j] = jobs.get(i).id;
-					maxProfit += jobs.get(i).profit;
-					break;
-				}
-			}
-		}
-		
-		System.out.print("Job sequence is : ");
-		for(char job : jSeq) {
-			System.out.print(job + " ");
-		}
-		
-		System.out.println();
-		
-		return maxProfit;
-		
-	}
 	
 	public static void main(String[] args) {
 		Practice p = new Practice();
 		
-		ArrayList<Job> jobs = new ArrayList<>();
+		int[] val = new int[] {30, 40, 60};
+		int[] wt = new int[] {3, 2, 4};
+				
+		int capacity = 6;	
 		
-		jobs.add(p.new Job('a', 5, 200));
-		jobs.add(p.new Job('b', 3, 180));
-		jobs.add(p.new Job('c', 3, 190));
-		jobs.add(p.new Job('d', 2, 300));
-		jobs.add(p.new Job('e', 4, 120));
-		jobs.add(p.new Job('f', 2, 100));
+		int maxProfit = p.solution(val.length, capacity, wt, val);
 		
-		System.out.println("Following is maximum profit sequence of jobs: ");
-
-
-		int maxProfit = p.jobSequencing(jobs);
+		System.out.println("Maximum profit: " + maxProfit);
 		
-		System.out.println("Maximum profit is : " + maxProfit);
 	}
 
 }

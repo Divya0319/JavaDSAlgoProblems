@@ -1,4 +1,4 @@
-package main.java.NarasimhaKarumanchi.java._8_Algos_Searching;
+package main.java.NarasimhaKarumanchi.java._9_a_Algos_Searching;
 
 public class _1_a_BinarySearch {
 	
