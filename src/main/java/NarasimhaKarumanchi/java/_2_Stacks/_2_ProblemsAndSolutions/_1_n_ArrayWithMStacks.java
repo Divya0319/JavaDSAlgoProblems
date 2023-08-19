@@ -159,61 +159,72 @@ public class _1_n_ArrayWithMStacks<T> {
 		String popped;
 		
 		_1_n_ArrayWithMStacks<String> awts = new _1_n_ArrayWithMStacks<>(15, 5);
-		System.out.println("Pushed to 1");
 		awts.push(1, "Aman");
+		System.out.println("Pushed Aman to 1");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 1");
+		
 		awts.push(1, "Parkour");
+		System.out.println("Pushed Parkour to 1");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 2");
+		
 		awts.push(2, "Norman");
+		System.out.println("Pushed Norman to 2");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 3");
+		
 		awts.push(3, "Gillfoyl");
+		System.out.println("Pushed Gillfoyl to 3");
 		System.out.println(awts.toString());
 		
-		System.out.println("Popped from 1");
 		popped = awts.pop(1);
+		System.out.println("Popped from 1");
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
 		
-		System.out.println("Pushed to 2");
 		awts.push(2, "Tony");
+		System.out.println("Pushed Tony to 2");
 		System.out.println(awts.toString());
 		
-		System.out.println("Popped from 1");
 		popped = awts.pop(1);
-		System.out.println("Popped: " + popped);
-		System.out.println(awts.toString());
-		System.out.println("Popped from 2");
-		popped = awts.pop(2);
+		System.out.println("Popped from 1");
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
 		
-		System.out.println("Pushed to 2");
+		popped = awts.pop(2);
+		System.out.println("Popped from 2");
+		System.out.println("Popped: " + popped);
+		System.out.println(awts.toString());
+		
 		awts.push(2, "Steve");
+		System.out.println("Pushed Steve to 2");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 2");
+		
 		awts.push(2, "Mark");
+		System.out.println("Pushed Mark to 2");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 2");
+		
 		awts.push(2, "Ironman");
+		System.out.println("Pushed Ironman to 2");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 2");
+		
 		awts.push(2, "Peter");
+		System.out.println("Pushed Peter to 2");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 2");
+		
 		awts.push(2, "Wanda");
+		System.out.println("Pushed Wanda to 2");
 		System.out.println(awts.toString());
-		System.out.println("Pushed to 3");
+		
 		awts.push(3, "Vision");
+		System.out.println("Pushed Vision to 3");
 		System.out.println(awts.toString());
-		System.out.println("Popped from 2");
+		
 		popped = awts.pop(2);
+		System.out.println("Popped from 2");
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
 		
 		awts.push(5, "Adam");
+		System.out.println("Pushed Adam to 5");
 		System.out.println(awts.toString());
 		popped = awts.pop(5);
 		System.out.println("Popped: " + popped);
@@ -234,11 +245,12 @@ public class _1_n_ArrayWithMStacks<T> {
 		System.out.println("Popped: " + popped);
 		System.out.println(awts.toString());
 		
-		System.out.println("Pushing to 4");
 		awts.push(4, "Yuri");
+		System.out.println("Pushing Yuri to 4");
 		System.out.println(awts.toString());
-		System.out.println("Pushing to 4");
+		
 		awts.push(4, "Goro");
+		System.out.println("Pushing Goro to 4");
 		System.out.println(awts.toString());
 
 		
