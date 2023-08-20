@@ -1,29 +1,22 @@
 package main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic;
 
-public class Pair<L, R> {
+public class Pair<F, S> {
 
-	private final L left;
-	private final R right;
+	public final F first;
+	public final S second;
 
-	public Pair(L left, R right) {
-		assert left != null;
-		assert right != null;
+	public Pair(F first, S second) {
+		assert first != null;
+		assert second != null;
 
-		this.left = left;
-		this.right = right;
+		this.first = first;
+		this.second = second;
 	}
 
-	public L getLeft() {
-		return left;
-	}
-
-	public R getRight() {
-		return right;
-	}
 
 	@Override
 	public int hashCode() {
-		return left.hashCode() ^ right.hashCode();
+		return first.hashCode() ^ second.hashCode();
 	}
 
 	@Override
@@ -31,7 +24,7 @@ public class Pair<L, R> {
 		if (!(o instanceof Pair))
 			return false;
 		Pair pairo = (Pair) o;
-		return this.left.equals(pairo.getLeft()) && this.right.equals(pairo.getRight());
+		return this.first.equals(pairo.first) && this.second.equals(pairo.second);
 	}
 
 }

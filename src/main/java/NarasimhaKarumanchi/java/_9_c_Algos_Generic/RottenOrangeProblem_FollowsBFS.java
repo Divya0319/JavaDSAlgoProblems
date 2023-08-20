@@ -31,8 +31,8 @@ public class RottenOrangeProblem_FollowsBFS {
 		
 		while(!q.isEmpty()) {
 			// taking out ith and jth indices of all rotten oranges indices stored
-			int i = q.getFront().getData().getLeft();
-			int j = q.getFront().getData().getRight();
+			int i = q.getFront().getData().first;
+			int j = q.getFront().getData().second;
 			
 			if(i == -1 && j == -1 && q.size() == 1) {
 				q.deQueue();
