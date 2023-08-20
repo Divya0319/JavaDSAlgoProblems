@@ -14,7 +14,7 @@ public class _4_CheckForBalancedBinaryTree_BruteForce {
 		
 		boolean left = isBalanced(node.getLeft());
 		boolean right = isBalanced(node.getRight());
-		boolean diff = (height(node.getLeft()) - height(node.getRight())) <= 1;
+		boolean diff = Math.abs(height(node.getLeft()) - height(node.getRight())) <= 1;
 		
 		if(left && right && diff) {
 			return true;
