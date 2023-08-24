@@ -26,7 +26,7 @@ public class _7_SumTree {
 		boolean isSumTree = root.getData() == (left.second + right.second);
 		
 		if(isLeftSum && isRightSum && isSumTree) {
-			return new Pair<>(true, 2*(root.getData());
+			return new Pair<>(true, 2*(root.getData()));
 		} else {
 			return new Pair<>(false, 0);
 		}
