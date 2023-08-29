@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 
-public class _9_BoundaryTraversal {
+public class _4_i_BoundaryTraversal {
 	
 	ArrayList<Integer> ans;
 	
@@ -85,7 +85,7 @@ public class _9_BoundaryTraversal {
 	}
 
 	public static void main(String[] args) {
-		_9_BoundaryTraversal mainClass = new _9_BoundaryTraversal();
+		_4_i_BoundaryTraversal mainClass = new _4_i_BoundaryTraversal();
 
 		BinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node1 = new BinaryTreeNode<>(2);

@@ -6,7 +6,7 @@ import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 import main.java.NarasimhaKarumanchi.java._4_Trees.ListNode;
 
-public class _8_ZigzagTraversal {
+public class _4_h_ZigzagTraversal {
 
 	public ArrayList<Integer> zigzagTraversal(BinaryTreeNode<Integer> root) {
 
@@ -88,7 +88,7 @@ public class _8_ZigzagTraversal {
 	}
 
 	public static void main(String[] args) {
-		_8_ZigzagTraversal mainClass = new _8_ZigzagTraversal();
+		_4_h_ZigzagTraversal mainClass = new _4_h_ZigzagTraversal();
 
 		BinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node1 = new BinaryTreeNode<>(2);

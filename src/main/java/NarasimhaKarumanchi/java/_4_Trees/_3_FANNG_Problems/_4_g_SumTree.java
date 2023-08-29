@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic.Pair;
 
-public class _7_SumTree {
+public class _4_g_SumTree {
 	
 	
 	
@@ -40,7 +40,7 @@ public class _7_SumTree {
 	}
 	
 	public static void main(String[] args) {
-		_7_SumTree mainClass = new _7_SumTree();
+		_4_g_SumTree mainClass = new _4_g_SumTree();
 		
 		BinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node1 = new BinaryTreeNode<>(2);

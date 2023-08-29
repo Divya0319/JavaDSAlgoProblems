@@ -2,26 +2,23 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 
-public class _4_CheckForBalancedBinaryTree_BruteForce {
+public class _4_b_DiameterOfTree {
 	
-	
-	public boolean isBalanced(BinaryTreeNode<Integer> node) {
+	public int diameter(BinaryTreeNode<Integer> node) {
+		
 		// base case
 		
 		if(node == null) {
-			return true;
+			return 0;
 		}
 		
-		boolean left = isBalanced(node.getLeft());
-		boolean right = isBalanced(node.getRight());
-		boolean diff = Math.abs(height(node.getLeft()) - height(node.getRight())) <= 1;
+		int op1 = diameter(node.getLeft());
+		int op2 = diameter(node.getRight());
+		int op3 = height(node.getLeft())+ height(node.getRight()) + 1;
 		
-		if(left && right && diff) {
-			return true;
-		}
+		int ans = Math.max(op1, Math.max(op2,  op3));
 		
-		return false;
-
+		return ans;
 		
 	}
 	
@@ -41,7 +38,7 @@ public class _4_CheckForBalancedBinaryTree_BruteForce {
 	
 	
 	public static void main(String[] args) {
-		_4_CheckForBalancedBinaryTree_BruteForce mainClass = new _4_CheckForBalancedBinaryTree_BruteForce();
+		_4_b_DiameterOfTree mainClass = new _4_b_DiameterOfTree();
 		
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node1 = new BinaryTreeNode<>(2);
@@ -57,7 +54,7 @@ public class _4_CheckForBalancedBinaryTree_BruteForce {
 		node2.setRight(node5);
 		
 		
-		System.out.println(mainClass.isBalanced(root));
+		System.out.println(mainClass.diameter(root));
 	}
 
 }

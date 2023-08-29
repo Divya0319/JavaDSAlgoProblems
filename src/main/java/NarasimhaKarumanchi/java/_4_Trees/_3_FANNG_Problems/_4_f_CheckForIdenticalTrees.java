@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic.Pair;
 
-public class _6_CheckForIdenticalTrees {
+public class _4_f_CheckForIdenticalTrees {
 	
 	
 	
@@ -35,7 +35,7 @@ public class _6_CheckForIdenticalTrees {
 	}
 	
 	public static void main(String[] args) {
-		_6_CheckForIdenticalTrees mainClass = new _6_CheckForIdenticalTrees();
+		_4_f_CheckForIdenticalTrees mainClass = new _4_f_CheckForIdenticalTrees();
 		
 		BinaryTreeNode<Integer> root1 = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node1 = new BinaryTreeNode<>(2);

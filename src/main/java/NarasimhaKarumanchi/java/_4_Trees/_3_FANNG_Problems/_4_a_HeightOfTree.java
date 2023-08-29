@@ -2,43 +2,24 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 
-public class _2_DiameterOfTree {
+public class _4_a_HeightOfTree {
 	
-	public int diameter(BinaryTreeNode<Integer> node) {
+	public int findHeight(BinaryTreeNode<Integer> node) {
 		
 		// base case
-		
 		if(node == null) {
 			return 0;
 		}
 		
-		int op1 = diameter(node.getLeft());
-		int op2 = diameter(node.getRight());
-		int op3 = height(node.getLeft())+ height(node.getRight()) + 1;
+		int left = findHeight(node.getLeft());
+		int right = findHeight(node.getRight());
 		
-		int ans = Math.max(op1, Math.max(op2,  op3));
-		
-		return ans;
+		return Math.max(left, right) + 1;
 		
 	}
-	
-	public int height(BinaryTreeNode<Integer> node) {
-			
-			// base case
-			if(node == null) {
-				return 0;
-			}
-			
-			int left = height(node.getLeft());
-			int right = height(node.getRight());
-			
-			return Math.max(left, right) + 1;
-			
-	}
-	
 	
 	public static void main(String[] args) {
-		_2_DiameterOfTree mainClass = new _2_DiameterOfTree();
+		_4_a_HeightOfTree mainClass = new _4_a_HeightOfTree();
 		
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node1 = new BinaryTreeNode<>(2);
@@ -54,7 +35,7 @@ public class _2_DiameterOfTree {
 		node2.setRight(node5);
 		
 		
-		System.out.println(mainClass.diameter(root));
+		System.out.println(mainClass.findHeight(root));
 	}
 
 }

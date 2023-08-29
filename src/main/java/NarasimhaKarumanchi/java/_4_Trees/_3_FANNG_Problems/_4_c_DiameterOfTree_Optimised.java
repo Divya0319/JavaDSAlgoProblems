@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic.Pair;
 
-public class _3_DiameterOfTree_Optimised {
+public class _4_c_DiameterOfTree_Optimised {
 	
 	public Pair<Integer, Integer> diameterFast(BinaryTreeNode<Integer> node) {
 		if(node == null) {
@@ -61,7 +61,7 @@ public class _3_DiameterOfTree_Optimised {
 	
 	
 	public static void main(String[] args) {
-		_3_DiameterOfTree_Optimised mainClass = new _3_DiameterOfTree_Optimised();
+		_4_c_DiameterOfTree_Optimised mainClass = new _4_c_DiameterOfTree_Optimised();
 		
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node1 = new BinaryTreeNode<>(2);
