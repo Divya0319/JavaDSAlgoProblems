@@ -12,35 +12,53 @@ public class _4_j_VerticalOrderTraversal {
 
 	ArrayList<Integer> verticalOrderTraversal(BinaryTreeNode<Integer> root) {
 		
+		// we store the ans in this
 		ArrayList<Integer> ans = new ArrayList<>();
 
 		try {
 
+			// used to do level order traversal
 			LinkedQueue<Pair<Integer, BinaryTreeNode<Integer>>> q = new LinkedQueue<>();
+			
+			// used to create mapping from horizontal distance of each node, to the node's data itself
+			// and any h.d. can have more than 1 node mapped to it.
 			Map<Integer, ArrayList<Integer>> map = new TreeMap<>();
 			
+			// pushing root node to queue
 			q.enQueue(new Pair<>(0, root));
 			
 			while(!q.isEmpty()) {
 				Pair<Integer, BinaryTreeNode<Integer>> curr = q.deQueue();
+				
+				// if map contains this h.d.
 				if(map.containsKey(curr.first)) {
+					// simply map it to current node's data
 					map.get(curr.first).add(curr.second.getData());
 				} else {
+					// map doesn't contain this h.d.
+					// create a new arraylist, add current node data to it
 					ArrayList<Integer> temp = new ArrayList<>();
 					temp.add(curr.second.getData());
+					// and create a new mapping in map for it
 					map.put(curr.first, temp);
 					
 				}
 				
+				// if current node has left child
 				if(curr.second.getLeft() != null) {
+					// assign the correct h.d. to this left child, and store it in queue
 					q.enQueue(new Pair<>(curr.first - 1, curr.second.getLeft()));
 				}
 				
+				// if current node has right child
 				if(curr.second.getRight() != null) {
+					// assign the correct h.d. to this right child, and store it in queue
 					q.enQueue(new Pair<>(curr.first + 1, curr.second.getRight()));
 				}
 			}
 			
+			// fetch all the node's data in increasing order of h.d. from map
+			// and add them to answer in same order
 			for(Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet()) {
 				ans.addAll(entry.getValue());
 			}
