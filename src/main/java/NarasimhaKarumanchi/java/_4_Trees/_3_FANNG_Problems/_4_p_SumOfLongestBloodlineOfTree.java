@@ -28,7 +28,6 @@ public class _4_p_SumOfLongestBloodlineOfTree {
     
     public int sumOfLongRootToLeafPath(BinaryTreeNode<Integer> root)
     {
-        //code here
         int len = 0;
 
         int sum = 0;
