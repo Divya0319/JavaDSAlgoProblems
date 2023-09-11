@@ -5,37 +5,43 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
-import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
-import main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic.Pair;
 
 public class _4_o_DiagonalTraversalOfBinaryTree {
+	
+	Map<Integer, ArrayList<Integer>> hm;
 
 	ArrayList<Integer> diagonalTraversal(BinaryTreeNode<Integer> root) {
 		
 		ArrayList<Integer> ans = new ArrayList<>();
-		LinkedQueue<BinaryTreeNode<Integer>> q = new LinkedQueue<>();
+		hm = new TreeMap<>();
 		
-		try {
-			
-			q.enQueue(root);
-			
-			while(!q.isEmpty()) {
-				
-				BinaryTreeNode<Integer> temp = q.deQueue();
-				while(temp != null) {
-					if(temp.getLeft() != null) {
-						q.enQueue(temp.getLeft());
-					}
-					
-					ans.add(temp.getData());
-					temp = temp.getRight();
-				}
-			}
-		} catch(Exception ex) {
-			ex.printStackTrace();
+		verticalOrder(root, 0);
+		
+		for(Map.Entry<Integer, ArrayList<Integer>> entry : hm.entrySet()) {
+			ans.addAll(entry.getValue());
 		}
-
+		
 		return ans;
+		
+	}
+	
+	public void verticalOrder(BinaryTreeNode<Integer> root, int hd) {
+		if(root == null) {
+			return;
+		}
+		
+		ArrayList<Integer> ans = hm.get(hd);
+		if(ans == null) {
+			ans = new ArrayList<>();
+			ans.add(root.getData());
+		} else {
+			ans.add(root.getData());
+		}
+		
+		hm.put(hd, ans);
+		
+		verticalOrder(root.getLeft(), hd+1);
+		verticalOrder(root.getRight(), hd);
 	}
 
 	public static void main(String[] args) {
