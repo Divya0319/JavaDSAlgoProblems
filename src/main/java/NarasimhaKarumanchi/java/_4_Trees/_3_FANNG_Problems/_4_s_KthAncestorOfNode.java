@@ -2,7 +2,7 @@ package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 
-public class _4_r_KthAncestorOfNode {
+public class _4_s_KthAncestorOfNode {
    
 	private int k;
     BinaryTreeNode<Integer> solve(BinaryTreeNode<Integer> root, int node) {
@@ -54,7 +54,7 @@ public class _4_r_KthAncestorOfNode {
    
 
 	public static void main(String[] args) {
-		_4_r_KthAncestorOfNode mainClass = new _4_r_KthAncestorOfNode();
+		_4_s_KthAncestorOfNode mainClass = new _4_s_KthAncestorOfNode();
 
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node2 = new BinaryTreeNode<>(2);

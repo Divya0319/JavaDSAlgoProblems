@@ -1,35 +1,51 @@
 package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 
+import java.util.HashMap;
+
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 
-public class _4_s_MaximumSumOfNonAdjacentNodes {
+public class _4_r_KSumPathsInTree {
    
-	int getMaxSum(BinaryTreeNode<Integer> root)
-    {
-        Pair ans = solve(root);
-        return Math.max(ans.first, ans.second);
+	int count = 0;
+    
+    void solve(BinaryTreeNode<Integer> root, int k, int sum, HashMap<Integer, Integer> hm) {
+        
+        // base case
+    	if(root == null) {
+    		return;
+    	}
+    	
+    	sum += root.getData();
+    	
+    	count += hm.getOrDefault(sum-k, 0);
+    	
+    	if(sum == k) {
+    		count++;
+    	}
+    	
+    	hm.put(sum, hm.getOrDefault(sum, 0)+1);
+    	
+    	// left call
+    	solve(root.getLeft(), k, sum, hm);
+    	
+    	// right call
+    	solve(root.getRight(), k, sum, hm);
+    	
+    	hm.put(sum, hm.getOrDefault(sum, 0)-1);
+        
     }
     
-    Pair solve(BinaryTreeNode<Integer> root) {
-        // base case
-        if(root == null) {
-            Pair p = new Pair(0,0);
-            return p;
-        }
+    public int sumK(BinaryTreeNode<Integer> root, int k)
+    {
+        HashMap<Integer, Integer> hm = new HashMap<>();
         
-        Pair left = solve(root.getLeft());
-        Pair right = solve(root.getRight());
-        
-        Pair res = new Pair(-1, -1);
-        res.first = root.getData() + left.second + right.second;
-        res.second = Math.max(left.first, left.second) + Math.max(right.first, right.second);
-        
-        return res;
+        solve(root, k, 0, hm);
+        return count;
     }
    
 
 	public static void main(String[] args) {
-		_4_s_MaximumSumOfNonAdjacentNodes mainClass = new _4_s_MaximumSumOfNonAdjacentNodes();
+		_4_r_KSumPathsInTree mainClass = new _4_r_KSumPathsInTree();
 
 		BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
 		BinaryTreeNode<Integer> node2 = new BinaryTreeNode<>(2);
@@ -50,17 +66,7 @@ public class _4_s_MaximumSumOfNonAdjacentNodes {
 		node6.setRight(node8);
 		node7.setRight(node9);
 
-		System.out.println(mainClass.getMaxSum(root));
+		System.out.println(mainClass.sumK(root, 7));
 	}
-	
-	static class Pair {
-        int first;
-        int second;
-        
-        Pair(int f, int s) {
-            first = f;
-            second = s;
-        }
-    }
 
 }
