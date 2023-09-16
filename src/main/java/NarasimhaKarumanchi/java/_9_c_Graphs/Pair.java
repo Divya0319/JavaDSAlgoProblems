@@ -1,4 +1,4 @@
-package main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic;
+package main.java.NarasimhaKarumanchi.java._9_c_Graphs;
 
 public class Pair<F, S> {
 

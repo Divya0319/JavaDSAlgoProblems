@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
 import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
-import main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic.Pair;
+import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Pair;
 
 public class _4_j_VerticalOrderTraversal {
 

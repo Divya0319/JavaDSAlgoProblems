@@ -1,7 +1,7 @@
 package main.java.NarasimhaKarumanchi.java._4_Trees._3_FANNG_Problems;
 
 import main.java.NarasimhaKarumanchi.java._4_Trees.BinaryTreeNode;
-import main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic.Pair;
+import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Pair;
 
 public class _4_g_SumTree {
 	

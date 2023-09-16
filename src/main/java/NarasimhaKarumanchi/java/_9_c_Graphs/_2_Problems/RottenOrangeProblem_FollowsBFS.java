@@ -1,6 +1,7 @@
-package main.java.NarasimhaKarumanchi.java._9_c_Algos_Generic;
+package main.java.NarasimhaKarumanchi.java._9_c_Graphs._2_Problems;
 
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
+import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Pair;
 
 
 public class RottenOrangeProblem_FollowsBFS {
