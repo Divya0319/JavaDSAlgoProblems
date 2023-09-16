@@ -1,82 +1,71 @@
 package main.java.NarasimhaKarumanchi.java._9_c_Graphs._2_Problems;
 
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
-import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Pair;
 
 
 public class RottenOrangeProblem_FollowsBFS {
-	
-	Pair<Integer, Integer> p;
 	
 	public int orangesRotting(int[][] grid) throws Exception {
 		int m = grid.length;
 		int n = grid[0].length;
 		
-		LinkedQueue<Pair<Integer, Integer>> q = new LinkedQueue<>();
+		LinkedQueue<Node> q = new LinkedQueue<>();
 		
+		int timeFrameFinal = 0;
+		
+		// scanning all elements of grid one by one
 		for(int i = 0; i < m; i++) {
 			for(int j = 0; j < n; j++) {
+				// if a 2 is found, store its coordinates in queue
 				if(grid[i][j] == 2) {
-					p = new Pair<>(i,j);
-					q.enQueue(p);
+					// timeframe will be 0 initially for all oranges
+					q.enQueue(new Node(0, i, j));
 				}
 			}
 		}
 		
-		// stores final result, how many minutes it took to rot all oranges
-		int count = 0;
-		
-		// we need a partition after every cycle of rotting, so
-		p = new Pair<>(-1, -1);
-		q.enQueue(p);
-		
+		// we start rotting all adjacent oranges from here now
 		while(!q.isEmpty()) {
-			// taking out ith and jth indices of all rotten oranges indices stored
-			int i = q.getFront().getData().first;
-			int j = q.getFront().getData().second;
+			Node temp = q.deQueue();
 			
-			if(i == -1 && j == -1 && q.size() == 1) {
-				q.deQueue();
-				break;
-			} else if(i == -1 && j == -1 && q.size() > 1) {
-				count++;
-				q.deQueue();
-				p = new Pair<>(-1, -1);
-				q.enQueue(p);
-			} else {
-				if((i-1) >= 0 && grid[i-1][j] == 1) {
-					grid[i-1][j] = 2;
-					p = new Pair<>(i-1, j);
-					q.enQueue(p);
-				}
-				
-				if((j-1) >= 0 && grid[i][j-1] == 1) {
-					grid[i][j-1] = 2;
-					p = new Pair<>(i, j-1);
-					q.enQueue(p);
-				}
-				
-				if((i+1) < m && grid[i+1][j] == 1) {
-					grid[i+1][j] = 2;
-					p = new Pair<>(i+1, j);
-					q.enQueue(p);
-				}
-				
-				if((j+1) < n && grid[i][j+1] == 1) {
-					grid[i][j+1] = 2;
-					p = new Pair<>(i, j+1);
-					q.enQueue(p);
-				}
-				
-				// current index (orange) work is done, it has rotten its neighbours,
-				// remove it now
-				q.deQueue();
-				
+			// left orange is unrotten
+			if(temp.x - 1 >= 0 && grid[temp.x - 1][temp.y] == 1) {
+				// add it to queue for future adjacency check
+				// and rot this orange as well
+				timeFrameFinal = temp.timeframe + 1;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x - 1, temp.y));
+				grid[temp.x - 1][temp.y] = 2;
 			}
+			
+			// above orange is unrotten
+			if(temp.y - 1 >= 0 && grid[temp.x][temp.y - 1] == 1) {
+				// add it to queue for future adjacency check
+				// and rot this orange as well
+				timeFrameFinal = temp.timeframe + 1;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x, temp.y - 1));
+				grid[temp.x][temp.y - 1] = 2;
+			}
+			
+			// right orange is unrotten
+			if(temp.x + 1 < m && grid[temp.x + 1][temp.y] == 1) {
+				// add it to queue for future adjacency check
+				// and rot this orange as well
+				timeFrameFinal = temp.timeframe + 1;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x + 1, temp.y));
+				grid[temp.x + 1][temp.y] = 2;
+			}
+			
+			// below orange is unrotten
+			if(temp.y + 1 < n && grid[temp.x][temp.y + 1] == 1) {
+				// add it to queue for future adjacency check
+				// and rot this orange as well
+				timeFrameFinal = temp.timeframe + 1;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x, temp.y + 1));
+				grid[temp.x][temp.y + 1] = 2;
+			}
+			
 		}
 		
-
-		// again checking whole grid, it any 1 is remaining, we return -1
 		for(int i = 0; i < m; i++) {
 			for(int j = 0; j < n; j++) {
 				if(grid[i][j] == 1) {
@@ -85,9 +74,8 @@ public class RottenOrangeProblem_FollowsBFS {
 			}
 		}
 		
-		// not found any 1 in grid, so return count value
+		return timeFrameFinal;
 		
-		return count;
 		
 	}
 	
@@ -108,6 +96,17 @@ public class RottenOrangeProblem_FollowsBFS {
  		} catch(Exception ex) {
  			ex.printStackTrace();
  		}
+	}
+	
+	class Node {
+		int timeframe;
+		int x,y;
+		
+		public Node(int timeframe, int x, int y) {
+			this.timeframe = timeframe;
+			this.x = x;
+			this.y = y;
+		}
 	}
 
 }
