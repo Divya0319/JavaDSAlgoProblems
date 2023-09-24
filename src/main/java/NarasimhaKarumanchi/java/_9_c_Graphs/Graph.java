@@ -7,8 +7,9 @@ import java.util.Scanner;
 
 public class Graph {
 	Map<Integer, ArrayList<Integer>> adj;
+	int noOfVertices;
 	
-	void addEdge(int u, int v, boolean direction) {
+	public void addEdge(int u, int v, boolean direction) {
 		// direction = false -> undirected graph
 		// direction = true -> directed graph
 		
@@ -20,11 +21,12 @@ public class Graph {
 		}
 	}
 	
-	public Graph() {
+	public Graph(int n) {
 		adj = new HashMap<>();
+		this.noOfVertices = n;
 	}
 	
-	void printAdjacencyList() {
+	public void printAdjacencyList() {
 		for(Map.Entry<Integer, ArrayList<Integer>> entry : adj.entrySet()) {
 			System.out.print(entry.getKey() + "->");
 				for(Integer i : entry.getValue()) {
@@ -33,6 +35,14 @@ public class Graph {
 				
 				System.out.println();
 		}
+	}
+	
+	public Map<Integer, ArrayList<Integer>> getAdjacencyListMap() {
+		return adj;
+	}
+	
+	public int size() {
+		return noOfVertices;
 	}
 	
 	public static void main(String[] args) {
@@ -44,7 +54,7 @@ public class Graph {
 		System.out.println("Enter the number of edges");
 		m = sc.nextInt();
 		
-		Graph g = new Graph();
+		Graph g = new Graph(n);
 		
 		
 		for(int i = 0; i < m; i++) {
