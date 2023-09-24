@@ -1,6 +1,7 @@
 package main.java.NarasimhaKarumanchi.java._9_c_Graphs._1_Traversals;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -8,21 +9,19 @@ import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Graph;
 
 public class BreadthFirstSearch {
-	private int v;
 	
 	private static Map<Integer, ArrayList<Integer>> adjList;
 	
-	public BreadthFirstSearch(int v) {
-		this.v = v;
+	public BreadthFirstSearch() {
 	}
 		
 	public ArrayList<Integer> bfs(int start) throws Exception{
-		boolean[] visited = new boolean[v];
+		Map<Integer, Boolean> visited = new HashMap<>();
 		ArrayList<Integer> ans = new ArrayList<>();
 		
 		LinkedQueue<Integer> q = new LinkedQueue<>();
 		
-		visited[start] = true;
+		visited.put(start, true);
 		
 		q.enQueue(start);
 		
@@ -34,8 +33,8 @@ public class BreadthFirstSearch {
 			
 			for(int i = 0; i < n.size(); i++) {
 				int node = n.get(i);
-				if(!visited[node]) {
-					visited[node] = true;
+				if(visited.getOrDefault(node, false) == false) {
+					visited.computeIfAbsent(node, val -> true);
 					q.enQueue(node);
 				}
 			}
@@ -54,7 +53,7 @@ public class BreadthFirstSearch {
 		m = sc.nextInt();
 		
 		Graph g = new Graph(n);
-		BreadthFirstSearch mainClass = new BreadthFirstSearch(n);
+		BreadthFirstSearch mainClass = new BreadthFirstSearch();
 		
 		
 		for(int i = 0; i < m; i++) {
@@ -73,7 +72,7 @@ public class BreadthFirstSearch {
 		adjList = g.getAdjacencyListMap();
 		
 		try {
-			System.out.println( "BFS traversal: " + mainClass.bfs(0));
+			System.out.println( "BFS traversal: " + mainClass.bfs(1));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
