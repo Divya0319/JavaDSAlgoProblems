@@ -1,15 +1,15 @@
 package main.java.NarasimhaKarumanchi.java._9_c_Graphs;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
-public class Graph {
-	Map<Integer, ArrayList<Integer>> adj;
+public class Graph<T> {
+	Map<T, ArrayList<T>> adj;
 	int noOfVertices;
 	
-	public void addEdge(int u, int v, boolean direction) {
+	public void addEdge(T u, T v, boolean direction) {
 		// direction = false -> undirected graph
 		// direction = true -> directed graph
 		
@@ -22,14 +22,14 @@ public class Graph {
 	}
 	
 	public Graph(int n) {
-		adj = new HashMap<>();
+		adj = new TreeMap<>();
 		this.noOfVertices = n;
 	}
 	
 	public void printAdjacencyList() {
-		for(Map.Entry<Integer, ArrayList<Integer>> entry : adj.entrySet()) {
+		for(Map.Entry<T, ArrayList<T>> entry : adj.entrySet()) {
 			System.out.print(entry.getKey() + "->");
-				for(Integer i : entry.getValue()) {
+				for(T i : entry.getValue()) {
 					System.out.print(i + ", ");
 				}
 				
@@ -37,7 +37,7 @@ public class Graph {
 		}
 	}
 	
-	public Map<Integer, ArrayList<Integer>> getAdjacencyListMap() {
+	public Map<T, ArrayList<T>> getAdjacencyListMap() {
 		return adj;
 	}
 	
@@ -54,7 +54,7 @@ public class Graph {
 		System.out.println("Enter the number of edges");
 		m = sc.nextInt();
 		
-		Graph g = new Graph(n);
+		Graph<Integer> g = new Graph<>(n);
 		
 		
 		for(int i = 0; i < m; i++) {

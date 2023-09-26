@@ -5,36 +5,39 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import main.java.NarasimhaKarumanchi.java._4_Trees.LinkedQueue;
 import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Graph;
 
-public class BreadthFirstSearch {
+public class DepthFirstSearch {
 	
 	private static Map<Integer, ArrayList<Integer>> adjList;
-
+	private ArrayList<Integer> component;
+	Map<Integer, Boolean> visited;
+	
 		
-	public ArrayList<Integer> bfs(int start) throws Exception{
-		Map<Integer, Boolean> visited = new HashMap<>();
+	public void dfs(int node) throws Exception{
+		component.add(node);
+		visited.put(node, true);
+		
+		// har connected node ke liye recursive call
+		for(int i : adjList.get(node)) {
+			if(visited.getOrDefault(i, false) == false) {
+				dfs(i);
+			}
+		}
+		
+		
+	}
+	
+	public ArrayList<Integer> depthFirstSearch(int v) throws Exception{
+		
+		visited = new HashMap<>();
+		component = new ArrayList<>();
+		
 		ArrayList<Integer> ans = new ArrayList<>();
-		
-		LinkedQueue<Integer> q = new LinkedQueue<>();
-		
-		visited.put(start, true);
-		
-		q.enQueue(start);
-		
-		while(!q.isEmpty()) {
-			start = q.deQueue();
-			ans.add(start);
-			
-			ArrayList<Integer> n = adjList.get(start);
-			
-			for(int i = 0; i < n.size(); i++) {
-				int node = n.get(i);
-				if(!visited.getOrDefault(node, false) == false) {
-					visited.put(node, true);
-					q.enQueue(node);
-				}
+		for(Map.Entry<Integer, ArrayList<Integer>> entry : adjList.entrySet()) {
+			if(visited.getOrDefault(entry.getKey(), false) == false) {
+				dfs(entry.getKey());
+				ans.addAll(component);
 			}
 		}
 		
@@ -51,7 +54,7 @@ public class BreadthFirstSearch {
 		m = sc.nextInt();
 		
 		Graph<Integer> g = new Graph<>(n);
-		BreadthFirstSearch mainClass = new BreadthFirstSearch();
+		DepthFirstSearch mainClass = new DepthFirstSearch();
 		
 		
 		for(int i = 0; i < m; i++) {
@@ -70,11 +73,13 @@ public class BreadthFirstSearch {
 		adjList = g.getAdjacencyListMap();
 		
 		try {
-			System.out.println( "BFS traversal: " + mainClass.bfs(1));
+			System.out.println( "DFS traversal: " + mainClass.depthFirstSearch(n));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 	}
+	
+	
 	
 }
