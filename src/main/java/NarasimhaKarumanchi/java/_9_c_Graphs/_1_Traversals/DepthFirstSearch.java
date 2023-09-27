@@ -2,6 +2,7 @@ package main.java.NarasimhaKarumanchi.java._9_c_Graphs._1_Traversals;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Graph;
 
 public class DepthFirstSearch {
 	
-	private static Map<Integer, ArrayList<Integer>> adjList;
+	private static Map<Integer, List<Integer>> adjList;
 	private ArrayList<Integer> component;
 	Map<Integer, Boolean> visited;
 	
@@ -34,7 +35,7 @@ public class DepthFirstSearch {
 		component = new ArrayList<>();
 		
 		ArrayList<Integer> ans = new ArrayList<>();
-		for(Map.Entry<Integer, ArrayList<Integer>> entry : adjList.entrySet()) {
+		for(Map.Entry<Integer, List<Integer>> entry : adjList.entrySet()) {
 			if(visited.getOrDefault(entry.getKey(), false) == false) {
 				dfs(entry.getKey());
 				ans.addAll(component);

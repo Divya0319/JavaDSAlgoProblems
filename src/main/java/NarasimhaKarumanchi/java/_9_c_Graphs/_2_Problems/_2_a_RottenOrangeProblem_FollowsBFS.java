@@ -3,7 +3,7 @@ package main.java.NarasimhaKarumanchi.java._9_c_Graphs._2_Problems;
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
 
 
-public class RottenOrangeProblem_FollowsBFS {
+public class _2_a_RottenOrangeProblem_FollowsBFS {
 	
 	public int orangesRotting(int[][] grid) throws Exception {
 		int m = grid.length;
@@ -83,7 +83,7 @@ public class RottenOrangeProblem_FollowsBFS {
 	// S.C. is O(n*m) because of queue used
 	
 	public static void main(String[] args) {
-		RottenOrangeProblem_FollowsBFS mainClass = new RottenOrangeProblem_FollowsBFS();
+		_2_a_RottenOrangeProblem_FollowsBFS mainClass = new _2_a_RottenOrangeProblem_FollowsBFS();
 		
 		int[][] grid = new int[][] {
 									{1, 1, 2},

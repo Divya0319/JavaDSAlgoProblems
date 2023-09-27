@@ -2,6 +2,7 @@ package main.java.NarasimhaKarumanchi.java._9_c_Graphs._1_Traversals;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Graph;
 
 public class BreadthFirstSearch {
 	
-	private static Map<Integer, ArrayList<Integer>> adjList;
+	private static Map<Integer, List<Integer>> adjList;
 
 		
 	public ArrayList<Integer> bfs(int start) throws Exception{
@@ -27,7 +28,7 @@ public class BreadthFirstSearch {
 			start = q.deQueue();
 			ans.add(start);
 			
-			ArrayList<Integer> n = adjList.get(start);
+			List<Integer> n = adjList.get(start);
 			
 			for(int i = 0; i < n.size(); i++) {
 				int node = n.get(i);

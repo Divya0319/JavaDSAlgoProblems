@@ -1,12 +1,13 @@
 package main.java.NarasimhaKarumanchi.java._9_c_Graphs;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Graph<T> {
-	Map<T, ArrayList<T>> adj;
+	Map<T, List<T>> adj;
 	int noOfVertices;
 	
 	public void addEdge(T u, T v, boolean direction) {
@@ -27,7 +28,7 @@ public class Graph<T> {
 	}
 	
 	public void printAdjacencyList() {
-		for(Map.Entry<T, ArrayList<T>> entry : adj.entrySet()) {
+		for(Map.Entry<T, List<T>> entry : adj.entrySet()) {
 			System.out.print(entry.getKey() + "->");
 				for(T i : entry.getValue()) {
 					System.out.print(i + ", ");
@@ -37,7 +38,7 @@ public class Graph<T> {
 		}
 	}
 	
-	public Map<T, ArrayList<T>> getAdjacencyListMap() {
+	public Map<T, List<T>> getAdjacencyListMap() {
 		return adj;
 	}
 	
