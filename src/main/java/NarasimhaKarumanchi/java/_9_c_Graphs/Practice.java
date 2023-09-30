@@ -1,20 +1,22 @@
 package main.java.NarasimhaKarumanchi.java._9_c_Graphs;
 
 import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
+import main.java.NarasimhaKarumanchi.java._9_c_Graphs._2_Problems._2_a_RottenOrangeProblem_FollowsBFS;
 
 public class Practice {
 	
-	int timestamp = 0;
-	public int orangesRotting(int[][] grid) throws Exception {
-		
+	public int rottenOranges(int[][] grid) throws Exception {
 		int m = grid.length;
 		int n = grid[0].length;
+		
 		LinkedQueue<Node> q = new LinkedQueue<>();
+		
+		int timeFrameFinal = 0;
 		
 		for(int i = 0; i < m; i++) {
 			for(int j = 0; j < n; j++) {
 				if(grid[i][j] == 2) {
-					q.enQueue(new Node(0, i ,j));
+					q.enQueue(new Node(0, i, j));
 				}
 			}
 		}
@@ -22,28 +24,32 @@ public class Practice {
 		while(!q.isEmpty()) {
 			Node temp = q.deQueue();
 			
-			if(temp.x-1 >= 0 && grid[temp.x-1][temp.y] == 1) {
-				q.enQueue(new Node(temp.timestamp + 1, temp.x-1, temp.y));
-				grid[temp.x-1][temp.y] = 2; 
-				timestamp = temp.timestamp + 1;
+			// right orange
+			if(temp.x + 1 < m && grid[temp.x+1][temp.y] == 1) {
+				grid[temp.x+1][temp.y] = 2;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x+1, temp.y));
+				timeFrameFinal = temp.timeframe + 1;
 			}
 			
-			if(temp.x+1 < m && grid[temp.x+1][temp.y] == 1) {
-				q.enQueue(new Node(temp.timestamp + 1, temp.x+1, temp.y));
-				grid[temp.x+1][temp.y] = 2; 
-				timestamp = temp.timestamp + 1;
+			// top orange
+			if(temp.y - 1 >= 0 && grid[temp.x][temp.y - 1] == 1) {
+				grid[temp.x][temp.y - 1] = 2;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x, temp.y - 1));
+				timeFrameFinal = temp.timeframe + 1;
 			}
 			
-			if(temp.y+1 < n && grid[temp.x][temp.y+1] == 1) {
-				q.enQueue(new Node(temp.timestamp + 1, temp.x, temp.y+1));
-				grid[temp.x][temp.y+1] = 2; 
-				timestamp = temp.timestamp + 1;
+			// below orange
+			if(temp.y + 1 < m && grid[temp.x][temp.y + 1] == 1) {
+				grid[temp.x][temp.y + 1] = 2;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x, temp.y + 1));
+				timeFrameFinal = temp.timeframe + 1;
 			}
 			
-			if(temp.y-1 >= 0 && grid[temp.x][temp.y-1] == 1) {
-				q.enQueue(new Node(temp.timestamp + 1, temp.x, temp.y-1));
-				grid[temp.x][temp.y-1] = 2; 
-				timestamp = temp.timestamp + 1;
+			// left orange
+			if(temp.x - 1 >= 0 && grid[temp.x-1][temp.y] == 1) {
+				grid[temp.x-1][temp.y] = 2;
+				q.enQueue(new Node(temp.timeframe + 1, temp.x-1, temp.y));
+				timeFrameFinal = temp.timeframe + 1;
 			}
 		}
 		
@@ -55,34 +61,30 @@ public class Practice {
 			}
 		}
 		
-		return timestamp;
+		return timeFrameFinal;
 	}
 	
-	// T.C. is O(n*m) because every element is going into queue atmost once
-	// S.C. is O(n*m) because of queue used
-	
 	public static void main(String[] args) {
-		Practice mainClass = new Practice();
-		
+		_2_a_RottenOrangeProblem_FollowsBFS mainClass = new _2_a_RottenOrangeProblem_FollowsBFS();
+
 		int[][] grid = new int[][] {
-									{1, 1, 2},
-									{0, 1, 2},
-									{2, 1, 1}
-									};
- 		
+			{2, 1, 0},
+			{1, 1, 0},
+			{0, 1, 1}
+		};
+
 		try {
- 			System.out.println("Minutes taken: " + mainClass.orangesRotting(grid)); 
- 		} catch(Exception ex) {
- 			ex.printStackTrace();
- 		}
+			System.out.println("Minutes taken: " + mainClass.orangesRotting(grid)); 
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 	
 	class Node {
-		int timestamp;
+		int timeframe;
 		int x,y;
-		
-		public Node(int timestamp, int x, int y) {
-			this.timestamp = timestamp;
+		public Node(int timeframe, int x, int y) {
+			this.timeframe = timeframe;
 			this.x = x;
 			this.y = y;
 		}
