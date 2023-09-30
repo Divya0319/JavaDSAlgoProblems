@@ -70,7 +70,7 @@ public class _2_d_CycleDetectionInDirectedGraphsUsingDFS {
 			u = sc.nextInt();
 			v = sc.nextInt();
 			
-			// creating an directed graph
+			// creating a directed graph
 			g.addEdge(u, v, true);
 		}
 		
