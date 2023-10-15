@@ -4,120 +4,99 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
-import main.java.NarasimhaKarumanchi.java._3_Queues.LinkedQueue;
-import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Graph;
+import main.java.NarasimhaKarumanchi.java._2_Stacks.LinkedStack;
+import main.java.NarasimhaKarumanchi.java._9_c_Graphs.DirectedGraph;
+import main.java.NarasimhaKarumanchi.java._9_c_Graphs.Pair;
 
 public class _2_i_ShortestPathInDirectedGraphs {
 
-	static Map<Integer, List<Integer>> adj = new HashMap<>();
-	
-	public void addEdge(int u, int v) {
+	static Map<Integer, List<Pair<Integer, Integer>>> adj = new HashMap<>();
+	static Map<Integer, Boolean> visited = new HashMap<>();
+	LinkedStack<Integer> stk = new LinkedStack<>();
+	static ArrayList<Integer> dist = new ArrayList<>();
+
+	public void getShortestPath(int src) {
 		
-		int newu = u - 1;
-		int newv = v - 1;
+		dist.set(src, 0);
 		
-		adj.computeIfAbsent(newu, val -> new ArrayList<>()).add(newv);
-		
-	}
-
-	public boolean cycleDetection(int v, int e) throws Exception {
-
-		// create adj list
-
-		// Kahn's algorithm
-
-		// find all indegrees
-		ArrayList<Integer> indegree = new ArrayList<>();
-
-		for (int i = 0; i < v; i++) {
-			indegree.add(0);
-		}
-
-		for (Map.Entry<Integer, List<Integer>> entry : adj.entrySet()) {
-			if (entry.getValue() != null) {
-				for (Integer j : entry.getValue()) {
-					int pv = indegree.get(j);
-					pv = pv + 1;
-					indegree.set(j, pv);
-				}
-			}
-		}
-
-		// 0 indegree walon ko queue mein push kar do
-		LinkedQueue<Integer> q = new LinkedQueue<>();
-
-		for (int i = 0; i < v; i++) {
-			if (indegree.get(i) == 0) {
-				q.enQueue(i);
-			}
-		}
-
-		// do bfs
-
-		int cnt = 0;
-
-		while (!q.isEmpty()) {
-			int front = q.first();
-			q.deQueue();
-
-			// inc cnt
-			cnt++;
-
-			List<Integer> ns = adj.get(front);
-
-			if (ns != null) {
-				for (Integer neighbour : ns) {
-					int pv = indegree.get(neighbour);
-					pv = pv - 1;
-					indegree.set(neighbour, pv);
-
-					if (indegree.get(neighbour) == 0) {
-						q.enQueue(neighbour);
+		while(!stk.isEmpty()) {
+			int top = stk.peek();
+			stk.pop();
+			
+			if(dist.get(top) != Integer.MAX_VALUE) {
+				if(adj.get(top) != null) {
+					for(Pair<Integer, Integer> i : adj.get(top)) {
+						if(dist.get(top) + i.second < dist.get(i.first)) {
+							dist.set(i.first, dist.get(top) + i.second);
+						}
 					}
 				}
 			}
 		}
 
-		if(cnt == v) {
-			return false;
-		} else {
-			return true;
-		}
+		
 	}
 
 	public static void main(String[] args) {
-		int n;
-		int m;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the number of nodes");
-		n = sc.nextInt();
-		System.out.println("Enter the number of edges");
-		m = sc.nextInt();
+		int n = 6;
+		int m = 9;
 
-		Graph<Integer> g = new Graph<>(n);
 		_2_i_ShortestPathInDirectedGraphs mainClass = new _2_i_ShortestPathInDirectedGraphs();
-
-		for (int i = 0; i < m; i++) {
-			int u, v;
-			u = sc.nextInt();
-			v = sc.nextInt();
-
-			// creating a directed graph
-			mainClass.addEdge(u, v);
+		DirectedGraph g = new DirectedGraph();
+		
+		g.addEdge(0, 1, 5);
+		g.addEdge(0, 2, 3);
+		g.addEdge(1, 2, 2);
+		g.addEdge(1, 3, 6);
+		g.addEdge(2, 3, 7);
+		g.addEdge(2, 4, 4);
+		g.addEdge(2, 5, 2);
+		g.addEdge(3, 4, -1);
+		g.addEdge(4, 5, -2);
+		
+		g.printAdj();
+		
+		adj = g.getAdjecancyList();
+		
+		// topological sort
+		for(int i = 0; i < n; i++) {
+			if(!visited.getOrDefault(i, false)) {
+				mainClass.dfs(i);
+			}
+		}
+				
+		
+		int src = 1;
+		
+		for(int i = 0; i < n; i++) {
+			dist.add(Integer.MAX_VALUE);
 		}
 
-		sc.close();
-
-//		adj = g.getAdjacencyListMap();
-
-		try {
-			System.out.println("Cycle Present? " + mainClass.cycleDetection(n, m));
-		} catch (Exception e) {
-			e.printStackTrace();
+		mainClass.getShortestPath(src);
+		
+		System.out.println("Answer is: ");
+		
+		for(int i = 0; i < dist.size(); i++) {
+			System.out.print(dist.get(i) + " ");
 		}
+		
+		System.out.println();
 
+	}
+	
+	public void dfs(int node) {
+		visited.put(node, true);
+		
+		if(adj.get(node) != null) {
+			for(Pair<Integer, Integer> neighbour : adj.get(node)) {
+				if(!visited.getOrDefault(neighbour.first, false)) {
+					dfs(neighbour.first);
+				}
+			}
+		}
+		
+		stk.push(node);
 	}
 
 }

@@ -8,12 +8,12 @@ import java.util.Map;
 public class DirectedGraph {
 	Map<Integer, List<Pair<Integer, Integer>>> adj = new HashMap<>();
 	
-	void addEdge(int u, int v, int weight) {
+	public void addEdge(int u, int v, int weight) {
 		Pair<Integer, Integer> p = new Pair<>(v, weight);
 		adj.computeIfAbsent(u, val -> new ArrayList<>()).add(p);
 	}
 	
-	void printAdj() {
+	public void printAdj() {
 		for(Map.Entry<Integer, List<Pair<Integer, Integer>>> entry : adj.entrySet()) {
 				
 				System.out.print(entry.getKey() + "->");
@@ -26,6 +26,10 @@ public class DirectedGraph {
 				}
 			
 		}
+	}
+	
+	public Map<Integer, List<Pair<Integer, Integer>>> getAdjecancyList() {
+		return adj;
 	}
 	
 	public static void main(String[] args) {
