@@ -5,7 +5,7 @@ public class LargestPrime {
 	public void largestPrime() {
 		
 		
-		for(int i = 100000000; i >= 2; i--) {
+		for(int i = 1000000000; i >= 2; i--) {
 			if(isPrime(i)) {
 				System.out.println(i);
 				break;
