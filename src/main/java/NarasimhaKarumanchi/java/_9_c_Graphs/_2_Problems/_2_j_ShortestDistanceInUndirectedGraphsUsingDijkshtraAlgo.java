@@ -2,7 +2,6 @@ package main.java.NarasimhaKarumanchi.java._9_c_Graphs._2_Problems;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -63,7 +62,8 @@ public class _2_j_ShortestDistanceInUndirectedGraphsUsingDijkshtraAlgo {
 		while(!st.isEmpty()) {
 			
 			// fetch top minimum record
-			Pair<Integer, Integer> top = Collections.min(st, new FindMinInPairs());
+			Pair<Integer, Integer> top = Collections.min(st, 
+					(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) -> p1.second - p2.second);
 			
 			int nodeDistance = top.first;
 			int topNode = top.second;
@@ -114,16 +114,6 @@ public class _2_j_ShortestDistanceInUndirectedGraphsUsingDijkshtraAlgo {
 		
 		System.out.println("Distance array: " + result.toString());
 
-	}
-
-	
-	class FindMinInPairs implements Comparator<Pair<Integer, Integer>> {
-
-		@Override
-		public int compare(Pair<Integer, Integer> p1, Pair<Integer, Integer> p2) {
-			return p1.second.compareTo(p2.second);
-		}
-		
 	}
 
 }
