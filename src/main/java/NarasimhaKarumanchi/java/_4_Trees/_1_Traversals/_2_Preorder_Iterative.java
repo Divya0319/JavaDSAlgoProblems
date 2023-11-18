@@ -12,21 +12,20 @@ public class _2_Preorder_Iterative<T> {
 		if (root == null)
 			return res;
 		LinkedStack<BinaryTreeNode<T>> s = new LinkedStack<>();
-		BinaryTreeNode<T> currentNode = root;
-		while (true) {
-			while (currentNode != null) {
-				res.add(currentNode.getData());
-				s.push(currentNode);
-				currentNode = currentNode.getLeft();
+		
+		s.push(root);
+		
+		while(!s.isEmpty()) {
+			BinaryTreeNode<T> tmp = s.pop();
+			res.add(tmp.getData());
+			
+			if(tmp.getRight() != null) {
+				s.push(tmp.getRight()); // pushing right first, so that it gets popped after left
 			}
-			if (s.isEmpty())
-				break;
-
-			currentNode = s.pop();
-			currentNode = currentNode.getRight();
-
+			if(tmp.getLeft() != null) {
+				s.push(tmp.getLeft()); // pushing left last, so that it gets popped first
+			}
 		}
-
 		return res;
 	}
 	

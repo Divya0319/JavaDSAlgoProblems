@@ -12,17 +12,19 @@ public class _4_Inorder_Iterative<T> {
 			return res;
 		LinkedStack<BinaryTreeNode<T>> s = new LinkedStack<>();
 		BinaryTreeNode<T> currentNode = root;
-		while (true) {
-			while (currentNode != null) {
+		boolean done = false;
+		while (!done) {
+			if (currentNode != null) {
 				s.push(currentNode);
 				currentNode = currentNode.getLeft();
 			}
-			if (s.isEmpty())
-				break;
-
-			currentNode = s.pop();
-			res.add(currentNode.getData());
-			currentNode = currentNode.getRight();
+			else if (s.isEmpty())
+					done = true;
+			else {
+				currentNode = s.pop();
+				res.add(currentNode.getData());
+				currentNode = currentNode.getRight();
+			}
 
 		}
 
