@@ -33,7 +33,7 @@ public class LargestPrimeUsingSieveOfEratosthenes {
 	public static void main(String[] args) {
 		
 		LargestPrimeUsingSieveOfEratosthenes lp = new LargestPrimeUsingSieveOfEratosthenes();
-		lp.largestPrime(1000000000);
+		lp.largestPrime(100000000);
 	}
 
 }
