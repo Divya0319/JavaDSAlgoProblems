@@ -63,10 +63,12 @@ public class _2_o_AddTwoNumbersGivenAsLinkedLists {
 
 		LinkedList<Integer> ll1 = new LinkedList<>();
 		ll1.insertAtBegin(3);
+		ll1.insertAtEnd(8);
 		System.out.println(ll1.toString());
 		
 		LinkedList<Integer> ll2 = new LinkedList<>();
 		ll2.insertAtBegin(7);
+		ll2.insertAtEnd(7);
 		System.out.println(ll2.toString());
 		
 	
