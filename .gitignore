@@ -13,3 +13,6 @@ local.properties
 .factorypath
 src/main/java/NarasimhaKarumanchi/java/TestStream.java
 src/main/java/NarasimhaKarumanchi/java/GFG.java
+.idea/
+.out/
+JavaDSAlgoProblems.iml
