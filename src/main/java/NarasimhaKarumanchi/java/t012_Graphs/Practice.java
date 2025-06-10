@@ -1,7 +1,7 @@
 package main.java.NarasimhaKarumanchi.java.t012_Graphs;
 
 import main.java.NarasimhaKarumanchi.java.t004_Queues.LinkedQueue;
-import main.java.NarasimhaKarumanchi.java.t012_Graphs._2_Problems._2_a_RottenOrangeProblem_FollowsBFS;
+import main.java.NarasimhaKarumanchi.java.t012_Graphs.t02_Problems.p001_RottenOrangeProblem_FollowsBFS;
 
 public class Practice {
 	
@@ -65,7 +65,7 @@ public class Practice {
 	}
 	
 	public static void main(String[] args) {
-		_2_a_RottenOrangeProblem_FollowsBFS mainClass = new _2_a_RottenOrangeProblem_FollowsBFS();
+		p001_RottenOrangeProblem_FollowsBFS mainClass = new p001_RottenOrangeProblem_FollowsBFS();
 
 		int[][] grid = new int[][] {
 			{2, 1, 0},
