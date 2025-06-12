@@ -1,6 +1,6 @@
 package main.java.NarasimhaKarumanchi.java.t010_Algos_Searching.p03_BinarySearchOnAnswer;
 
-public class p01_PaintersPartition_NaiveApproach {
+public class p01_PaintersPartition {
 	
 	public boolean isPossible(int[] arr, int T, int X, int P) {
 
@@ -27,7 +27,7 @@ public class p01_PaintersPartition_NaiveApproach {
 	}
 	
 	public static void main(String[] args) {
-		p01_PaintersPartition_NaiveApproach mainClass = new p01_PaintersPartition_NaiveApproach();
+		p01_PaintersPartition mainClass = new p01_PaintersPartition();
 		
 		int[] boards = new int[] {5, 3, 6, 1, 9};
 		
